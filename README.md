@@ -38,6 +38,8 @@ Mas cuidado, marujo — nem todo barco é capaz de atravessar o oceano!
     > Exemplo: **ls**
   - Use o comando **pwd** para saber em qual pasta você está
     > Exemplo: **pwd**
+  - Use o comando **cat** para saber o conteúdo de um arquivo.
+    > Exemplo: **cat arquivo_de_texto.txt**
 
 4. Dentro da pasta **bash_hunter** use os comandos para chegar até a primeira fase **room_01**
 
