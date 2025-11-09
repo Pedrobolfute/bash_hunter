@@ -49,7 +49,7 @@ echo -e "
 echo "Use o comando \"cd NOME_DA_PASTA\" para entrar em pastas"
 echo "Use o comando \"cd ..\" para voltar uma pasta atrás"
 echo "Use o comando \"pwd\" para ver a pasta que você está"
-echo "Use o comando \"ls\" pava ver as pastas e arquivos "
+echo "Use o comando \"ls\" para ver as pastas e arquivos "
 echo "Use o comando \"cat NOME_DO_ARQUIVO_DE_TEXTO\" para ver conteúdo de um arquivo."
 echo "Use o comando \"source ARQUIVO.sh\" para carregar funcionalidades em arquivos \".sh\". Mas use-o com cuidado!"
 

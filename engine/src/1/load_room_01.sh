@@ -3,6 +3,15 @@
 
 my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
 
+if [[ -z "$my_base_dir" ]]; then
+  echo "❌ Erro: diretório 'bash_hunter' não encontrado."
+  return 1
+fi
+
+if [[ -f "$my_base_dir/engine/out/1/loaded.txt" ]]; then
+  echo "⚠️ O jogo já foi carregado anteriormente!"
+  return 1
+fi
 
 echo $(wc -l < "$HOME/.bashrc") >> "$my_base_dir/engine/out/1/.bashrc_line"
 original_bash_line=$(head -n 1 "$my_base_dir/engine/out/1/.bashrc_line")
@@ -154,7 +163,7 @@ delete_game(){
   unset -f zarpar
   unset -f escolher
   unset -f meu_barco
-  
+
   echo "✅ Jogo removido com sucesso!"
 }
 # delete_game_end
@@ -164,3 +173,5 @@ EOF
 
 source $HOME/.bashrc
 cd $my_base_dir/play/room_01/para_o_mar
+
+echo "true" > $my_base_dir/engine/out/1/loaded.txt

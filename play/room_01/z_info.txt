@@ -3,3 +3,4 @@ No mar está a resposta para o a proxima fase (room_02).
 Para carregar o jogo use o comando source no arquivo load_room_01.sh
 
 > source load_room_01.sh
+
