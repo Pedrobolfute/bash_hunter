@@ -141,7 +141,7 @@ delete_game(){
   echo "⚠️ Deseja realmente deletar o jogo? (s/n)"
   read -r confirm
 
-  if [[ "$confirm" != "s" || "$confirm" != "S" ]]; then
+  if [[ "$confirm" != "s" && "$confirm" != "S" ]]; then
       echo "❎ Operação cancelada."
       return 0
   fi
