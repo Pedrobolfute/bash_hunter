@@ -1,0 +1,16 @@
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+
+Nem todos esses barcos estão disponiveis, escolha um.
+Para escolher, entre dentro do barco e uso o comando "escolher".
+
+Se for um barco válido e disponível, você já pode iniciar sua jornada com o comando "zarpar".
+Você está pronto para içar velas e zarpar para a proxima fase, marujo?
+
+Á, o comando "meu_barco" vai te mostrar qual barco você está usando, se você esquecer.
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
