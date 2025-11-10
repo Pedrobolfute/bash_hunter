@@ -130,7 +130,7 @@ zarpar() {
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
         sleep 3s
-        source "$my_base_dir/engine/src/2/welcome_room_02"
+        source "$my_base_dir/engine/src/2/welcome_room_02.sh"
     else
         echo "❌ A sala ROOM_2 não foi encontrada em: $room2_dir"
         return 1
@@ -139,8 +139,7 @@ zarpar() {
 #zarpar_end
 
 # delete_game_start
-delete_game(){
-
+delete_game() {
   echo "⚠️ Deseja realmente deletar o jogo? (s/n)"
   read -r confirm
 
@@ -150,10 +149,16 @@ delete_game(){
   fi
 
   echo "🧰 Restaurando .bashrc original..."
-  if declare -f original_bash_line > /dev/null; then
-      original_bash_line
+
+  if [[ -n "$original_bash" && -n "$original_bash_line" ]]; then
+      echo "$original_bash" > "$HOME/.bashrc"
+      echo "✅ .bashrc restaurado com sucesso!"
+  elif [[ -f "$my_base_dir/engine/out/1/.bashrc_line" ]]; then
+      original_bash_line=$(head -n 1 "$my_base_dir/engine/out/1/.bashrc_line")
+      head -n "$original_bash_line" "$HOME/.bashrc" > "$HOME/.bashrc"
+      echo "✅ .bashrc restaurado parcialmente."
   else
-      echo "⚠️ Função 'original_bash_line' não encontrada. .bashrc não foi restaurado."
+      echo "⚠️ Backup de .bashrc não encontrado. O arquivo não foi restaurado."
   fi
 
   echo "🗑️ Removendo diretório do jogo..."
@@ -161,11 +166,14 @@ delete_game(){
       rm -rf "$my_base_dir"
   fi
 
-  source $HOME/.bashrc
-  unset -f delete_game
-  unset -f zarpar
-  unset -f escolher
-  unset -f meu_barco
+  # Recarrega o bash original
+  source "$HOME/.bashrc"
+
+  # Remove funções do ambiente atual
+  unset -f delete_game 2>/dev/null
+  unset -f zarpar 2>/dev/null
+  unset -f escolher 2>/dev/null
+  unset -f meu_barco 2>/dev/null
 
   echo "✅ Jogo removido com sucesso!"
 }
