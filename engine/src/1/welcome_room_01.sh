@@ -1,6 +1,6 @@
 #!/bin/bash
 
-welcome(){
+welcome_room_01(){
   local mensagem="
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
@@ -38,7 +38,7 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
   fi
 }
 
-welcome
+welcome_room_01
 
 echo -e "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖

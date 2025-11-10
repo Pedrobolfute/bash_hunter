@@ -122,12 +122,15 @@ zarpar() {
 
     if [[ -d "$room2_dir" ]]; then
         echo "🧭 Navegando para ROOM_2..."
+        sleep 1s
         cd "$room2_dir" || { echo "❌ Erro ao navegar!"; return 1; }
         mv "$choosed_boat_file" "$base_dir/engine/out/2"
-        echo "içar_âncora" > "$base_dir/engine/out/2/key.txt"
+        echo "içar_âncora" > "$base_dir/engine/out/1/key.txt"
 
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
+        sleep 3s
+        source "$my_base_dir/engine/src/2/welcome_room_02"
     else
         echo "❌ A sala ROOM_2 não foi encontrada em: $room2_dir"
         return 1
