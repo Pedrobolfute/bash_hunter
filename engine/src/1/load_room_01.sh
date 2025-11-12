@@ -181,8 +181,8 @@ delete_game() {
 
 # ---- Protection Start ----
 
-engine_protected="$base_dir/engine"
-play_base="$base_dir/play"
+engine_protected="$my_base_dir/engine"
+play_base="$my_base_dir/play"
 
 cd() {
     if [[ "$1" == "$engine_protected"* ]]; then
