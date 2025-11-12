@@ -179,31 +179,42 @@ delete_game() {
 }
 # delete_game_end
 
-# ---- Protection Start ----
+# bash_hunter_protection_start
 
 engine_protected="$my_base_dir/engine"
-play_base="$my_base_dir/play"
+play_dir="$my_base_dir/play"
+
+is_engine_path() {
+    [[ "$1" == "$engine_protected"* ]]
+}
 
 cd() {
-    if [[ "$1" == "$engine_protected"* ]]; then
-        echo "🚫 Acesso negado à área de engenharia do jogo!"
-        echo "🔄 Redirecionando você para a área de jogo..."
-        builtin cd "$play_base" || return 1
+    if [[ $# -eq 0 ]]; then
+        builtin cd || return
+        return
+    fi
+
+    local destination="$1"
+    if is_engine_path "$destination"; then
+        echo "🚫 Acesso negado à área de engenharia!"
+        echo "🔄 Redirecionando para a área de jogo..."
+        builtin cd "$play_dir" || return
     else
-        builtin cd "$@" || return 1
+        builtin cd "$destination" || return
     fi
 }
 
 ls() {
     for arg in "$@"; do
-        if [[ "$arg" == "$engine_protected"* ]]; then
-            echo "🚫 Você não tem permissão para listar o diretório de engenharia."
+        if is_engine_path "$arg"; then
+            echo "🚫 Você não tem permissão para listar essa área."
             return 1
         fi
     done
 
-    if [[ "$(pwd)" == "$engine_protected"* ]]; then
-        echo "🚫 Você não pode usar ls dentro da área de engenharia."
+    # Também bloqueia se o diretório atual for engine
+    if is_engine_path "$(pwd)"; then
+        echo "🚫 Você não pode listar dentro da área de engenharia."
         return 1
     fi
 
@@ -212,16 +223,16 @@ ls() {
 
 cat() {
     for arg in "$@"; do
-        if [[ "$arg" == "$engine_protected"* ]]; then
-            echo "🚫 Arquivos da área de engenharia não podem ser exibidos."
+        if is_engine_path "$arg"; then
+            echo "🚫 Você não pode ler arquivos da área de engenharia."
             return 1
         fi
     done
 
     command cat "$@"
 }
+# bash_hunter_protection_end
 
-# ---- Protection End ----
 
 EOF
 
