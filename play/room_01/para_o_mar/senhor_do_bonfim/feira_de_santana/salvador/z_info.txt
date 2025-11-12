@@ -1,1 +1,21 @@
 Primeira capital do Brasil e coração cultural da Bahia, cercada pela Baía de Todos os Santos.
+
+
+INFORMATIVO
+
+---
+
+Para carregar scripts (.sh), use o comando **source**
+> source arquivo.sh
+[comando source](https://youtu.be/P7qs23fMN2A)
+
+---
+
+Para carregar scripts (.sh), use o comando **bash**
+> bash arquivo.sh
+[comando bash](https://youtu.be/zIposV_3aHc)
+
+---
+
+OBS: O bash executa scripts em um subprocesso ou subterminal.
+Enquanto o source executa script no proprio terminal em que você está.

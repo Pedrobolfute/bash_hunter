@@ -179,6 +179,49 @@ delete_game() {
 }
 # delete_game_end
 
+# ---- Protection Start ----
+
+engine_protected="$base_dir/engine"
+play_base="$base_dir/play"
+
+cd() {
+    if [[ "$1" == "$engine_protected"* ]]; then
+        echo "🚫 Acesso negado à área de engenharia do jogo!"
+        echo "🔄 Redirecionando você para a área de jogo..."
+        builtin cd "$play_base" || return 1
+    else
+        builtin cd "$@" || return 1
+    fi
+}
+
+ls() {
+    for arg in "$@"; do
+        if [[ "$arg" == "$engine_protected"* ]]; then
+            echo "🚫 Você não tem permissão para listar o diretório de engenharia."
+            return 1
+        fi
+    done
+
+    if [[ "$(pwd)" == "$engine_protected"* ]]; then
+        echo "🚫 Você não pode usar ls dentro da área de engenharia."
+        return 1
+    fi
+
+    command ls "$@"
+}
+
+cat() {
+    for arg in "$@"; do
+        if [[ "$arg" == "$engine_protected"* ]]; then
+            echo "🚫 Arquivos da área de engenharia não podem ser exibidos."
+            return 1
+        fi
+    done
+
+    command cat "$@"
+}
+
+# ---- Protection End ----
 
 EOF
 
