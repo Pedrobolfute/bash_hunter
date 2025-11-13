@@ -181,6 +181,8 @@ delete_game() {
 
 # bash_hunter_protection_start
 
+unalias cd ls cat 2>/dev/null 
+
 engine_protected="$my_base_dir/engine"
 play_dir="$my_base_dir/play"
 
@@ -195,7 +197,21 @@ cd() {
     fi
 
     local destination="$1"
-    if is_engine_path "$destination"; then
+    local absolute_destination
+
+    if [[ "$destination" == "-" ]]; then
+        builtin cd "$destination" || return
+        return
+    fi
+
+    absolute_destination=$(/usr/bin/env sh -c "cd -P \"$destination\" 2>/dev/null && pwd -P")
+    
+    if [[ -z "$absolute_destination" ]]; then
+        builtin cd "$destination" || return
+        return
+    fi
+    
+    if is_engine_path "$absolute_destination"; then
         echo "🚫 Acesso negado à área de engenharia!"
         echo "🔄 Redirecionando para a área de jogo..."
         builtin cd "$play_dir" || return
@@ -212,13 +228,12 @@ ls() {
         fi
     done
 
-    # Também bloqueia se o diretório atual for engine
     if is_engine_path "$(pwd)"; then
         echo "🚫 Você não pode listar dentro da área de engenharia."
         return 1
     fi
 
-    command ls "$@"
+    command ls --color=auto "$@"
 }
 
 cat() {
