@@ -180,14 +180,22 @@ delete_game() {
 # delete_game_end
 
 # bash_hunter_protection_start
-
 unalias cd ls cat 2>/dev/null 
 
 engine_protected="$my_base_dir/engine"
 play_dir="$my_base_dir/play"
 
 is_engine_path() {
-    [[ "$1" == "$engine_protected"* ]]
+    local target_path="$1"
+    local resolved_path=""
+    
+    resolved_path=$(readlink -f "$target_path" 2>/dev/null)
+    
+    if [[ -z "$resolved_path" ]]; then
+        return 1
+    fi
+
+    [[ "$resolved_path" == "$engine_protected"* ]]
 }
 
 cd() {
@@ -203,8 +211,6 @@ cd() {
         builtin cd "$destination" || return
         return
     fi
-
-    absolute_destination=$(/usr/bin/env sh -c "cd -P \"$destination\" 2>/dev/null && pwd -P")
     
     if [[ -z "$absolute_destination" ]]; then
         builtin cd "$destination" || return
@@ -221,17 +227,22 @@ cd() {
 }
 
 ls() {
+    if [[ $# -eq 0 ]]; then
+        if is_engine_path "."; then
+            echo "🚫 Você não pode listar dentro da área de engenharia."
+            return 1
+        fi
+        
+        command ls --color=auto
+        return
+    fi
+
     for arg in "$@"; do
         if is_engine_path "$arg"; then
-            echo "🚫 Você não tem permissão para listar essa área."
+            echo "🚫 Você não tem permissão para listar a área de engenharia através do argumento: $arg"
             return 1
         fi
     done
-
-    if is_engine_path "$(pwd)"; then
-        echo "🚫 Você não pode listar dentro da área de engenharia."
-        return 1
-    fi
 
     command ls --color=auto "$@"
 }
