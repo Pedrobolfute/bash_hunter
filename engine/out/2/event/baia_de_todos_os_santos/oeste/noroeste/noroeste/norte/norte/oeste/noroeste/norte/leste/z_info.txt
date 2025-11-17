@@ -1,0 +1,15 @@
+Bem vindo ao TERMINAL MARÍTIMO DE MADRE DE DEUS!
+
+Por mais Dificultoso que possa ter chegado até aqui,
+você ganhou experiência em navegação usando os principais
+comandos para navegar no termianl.
+
+- cd
+- cd..
+- ls
+- cat
+
+Carregue sua Senha e as próximas instruções e vá para 
+próxima jornada aprender mais comando com os pescadores.
+
+Carregar senha: source minha_senha.sh

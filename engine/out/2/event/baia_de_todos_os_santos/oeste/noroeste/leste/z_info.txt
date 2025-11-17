@@ -1,0 +1,3 @@
+Caminho errado, volte e continue seguindo para noroeste.
+O caminho está ficando extenso. Cuidado para não se perder
+Na dúvida use o comando 'pwd'.
