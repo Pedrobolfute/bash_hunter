@@ -1,7 +1,6 @@
 #!/bin/bash
 
 my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
-correct_key=$(tr -d '\r\n ' < "$my_base_dir/engine/out/1/key.txt")
 
 if [[ -z "$1" ]]; then
     echo "❌ Nenhuma senha informada. Exemplo:"
@@ -9,6 +8,7 @@ if [[ -z "$1" ]]; then
     return 1
 fi
 
+correct_key=$(tr -d '\r\n ' < "$my_base_dir/engine/out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
     echo "❌ Senha errada. Você não pode carregar o cenário."
     return 1
