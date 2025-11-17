@@ -1,0 +1,10 @@
+Próxima parada: Madre de Deus
+
+comandos usados para navegar:
+
+cd "pasta_que_vai_entrar"
+cd..
+ls
+cat "arquivo_de_texto.txt"
+
+-> No room_02, vá para o Terminal Marítimo da cidade Madre de Deus - BA
