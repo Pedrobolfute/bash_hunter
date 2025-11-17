@@ -60,7 +60,7 @@ meu_barco() {
           echo "você ainda não escolheu um barco." 
           echo "Entre dentro do barco e use o comando \"escolher\"."
       else
-        cat $output_file
+        head -n -0 $output_file
       fi
     else
           echo "você ainda não escolheu um barco." 
@@ -97,7 +97,7 @@ zarpar() {
     fi
 
     local current_boat
-    current_boat=$(cat "$choosed_boat_file")
+    current_boat=$(head -n -0 "$choosed_boat_file")
 
     if [[ "$current_dir_name" != "$current_boat" ]]; then
         echo "⚠️ Você só pode zarpar de dentro do barco '$current_boat'."

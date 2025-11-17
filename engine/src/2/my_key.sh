@@ -23,7 +23,7 @@ touch "$my_base_dir/engine/out/2/key.txt"
 
 if [[ -f "$my_base_dir/engine/out/2/key.txt" ]]; then
   echo "navegar" > "$my_base_dir/engine/out/2/key.txt"
-  secret=$(cat "$my_base_dir/engine/out/2/key.txt")
+  secret=$(head -n -0 "$my_base_dir/engine/out/2/key.txt")
   sss="A chave da sala room_02 é: $secret"
 else
   secret=""

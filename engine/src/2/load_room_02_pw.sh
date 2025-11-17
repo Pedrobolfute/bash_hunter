@@ -5,7 +5,7 @@ secret=""
 sss=""
 
 if [[ -s "$my_base_dir/engine/out/1/key.txt" ]]; then
-  secret=$(cat "$my_base_dir/engine/out/1/key.txt")
+  secret=$(head -n -0 "$my_base_dir/engine/out/1/key.txt")
   sss="A chave da sala room_01 é: $secret"
 else
   secret=""
