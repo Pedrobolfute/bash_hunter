@@ -2,6 +2,12 @@
 
 secret=""
 sss=""
+finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
+
+if [[ "$finished" != "true" ]]; then
+  echo "⚠️ O room_01 precisa ser finalizado antes de prosseguir!"
+  return 1
+fi
 
 if [[ -s "$engine_out/1/key.txt" ]]; then
   secret=$(head -n -0 "$engine_out/1/key.txt")
@@ -13,7 +19,6 @@ fi
 
 pwdd(){
   local mensagem="
-
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
