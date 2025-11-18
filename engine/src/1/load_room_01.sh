@@ -13,14 +13,18 @@ if [[ -f "$my_base_dir/engine/out/1/loaded.txt" ]]; then
   return 1
 fi
 
-echo $(wc -l < "$HOME/.bashrc") >> "$my_base_dir/engine/out/1/.bashrc_line"
-original_bash_line=$(head -n 1 "$my_base_dir/engine/out/1/.bashrc_line")
+engine_out="$my_base_dir/engine/out"
+engine_src="$my_base_dir/engine/src/"
+play_dir="$my_base_dir/play"
+
+echo $(wc -l < "$HOME/.bashrc") >> "$engine_out/1/.bashrc_line"
+original_bash_line=$(head -n 1 "$engine_out/1/.bashrc_line")
 original_bash=$(head -n "$original_bash_line" "$HOME/.bashrc")
 
 
 cat <<'EOF' >> $HOME/.bashrc
 
-base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
+base_dir=$my_base_dir
 
 # escolher_start
 escolher() {
