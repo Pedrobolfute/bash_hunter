@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Carregando..."
 my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
 
 if [[ -z "$my_base_dir" ]]; then
@@ -20,14 +21,13 @@ echo $(wc -l < "$HOME/.bashrc") >> "$engine_out/1/.bashrc_line"
 original_bash_line=$(head -n 1 "$engine_out/1/.bashrc_line")
 original_bash=$(head -n "$original_bash_line" "$HOME/.bashrc")
 
-echo -e "\n\n" >> $HOME/.bashrc
+echo -e "\n" >> $HOME/.bashrc
 echo -e "my_base_dir=\"$my_base_dir\"" >> $HOME/.bashrc
 echo -e "engine_out=\"$my_base_dir/engine/out\"" >> $HOME/.bashrc
 echo -e "engine_src=\"$my_base_dir/engine/src\"" >> $HOME/.bashrc
 echo -e "play_dir=\"$my_base_dir/play\"" >> $HOME/.bashrc
 
 cat <<'EOF' >> $HOME/.bashrc
-
 # escolher_start
 escolher() {
     if [[ -z "$my_base_dir" ]]; then

@@ -1,21 +1,19 @@
 #!/bin/bash
 
-my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
-
 if [[ -z "$1" ]]; then
     echo "❌ Nenhuma senha informada. Exemplo:"
     echo "source carregar_cenario_02.sh \"senha_aqui\""
     return 1
 fi
 
-correct_key=$(tr -d '\r\n ' < "$my_base_dir/engine/out/1/key.txt" 2>/dev/null)
+correct_key=$(tr -d '\r\n ' < "$engine_out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
     echo "❌ Senha errada. Você não pode carregar o cenário."
     return 1
 fi
 
-dirfrom="$my_base_dir/engine/out/2/event/baia_de_todos_os_santos"
-dirto="$my_base_dir/play/room_02"
+dirfrom="$engine_out/2/event/baia_de_todos_os_santos"
+dirto="$play_dir/room_02"
 
 pwdd(){
   local mensagem="
