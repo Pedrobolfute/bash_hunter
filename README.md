@@ -1,6 +1,6 @@
 # 🏴‍☠️ BEM-VINDO AO **BASH HUNTER**
 
-Escape Room Game
+Escape Room Game.
 
 🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊
 
