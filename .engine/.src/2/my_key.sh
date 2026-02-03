@@ -8,8 +8,8 @@ if [[ -z "$my_base_dir" ]]; then
     return 1
 fi
 
-out_dir="$engine_out/2"
-room2_dir="$play_dir/room_02"
+out_dir="$my_base_dir/.engine/.out/2"
+room2_dir="$my_base_dir/play/room_02"
 
 terminal_me_deus="$play_dir/room_02/baia_de_todos_os_santos/oeste/noroeste/noroeste/norte/norte/oeste/noroeste/norte/leste"
 
@@ -17,12 +17,12 @@ if [[ "$PWD" != "$terminal_me_deus" ]]; then
     echo "⚠️ Você só pode pegar a senha no terminal marítimo Madre de Deus."
     return 1
 fi
-touch "$engine_out/key.txt"
+touch "$my_base_dir/.engine/.out/2/key.txt"
 
 
-if [[ -f "$engine_out/2/key.txt" ]]; then
-  echo "navegar" > "$engine_out/2/key.txt"
-  secret=$(head -n -0 "$engine_out/2/key.txt")
+if [[ -f "$my_base_dir/.engine/.out/2/key.txt" ]]; then
+  echo "navegar" > "$my_base_dir/.engine/.out/2/key.txt"
+  secret=$(head -n -0 "$my_base_dir/.engine/.out/2/key.txt")
   sss="A chave da sala room_02 é: $secret"
 else
   secret=""

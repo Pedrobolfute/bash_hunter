@@ -6,17 +6,13 @@ if [[ -z "$my_base_dir" ]]; then
   return 1
 fi
 
-if [[ -f "$engine_out/1/loaded.txt" ]]; then
+if [[ -f "$my_base_dir/.engine/.out/1/loaded.txt" ]]; then
   echo "⚠️ O jogo já foi carregado anteriormente!"
   return 1
 fi
 
-engine_out="$engine_out" 
-engine_src="$engine_src/"
-play_dir="$my_base_dir/play"
-
-echo $(wc -l < "$HOME/.bashrc") >> "$engine_out/1/.bashrc_line"
-original_bash_line=$(head -n 1 "$engine_out/1/.bashrc_line")
+echo $(wc -l < "$HOME/.bashrc") >> "$my_base_dir/.engine/.out/1/.bashrc_line"
+original_bash_line=$(head -n 1 "$my_base_dir/.engine/.out/1/.bashrc_line")
 original_bash=$(head -n "$original_bash_line" "$HOME/.bashrc")
 
 echo -e "\n###BASH_HUNTER AREA###" >> $HOME/.bashrc
@@ -33,8 +29,8 @@ escolher() {
         return 1
     fi
 
-    local allowed_base="$my_base_dir/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos"
-    local output_file="$engine_out/1/choosed_boat.txt"
+    local allowed_base="$base_dir/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos"
+    local output_file="$base_dir/.engine/.out/1/choosed_boat.txt"
     local current_dir
     current_dir=$(pwd)
 
@@ -58,7 +54,7 @@ meu_barco() {
         return 1
     fi
 
-    local output_file="$engine_out/1/choosed_boat.txt"
+    local output_file="$base_dir/.engine/.out/1/choosed_boat.txt"
     if [[ -f "$output_file" ]]; then
       if [[ $(wc -c < "$output_file") -le 1 ]]; then
           echo "você ainda não escolheu um barco." 
@@ -81,7 +77,7 @@ zarpar() {
         return 1
     fi
 
-    local out_dir="$engine_out/1"
+    local out_dir="$base_dir/.engine/.out/1"
     local choosed_boat_file="$out_dir/choosed_boat.txt"
     local room2_dir="$my_base_dir/play/room_02"
     local current_dir_name
@@ -128,13 +124,13 @@ zarpar() {
         echo "🧭 Navegando para ROOM_2..."
         sleep 1s
         cd "$room2_dir" || { echo "❌ Erro ao navegar!"; return 1; }
-        echo "içar_âncora" > "$engine_out/1/key.txt"
-        echo "true" > "$engine_out/1/finished.txt"
+        mv "$choosed_boat_file" "$base_dir/.engine/.out/2"
+        echo "içar_âncora" > "$base_dir/.engine/.out/1/key.txt"
 
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
-        sleep 2s
-        source "$engine_src/2/welcome_room_02.sh"
+        sleep 3s
+        source "$my_base_dir/.engine/.src/2/welcome_room_02.sh"
     else
         echo "❌ A sala ROOM_2 não foi encontrada em: $room2_dir"
         return 1
@@ -157,8 +153,8 @@ delete_game() {
   if [[ -n "$original_bash" && -n "$original_bash_line" ]]; then
       echo "$original_bash" > "$HOME/.bashrc"
       echo "✅ .bashrc restaurado com sucesso!"
-  elif [[ -f "$engine_out/1/.bashrc_line" ]]; then
-      original_bash_line=$(head -n 1 "$engine_out/1/.bashrc_line")
+  elif [[ -f "$my_base_dir/.engine/.out/1/.bashrc_line" ]]; then
+      original_bash_line=$(head -n 1 "$my_base_dir/.engine/.out/1/.bashrc_line")
       head -n "$original_bash_line" "$HOME/.bashrc" > "$HOME/.bashrc"
       echo "✅ .bashrc restaurado parcialmente."
   else
@@ -240,4 +236,4 @@ EOF
 source $HOME/.bashrc
 cd $play_dir/room_01/para_o_mar
 
-echo "true" > $engine_out/1/loaded.txt
+echo "true" > $my_base_dir/.engine/.out/1/loaded.txt

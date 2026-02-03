@@ -13,14 +13,14 @@ if [[ -z "$1" ]]; then
     return 1
 fi
 
-correct_key=$( (tr -d '\r\n ' < "$engine_out/1/key.txt") 2>/dev/null )
+correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
     echo "❌ Senha errada. Você não pode carregar o cenário."
     return 1
 fi
 
-dirfrom="$engine_out/2/event/baia_de_todos_os_santos"
-dirto="$play_dir/room_02"
+dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
+dirto="$my_base_dir/play/room_02"
 
 pwdd(){
   local mensagem="
