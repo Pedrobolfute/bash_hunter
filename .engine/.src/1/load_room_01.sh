@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Carregando room_01..."
 
+my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
+
 if [[ -z "$my_base_dir" ]]; then
   echo "❌ Erro: diretório 'bash_hunter' não encontrado."
   return 1
@@ -126,6 +128,7 @@ zarpar() {
         cd "$room2_dir" || { echo "❌ Erro ao navegar!"; return 1; }
         mv "$choosed_boat_file" "$my_base_dir/.engine/.out/2"
         echo "içar_âncora" > "$my_base_dir/.engine/.out/1/key.txt"
+        echo "true" > "$engine_out/1/finished.txt"
 
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
