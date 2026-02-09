@@ -36,6 +36,8 @@ usar alguns recursos do barco.
 
 welcome
 
+clear
+
 echo -e "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
