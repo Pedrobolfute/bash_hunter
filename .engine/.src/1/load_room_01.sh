@@ -1,8 +1,6 @@
 #!/bin/bash
 echo "Carregando room_01..."
 
-my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
-
 if [[ -z "$my_base_dir" ]]; then
   echo "❌ Erro: diretório 'bash_hunter' não encontrado."
   return 1

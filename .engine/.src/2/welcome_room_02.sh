@@ -34,6 +34,7 @@ usar alguns recursos do barco.
   fi
 }
 
+clear
 welcome
 
 

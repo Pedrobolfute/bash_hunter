@@ -32,5 +32,7 @@ pwdd(){
   fi
 }
 
+clear
+
 pwdd
 echo $sss
