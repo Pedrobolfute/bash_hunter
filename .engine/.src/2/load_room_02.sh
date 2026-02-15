@@ -29,6 +29,8 @@ pwdd(){
     ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
     Sala (room_02) carregada.
+
+    Use o comando "ls" para ver o novo caminho que se abriu!
 "
 
   if command -v whiptail >/dev/null 2>&1; then
