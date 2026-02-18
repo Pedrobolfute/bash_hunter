@@ -40,6 +40,8 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 
 welcome_room_01
 
+clear
+
 echo -e "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

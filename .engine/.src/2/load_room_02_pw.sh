@@ -1,11 +1,16 @@
 #!/bin/bash
 
-my_base_dir=$(find "$HOME" -type d -name "bash_hunter" -print -quit 2>/dev/null)
 secret=""
 sss=""
+finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
 
-if [[ -s "$my_base_dir/engine/out/1/key.txt" ]]; then
-  secret=$(head -n -0 "$my_base_dir/engine/out/1/key.txt")
+if [[ "$finished" != "true" ]]; then
+  echo "⚠️ O room_01 precisa ser finalizado antes de prosseguir!"
+  return 1
+fi
+
+if [[ -s "$my_base_dir/.engine/.out/1/key.txt" ]]; then
+  secret=$(head -n -0 "$my_base_dir/.engine/.out/1/key.txt")
   sss="A chave da sala room_01 é: $secret"
 else
   secret=""
@@ -14,7 +19,6 @@ fi
 
 pwdd(){
   local mensagem="
-
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -27,6 +31,8 @@ pwdd(){
     echo -e "\n$mensagem $sss\n"
   fi
 }
+
+clear
 
 pwdd
 echo $sss

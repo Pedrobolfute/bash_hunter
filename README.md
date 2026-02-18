@@ -4,7 +4,7 @@ Escape Room Game.
 
 🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊
 
-![Bash Hunter](./engine/out/1/ascii_bash_hunter.png)
+![Bash Hunter](./.engine/.out/1/ascii_bash_hunter.png)
 
 🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊
 
@@ -55,11 +55,11 @@ Mas cuidado, marujo — nem todo barco é capaz de atravessar o oceano!
 
 Usando git clone
 
-[![Como baixar e iniciar o jogo usando git clone](./engine/out/1/ascii_bash_hunter.png)](https://youtu.be/oZESdCR9IVg)
+[![Como baixar e iniciar o jogo usando git clone](./.engine/.out/1/ascii_bash_hunter.png)](https://youtu.be/oZESdCR9IVg)
 
 Baixando normalmente como zip e renomeando arquivo
 
-[![Como baixar e iniciar o jogo usando git clone](./engine/out/1/ascii_bash_hunter.png)](https://youtu.be/NF1rmJaIhmU)
+[![Como baixar e iniciar o jogo usando git clone](./.engine/.out/1/ascii_bash_hunter.png)](https://youtu.be/NF1rmJaIhmU)
 
 ## 🪶 INTRUÇÕES
 
@@ -74,7 +74,7 @@ Para entrar dentro de uma pasta, use o comando **cd**
 
 > cd nome_da_pasta
 
-[![comando cd](./engine/out/1/ascii_comando.png)](https://youtu.be/Soa5VwW09-w)
+[![comando cd](./.engine/.out/1/ascii_comando.png)](https://youtu.be/Soa5VwW09-w)
 
 ---
 
@@ -82,7 +82,7 @@ Para sair de dentro de uma pasta (voltar), use o comando **cd ..**
 
 > cd ..
 
-[![comando cd..](./engine/out/1/ascii_comando.png)](https://youtu.be/LfHKCZVD1Vk)
+[![comando cd..](./.engine/.out/1/ascii_comando.png)](https://youtu.be/LfHKCZVD1Vk)
 
 ---
 
@@ -90,7 +90,7 @@ Para ver os arquivos que está dentro da pasta, use o comando **ls**
 
 > ls
 
-[![comando ls](./engine/out/1/ascii_comando.png)](https://youtu.be/PxYCr1UuI9M)
+[![comando ls](./.engine/.out/1/ascii_comando.png)](https://youtu.be/PxYCr1UuI9M)
 
 ---
 
@@ -98,7 +98,7 @@ Para ver em qual pasta você está, use o comando **pwd**
 
 > pwd
 
-[![comando pwd](./engine/out/1/ascii_comando.png)](https://youtu.be/vXOXg9eBC-w)
+[![comando pwd](./.engine/.out/1/ascii_comando.png)](https://youtu.be/vXOXg9eBC-w)
 
 ---
 
@@ -106,7 +106,7 @@ Para ver o conteudo dentro de um arquivo de texto .txt, use o comando **cat**
 
 > cat arquivo_de_texto.txt
 
-[![comando cat](./engine/out/1/ascii_comando.png)](https://youtu.be/0KB3nRkfRxw)
+[![comando cat](./.engine/.out/1/ascii_comando.png)](https://youtu.be/0KB3nRkfRxw)
 
 ---
 
@@ -114,6 +114,6 @@ Para carregar scripts (.sh), use o comando **source**
 
 > source arquivo.sh
 
-[![comando source](./engine/out/1/ascii_comando.png)](https://youtu.be/P7qs23fMN2A)
+[![comando source](./.engine/.out/1/ascii_comando.png)](https://youtu.be/P7qs23fMN2A)
 
 ---
