@@ -35,7 +35,8 @@ RUN apt-get update && apt-get install -y \
     libwebsockets1* \
     libwebsockets-evlib-uv \
     libuv1 \
-    libssl3\
+    libssl3 \
+    whiptail \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar APENAS o executável do ttyd que compilamos no estágio anterior
