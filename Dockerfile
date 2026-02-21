@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
     coreutils \
     procps \
     libjson-c5 \
-    libwebsockets19 \
+    libwebsockets1* \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar APENAS o executável do ttyd que compilamos no estágio anterior
