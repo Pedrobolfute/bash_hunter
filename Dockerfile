@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y \
     procps \
     libjson-c5 \
     libwebsockets1* \
+    libwebsockets-evlib-uv \
     libuv1 \
     libssl3\
     && rm -rf /var/lib/apt/lists/*
