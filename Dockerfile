@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-# Clonar e compilar o ttyd exatamente como você fez
+# Clonar e compilar o ttyd
 WORKDIR /src
-RUN git clone https://github.com/tsl0922/ttyd.git && \
+RUN git clone --depth 1 https://github.com/tsl0922/ttyd.git && \
     cd ttyd && \
     mkdir build && \
     cd build && \
@@ -21,12 +21,10 @@ RUN git clone https://github.com/tsl0922/ttyd.git && \
     make && \
     make install
 
-
-# --- ESTÁGIO 2: EXECUÇÃO (A "Sala de Aula" Limpa) ---
+# --- ESTÁGIO 2: EXECUÇÃO (A "Sala de Aula" Blindada) ---
 FROM debian:bookworm-slim
 
-# Instalar apenas as bibliotecas necessárias para o ttyd rodar (runtime)
-# e ferramentas para o seu jogo
+# 1. Instalar apenas bibliotecas de runtime e ferramentas do jogo
 RUN apt-get update && apt-get install -y \
     locales \
     bash \
@@ -38,30 +36,49 @@ RUN apt-get update && apt-get install -y \
     libuv1 \
     libssl3 \
     whiptail \
+    vim \
     && rm -rf /var/lib/apt/lists/*
 
+# 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
 RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
-
 ENV LANG pt_BR.UTF-8
 ENV LANGUAGE pt_BR:pt
 ENV LC_ALL pt_BR.UTF-8
 
-# Copiar APENAS o executável do ttyd que compilamos no estágio anterior
+# 3. Trazer o binário do ttyd do estágio de compilação
 COPY --from=builder /usr/local/bin/ttyd /usr/local/bin/ttyd
 
-# Configuração do usuário e jogo (como fizemos antes)
+# 4. Configurar usuário e estrutura de pastas
 RUN useradd -m -s /bin/bash jogador
 WORKDIR /home/jogador/bash_hunter
 
-# Copia o seu repositório do jogo
-COPY --chown=jogador:jogador . .
+# 5. Organizar e Proteger o Motor (.engine)
+# Copia todo o repositório e organiza os arquivos sensíveis
+COPY . .
 
-# Permissões
-RUN chmod +x init_game.sh play/room_01/carregar_cenario_01.sh
 
+
+# Executa como root para garantir que as permissões de proteção funcionem
+RUN mkdir -p /home/jogador/bash_hunter/.engine && \
+    mv init_game.sh /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
+    mv LICENSE /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
+    chown -R root:root /home/jogador/bash_hunter/.engine && \
+    # 711: Jogador pode atravessar (+x) para rodar o jogo, mas não pode dar ls (-r)
+    chmod 711 /home/jogador/bash_hunter/.engine && \
+    chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
+
+
+
+# 6. Permissões de escrita para as pastas de jogo do aluno
+RUN chown -R jogador:jogador /home/jogador/bash_hunter/play
+
+# 7. Configuração Final
 USER jogador
 EXPOSE 7681
 
-# Iniciar o jogo
-CMD ["ttyd", "--once", "-t", "1", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"]
+# Comando de inicialização
+# -o: encerra o container ao desconectar (reset total para o aluno)
+# -t 1: timeout de 1 segundo para fechamento
+# -p 7681: porta interna do container
+CMD ["ttyd", "-o", "-t", "1", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"]
