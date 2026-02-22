@@ -53,7 +53,7 @@ def index():
         "--cpus", "0.2",     # Proteção de processamento
         "--rm",              # Remove o container automaticamente ao parar
         DOCKER_IMAGE,
-        "ttyd", "-o", "-c", f"jogador:{token}", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"
+        "ttyd", "-o", "-c", f"jogador:{token}", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
     
     try:
