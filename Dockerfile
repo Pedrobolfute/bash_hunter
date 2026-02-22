@@ -28,6 +28,7 @@ FROM debian:bookworm-slim
 # Instalar apenas as bibliotecas necessárias para o ttyd rodar (runtime)
 # e ferramentas para o seu jogo
 RUN apt-get update && apt-get install -y \
+    locales \
     bash \
     coreutils \
     procps \
@@ -38,6 +39,13 @@ RUN apt-get update && apt-get install -y \
     libssl3 \
     whiptail \
     && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen
+
+ENV LANG pt_BR.UTF-8
+ENV LANGUAGE pt_BR:pt
+ENV LC_ALL pt_BR.UTF-8
 
 # Copiar APENAS o executável do ttyd que compilamos no estágio anterior
 COPY --from=builder /usr/local/bin/ttyd /usr/local/bin/ttyd
