@@ -64,4 +64,4 @@ USER jogador
 EXPOSE 7681
 
 # Iniciar o jogo
-CMD ["ttyd", "-once", "-t", "1", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"]
+CMD ["ttyd", "--once", "-t", "1", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"]
