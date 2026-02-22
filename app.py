@@ -1,3 +1,5 @@
+import secrets
+import threading
 import subprocess
 import time
 import socket
@@ -19,30 +21,42 @@ def find_free_port():
 @app.route('/')
 def start_game():
     port = find_free_port()
-    if not port:
-        return "Servidor lotado! Tente novamente em breve.", 503
-
-    # Nome único para evitar conflitos de nomes no Docker
-    container_name = f"bh_session_{port}_{int(time.time())}"
+    # Gera um token aleatório de 6 caracteres
+    token = secrets.token_hex(3) 
     
-    # O comando Docker permanece o mesmo, mas o 'ttyd' lá dentro cuidará do fim
+    container_name = f"bh_{port}_{token}"
+    
+    # Adicionamos a flag -c (credential) com usuário 'jogador' e a senha 'token'
     docker_cmd = [
         "sudo", "docker", "run", "-d",
         "--name", container_name,
         "-p", f"{port}:7681",
-        "--memory", "128m",
-        "--cpus", "0.2",
-        "--rm", # Chave para o reset: apaga tudo ao encerrar
-        "bash_hunter_image"
+        "--rm",
+        "bash_hunter_image",
+        "ttyd", "-once", "-c", f"jogador:{token}", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"
     ]
     
     subprocess.run(docker_cmd)
     
-    # Tempo para o terminal subir na AWS
-    time.sleep(1.2)
-    
-    # Redireciona para o terminal efêmero
-    return redirect(f"http://{PUBLIC_IP}:{port}")
+    # Em vez de redirecionar direto, mostramos o Token para o aluno
+    return f"""
+    <h1>Bem-vindo ao Bash Hunter!</h1>
+    <p>Sua sala privada foi criada na porta <b>{port}</b>.</p>
+    <p>Seu Token de Acesso é: <b style='color:red; font-size:20px;'>{token}</b></p>
+    <p>Usuário: <b>jogador</b></p>
+    <br>
+    <a href='http://3.145.193.137:{port}' target='_blank'>
+        <button style='padding:10px 20px; cursor:pointer;'>CLIQUE AQUI PARA ENTRAR NO NAVIO</button>
+    </a>
+    <p><i>Atenção: Se fechar a aba ou der F5, o container será destruído e o progresso perdido!</i></p>
+    """
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+def cleanup_zombies():
+    while True:
+        # Comando para listar containers criados há mais de 60 minutos e removê-los
+        # Isso evita que sua AWS fique cheia de salas 'abandonadas'
+        subprocess.run("sudo docker ps -q --filter 'name=bh_' | xargs -r docker stop", shell=True)
+        time.sleep(3600) # Roda a cada 1 hora
+
+# Inicia a limpeza em uma thread separada para não travar o site
+threading.Thread(target=cleanup_zombies, daemon=True).start()
