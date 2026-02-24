@@ -37,6 +37,7 @@ RUN apt-get update && apt-get install -y \
     libssl3 \
     whiptail \
     vim \
+    htop \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
