@@ -64,6 +64,9 @@ COPY . .
 RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv init_game.sh /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
     mv LICENSE /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
+    mv Dockerfile /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv app.py /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
     # 711: Jogador pode atravessar (+x) para rodar o jogo, mas não pode dar ls (-r)
     chmod 711 /home/jogador/bash_hunter/.engine && \
