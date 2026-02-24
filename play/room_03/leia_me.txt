@@ -1,5 +1,4 @@
 
-
 Seja bem-vindo, viajante da ilha de Madre de Deus!
 
 É uma honra recebê-lo em nossa querida Saubara.
@@ -12,10 +11,9 @@ dos ventos e a força de quem vive das águas.
 
 Prepare-se: sua jornada está apenas começando. ⚓🌊
 
+Aprenda com a marujada algumas tecnicas de navegação.
+Carregue a sala room_03 com o comando abaixo:
 
-Aprenda com a marujada algumas tecnicas de navegação. 
+> source carregar_cenario_03.sh
 
-Entre no link abaixo e cuidado para não cair!
-
--> https://tally.so/r/2EPKle
 
