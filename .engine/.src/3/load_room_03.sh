@@ -43,7 +43,9 @@ pwdd(){
 if [[ -d "$dirfrom" ]]; then
   mv "$dirfrom/atracar_saubara.txt" "$dirto" 2>/dev/null
   echo "true" > $engine_out/3/loaded.txt
+  clear
   pwdd
 else
+  clear
   echo "Fase já foi iniciada. Use o comando "ls" para ver o novo arquivo que foi criado em room_03!"
 fi

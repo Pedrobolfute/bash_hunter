@@ -5,7 +5,7 @@ você ganhou experiência em navegação usando os principais
 comandos para navegar no termianl.
 
 - cd
-- cd..
+- cd ..
 - ls
 - cat
 

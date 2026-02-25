@@ -53,6 +53,7 @@ pwdd_02(){
   fi
 }
 
+clear
 pwdd_02
 echo $sss
 echo "Vá para room_03!"
