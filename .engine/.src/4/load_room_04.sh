@@ -47,12 +47,12 @@ pwdd(){
 }
 
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/map.sh" "/bin" 2>/dev/null
-  mv "$dirfrom/bin/bau" "/bin" 2>/dev/null
-  mv "$dirfrom/etc/bau" "/etc" 2>/dev/null
-  mv "$dirfrom/raiz/bau" "/" 2>/dev/null
+  mv "$dirfrom/map.sh" "/bin" 
+  mv "$dirfrom/bin/bau" "/bin" 
+  mv "$dirfrom/etc/bau" "/etc" 
+  mv "$dirfrom/raiz/bau" "/" 
   mv "$dirfrom/tmp/bau" "/tmp" 2>/dev/null
-  mv "$dirfrom/home/bau" "/home" 2>/dev/null
+  mv "$dirfrom/home/bau" "/home" 
 
   echo "true" > $engine_out/4/loaded.txt
   clear
