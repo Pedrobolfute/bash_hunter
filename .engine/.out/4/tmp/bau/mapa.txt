@@ -1,0 +1,21 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+/tmp — Ilha Temporária
+
+MAPA 2/5 -> ( nome )
+
+Curiosidade: Se você quiser chegar até aqui,
+você pode chegar de duas formas.
+  1° Caminho relativo:
+    cd /
+    cd tmp
+    cd bau
+  2° Caminho absoluto:
+    cd /tmp/bau
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌

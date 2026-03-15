@@ -1,0 +1,22 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+Ei, jogador, você esta aprendendo como navegar?
+
+jogador, só para relembrar a usabilidade do "vim",
+ele funciona com dois modos principais:
+
+1) Modo comando
+Usado para dar comandos ao editor.
+
+2) Modo edição
+Usado para escrever no arquivo.
+
+Alguns arquivos estão embaralhados, para desembaralhar
+utilize a senha correta.
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌

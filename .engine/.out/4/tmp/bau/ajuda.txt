@@ -1,0 +1,128 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+Ei, jogador, você esta aprendendo como navegar?
+
+Agora você vai ter que aprender sobre o editor de texto "vim".
+Ele te permite entrar, editar ou criar textos simples "texto.txt".
+Você só vai conseguir seguir viagem se aprender usar essa ferramenta.
+
+Esse baú é facil de abrir. Você pode usar tanto o comando "cat" quanto
+o comando "vim" para ver o conteúdo. Mas a utilização do comando vim é
+um pouco diferente do que você espera. Aprenda o comando "vim" agora,
+para depois não se arrepender. 
+
+Leia as instruções abaixo de como usar o "vim" com muito 
+cuidado e depois faça os testes no arquivo de "teste.txt"
+
+
+TUTORIAL SIMPLES DO EDITOR DE TEXTO VIM
+
+O Vim é um editor de texto muito usado em sistemas Linux e Unix.
+
+Ele funciona com dois modos principais:
+
+1) Modo comando
+Usado para dar comandos ao editor.
+
+2) Modo edição
+Usado para escrever no arquivo.
+
+Pense assim:
+Modo comando = dar ordens ao editor
+Modo edição = escrever texto
+
+
+-------------------------------------
+1. ABRIR UM ARQUIVO
+-------------------------------------
+
+No terminal digite:
+
+vim arquivo.txt
+
+Exemplo:
+
+vim teste.txt
+
+
+-------------------------------------
+2. EDITAR O ARQUIVO
+-------------------------------------
+
+Quando o Vim abre, ele começa no modo comando.
+
+Para começar a escrever pressione:
+
+i
+
+A letra "i" significa INSERT (inserir).
+
+Agora você pode digitar normalmente.
+
+
+-------------------------------------
+3. VOLTAR PARA O MODO COMANDO
+-------------------------------------
+
+Quando terminar de escrever, pressione:
+
+ESC
+
+Isso faz o Vim voltar para o modo comando.
+
+
+-------------------------------------
+4. SALVAR E SAIR DO ARQUIVO
+-------------------------------------
+
+1. Pressione ESC
+2. Digite:
+
+:wq
+
+3. Pressione ENTER
+
+Significado:
+w = write (salvar)
+q = quit (sair)
+
+
+-------------------------------------
+5. SAIR SEM SALVAR
+-------------------------------------
+
+1. Pressione ESC
+2. Digite:
+
+:q!
+
+3. Pressione ENTER
+
+O "!" força a saída sem salvar.
+
+
+-------------------------------------
+RESUMO RÁPIDO
+-------------------------------------
+
+Abrir arquivo:
+vim arquivo.txt
+
+Começar a escrever:
+i
+
+Voltar para modo comando:
+ESC
+
+Salvar e sair:
+:wq
+
+Sair sem salvar:
+:q!
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
