@@ -82,7 +82,8 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
 RUN chown -R jogador:jogador /home/jogador/bash_hunter/play
 
 #7. passwd
-RUN echo "root:arise" | chpasswd
+RUN echo "jogador:arise" | chpasswd && \
+  adduser jogador sudo
 
 # 8. Configuração Final
 USER jogador
