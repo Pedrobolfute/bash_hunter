@@ -13,6 +13,13 @@ dec(){
 
 correct_key=$(dec)
 
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+
+sub=$(decr)
+
 if [[ "$1" != "$correct_key" ]]; then
     echo "❌ Senha errada. Você não pode carregar o cenário."
     return 1
@@ -47,12 +54,12 @@ pwdd(){
 }
 
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/map.sh" "/bin" 
-  mv "$dirfrom/bin/bau" "/bin" 
-  mv "$dirfrom/etc/bau" "/etc" 
-  mv "$dirfrom/raiz/bau" "/" 
-  mv "$dirfrom/tmp/bau" "/tmp" 2>/dev/null
-  mv "$dirfrom/home/bau" "/home" 
+  echo "$sub" | sudo -S mv "$dirfrom/map.sh" "/bin" 
+  echo "$sub" | sudo -S mv "$dirfrom/bin/bau" "/bin" 
+  echo "$sub" | sudo -S mv "$dirfrom/etc/bau" "/etc" 
+  echo "$sub" | sudo -S mv "$dirfrom/raiz/bau" "/" 
+  echo "$sub" | sudo -S mv "$dirfrom/tmp/bau" "/tmp" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/home/bau" "/home" 
 
   echo "true" > $engine_out/4/loaded.txt
   # clear
