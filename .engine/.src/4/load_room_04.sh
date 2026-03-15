@@ -55,7 +55,7 @@ if [[ -d "$dirfrom" ]]; then
   mv "$dirfrom/home/bau" "/home" 
 
   echo "true" > $engine_out/4/loaded.txt
-  clear
+  # clear
   pwdd
 else
   clear
