@@ -54,12 +54,12 @@ pwdd(){
 }
 
 if [[ -d "$dirfrom" ]]; then
-  echo "$sub" | sudo -S mv "$dirfrom/map.sh" "/bin" 
-  echo "$sub" | sudo -S mv "$dirfrom/bin/bau" "/bin" 
-  echo "$sub" | sudo -S mv "$dirfrom/etc/bau" "/etc" 
-  echo "$sub" | sudo -S mv "$dirfrom/raiz/bau" "/" 
+  echo "$sub" | sudo -S mv "$dirfrom/map" "/bin" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/bin/bau" "/bin" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/etc/bau" "/etc" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/raiz/bau" "/" 2>/dev/null
   echo "$sub" | sudo -S mv "$dirfrom/tmp/bau" "/tmp" 2>/dev/null
-  echo "$sub" | sudo -S mv "$dirfrom/home/bau" "/home" 
+  echo "$sub" | sudo -S mv "$dirfrom/home/bau" "/home" 2>/dev/null
 
   echo "true" > $engine_out/4/loaded.txt
   # clear
