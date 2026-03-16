@@ -1,4 +1,8 @@
 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       
 Seja bem-vindo, viajante da ilha de Madre de Deus!
 
 É uma honra recebê-lo em nossa querida Saubara.
@@ -16,4 +20,7 @@ Carregue a sala room_03 com o comando abaixo:
 
 > source carregar_cenario_03.sh
 
-
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       

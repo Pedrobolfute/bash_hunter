@@ -43,7 +43,7 @@ pwdd(){
     pergunta. A reposta desse pergunta é a chave para o próximo
     room.
 
-    Use o comando "map", para saber aonde estão escondidos os mapas.
+    Use o comando \"map\", para saber aonde estão escondidos os mapas.
 "
 
   if command -v whiptail >/dev/null 2>&1; then
@@ -62,7 +62,7 @@ if [[ -d "$dirfrom" ]]; then
   echo "$sub" | sudo -S mv "$dirfrom/home/bau" "/home" 2>/dev/null
 
   echo "true" > $engine_out/4/loaded.txt
-  # clear
+  clear
   pwdd
 else
   clear
