@@ -2,7 +2,7 @@
 
 cat << "EOF"
 
-.
+/
 ├── bin
 │   └── bau
 │       ├── ajuda.txt
