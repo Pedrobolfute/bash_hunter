@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y \
     whiptail \
     vim \
     htop \
-    sudo \
+    # sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
@@ -82,8 +82,8 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
 RUN chown -R jogador:jogador /home/jogador/bash_hunter/play
 
 #7. passwd
-RUN echo "jogador:arise" | chpasswd && \
-  adduser jogador sudo
+# RUN echo "jogador:arise" | chpasswd && \
+#   adduser jogador sudo
 
 # 8. Configuração Final
 USER jogador
