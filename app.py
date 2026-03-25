@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # --- CONFIGURAÇÕES DO AMBIENTE ---
 # IP Público da sua instância AWS no Debian
-PUBLIC_IP = "3.16.168.71" 
+PUBLIC_IP = "3.14.27.130"
 # Intervalo de portas liberado no Security Group da AWS
 PORT_RANGE = range(10000, 10100)
 # Nome da imagem Docker que você buildou na branch stage
