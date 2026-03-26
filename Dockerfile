@@ -73,7 +73,7 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
     chown -R jogador:jogador /home/jogador/bash_hunter/.engine/.out && \
     # 711: Jogador pode atravessar (+x) para rodar o jogo, mas não pode dar ls (-r)
-    chmod 755 /home/jogador/bash_hunter/.engine && \
+    chmod 711 /home/jogador/bash_hunter/.engine && \
     chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
 
 
