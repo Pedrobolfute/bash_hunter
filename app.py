@@ -52,7 +52,7 @@ def index():
     
     try:
         subprocess.run(docker_cmd, check=True)
-        time.sleep(2) # Aumentado para 2s para dar tempo na AWS
+        time.sleep(5) # Aumentado para 2s para dar tempo na AWS
         
         # Link com formato http://user:pass@ip:port para evitar o erro 401
         terminal_url = f"http://jogador:{token}@{current_ip}:{port}"
