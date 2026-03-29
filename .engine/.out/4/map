@@ -2,31 +2,35 @@
 
 cat << "EOF"
 
-/
-├── bin
-│   └── bau
-│       ├── ajuda.txt
-│       ├── chave.txt
-│       └── mapa.txt
-├── etc
-│   └── bau
-│       ├── ajuda.txt
-│       ├── chave.txt
-│       └── mapa.txt
+/ (RAIZ)
 ├── home
 │   └── bau
 │       ├── ajuda.txt
 │       ├── mapa.txt
 │       └── teste.txt
-├── raiz
+│
+├── tmp
+│   └── bau
+│       ├── ajuda.txt
+│       ├── mapa.txt
+│       └── teste.txt
+│
+├── bau
+│   ├── ajuda.txt
+│   ├── chave.txt
+│   └── mapa.txt
+│
+├── bin
 │   └── bau
 │       ├── ajuda.txt
 │       ├── chave.txt
 │       └── mapa.txt
-└── tmp
-    └── bau
-        ├── ajuda.txt
-        ├── mapa.txt
-        └── teste.txt
+│
+├── etc
+│   └── bau
+│       ├── ajuda.txt
+│       ├── chave.txt
+│       └── mapa.txt
+
 
 EOF
