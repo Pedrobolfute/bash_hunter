@@ -17,6 +17,12 @@ Usado para escrever no arquivo.
 Alguns arquivos estão embaralhados, para desembaralhar
 utilize a senha correta.
 
+------------
+
+Se você não souber como usar o comando "vim", volte para
+o diretório "/home/bau" e aprenda com as instruções de lá.
+
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+

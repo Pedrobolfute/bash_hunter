@@ -3,19 +3,22 @@
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-Chave:
-MAPA 1/5 -> ( qual )
+# home 
+    - diretório de usuário comun
 
+# chave:
+    - MAPA 1/5 -> ( qual )
 
-Curiosidade: Se você quiser chegar até aqui,
-você pode chegar de duas formas.
-  1° Caminho relativo:
-    cd /
-    cd home
-    cd bau
-  2° Caminho absoluto:
-    cd /home/bau
+# Curiosidade: 
+    - você pode chegar de duas formas.
+        1° Caminho relativo (um passo de cada vez):
+            cd /
+            cd home
+            cd bau
+        2° Caminho absoluto:
+            cd /home/bau
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+

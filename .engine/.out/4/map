@@ -20,17 +20,16 @@ cat << "EOF"
 │   ├── chave.txt
 │   └── mapa.txt
 │
-├── bin
-│   └── bau
-│       ├── ajuda.txt
-│       ├── chave.txt
-│       └── mapa.txt
-│
 ├── etc
 │   └── bau
 │       ├── ajuda.txt
 │       ├── chave.txt
 │       └── mapa.txt
-
+│
+├── bin
+│   └── bau
+│       ├── ajuda.txt
+│       ├── chave.txt
+│       └── mapa.txt
 
 EOF
