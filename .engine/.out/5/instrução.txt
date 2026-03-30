@@ -1,0 +1,107 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+Bem vindo ao room_05!
+
+Aqui você vai precisar aprender bem esses
+comandos abaixo para desvendar o código dos
+marinheiros. Esse código é a senha para o
+arquivo chave.txt que terá a verdadeira
+chave para o próximo room.
+
+O código é a soma do resultado dessas questões:
+    1° Quantas vezes a palavra "brasil" aparece
+    no arquivo HISTÓRIA.txt?
+
+    2° Quantas vezes a palavra "portugal" aparece
+    no arquivo HISTORIA.txt?
+
+    3° Quantas vezes a palavra "franceses" aparece
+    no arquivo HISTORIA.txt
+
+    4° Se você usar opção de contar somente as 
+    linhas que tenham a palavra "litoral", quantas 
+    vezes ela aparece?
+
+    5° No arquivo HISTORIA.txt quantas virgulas tem 
+    no total?
+
+    A soma de todos os 05 resultados é o código para o arquivo
+    "chave.txt". E ai, qual é o código?
+
+
+
+Você precisará aprender os seguintes comandos:
+grep  → buscar
+wc    → contar
+|     → conectar
+
+
+=========== 📘 MANUAL RÁPIDO ===========
+
+[grep]
+
+Procura texto dentro de um arquivo.
+
+Ex:
+grep "brasil" HISTORIA.txt
+
+→ Mostra as linhas que têm "brasil"
+
+
+
+[Opções]
+
+-i  → ignora maiúsculas/minúsculas
+Ex:
+grep -i "brasil" HISTORIA.txt
+
+-o  → mostra só o que encontrou
+Ex:
+grep -o "brasil" HISTORIA.txt
+
+-w  → palavra exata
+Ex:
+grep -w "brasil" HISTORIA.txt
+
+
+---------------------------------------
+
+[ | ]
+
+Conecta comandos.
+
+Ex:
+comando1 | comando2
+
+
+---------------------------------------
+
+[wc]
+
+Conta resultados.
+
+-w → conta itens
+-l → conta linhas
+
+Ex:
+grep -o "," HISTORIA.txt | wc -w
+
+
+---------------------------------------
+
+Fluxo:
+
+buscar → filtrar → contar
+
+Teste. Combine. Descubra.
+
+
+=======================================
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
