@@ -44,9 +44,9 @@ RUN apt-get update && apt-get install -y \
 # 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
 RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
-ENV LANG pt_BR.UTF-8
-ENV LANGUAGE pt_BR:pt
-ENV LC_ALL pt_BR.UTF-8
+ENV LANG=pt_BR.UTF-8
+ENV LANGUAGE=pt_BR:pt
+ENV LC_ALL=pt_BR.UTF-8
 
 # 3. Trazer o binário do ttyd do estágio de compilação
 COPY --from=builder /usr/local/bin/ttyd /usr/local/bin/ttyd

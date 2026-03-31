@@ -58,7 +58,6 @@ pwdd(){
 if [ -e "$engine_out/5/loaded.txt" ]; then
   clear
   echo "
-  
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -66,18 +65,18 @@ if [ -e "$engine_out/5/loaded.txt" ]; then
   Fase já foi iniciada. 
   
     O código é a soma do resultado dessas questões:
-    1° Quantas vezes a palavra "brasil" aparece
-    no arquivo HISTÓRIA.txt?
+    1° Quantas vezes a palavra "brasil" em maiusculo
+    ou minusculo, aparece no arquivo HISTÓRIA.txt?
 
-    2° Quantas vezes a palavra "portugal" aparece
-    no arquivo HISTORIA.txt?
+    2° Quantas vezes a palavra "portugal" em maiusculo
+    ou minusculo, aparece no arquivo HISTORIA.txt?
 
-    3° Quantas vezes a palavra "franceses" aparece
-    no arquivo HISTORIA.txt
+    3° Quantas vezes a palavra "franceses" em maiusculo
+    ou minusculo, aparece no arquivo HISTORIA.txt
 
-    4° Se você usar opção de contar somente as 
+    4° Se você usar opção para contar somente as 
     linhas que tenham a palavra "litoral", quantas 
-    vezes ela aparece?
+    linhas aparecem?
 
     5° No arquivo HISTORIA.txt quantas virgulas tem 
     no total?
@@ -88,7 +87,6 @@ if [ -e "$engine_out/5/loaded.txt" ]; then
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-
     "
 else
   if [[ -d "$dirfrom" ]]; then

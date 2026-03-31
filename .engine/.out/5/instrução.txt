@@ -12,18 +12,18 @@ arquivo chave.txt que terá a verdadeira
 chave para o próximo room.
 
 O código é a soma do resultado dessas questões:
-    1° Quantas vezes a palavra "brasil" aparece
-    no arquivo HISTÓRIA.txt?
+    1° Quantas vezes a palavra "brasil" em maiusculo
+    ou minusculo, aparece no arquivo HISTÓRIA.txt?
 
-    2° Quantas vezes a palavra "portugal" aparece
-    no arquivo HISTORIA.txt?
+    2° Quantas vezes a palavra "portugal" em maiusculo
+    ou minusculo, aparece no arquivo HISTORIA.txt?
 
-    3° Quantas vezes a palavra "franceses" aparece
-    no arquivo HISTORIA.txt
+    3° Quantas vezes a palavra "franceses" em maiusculo
+    ou minusculo, aparece no arquivo HISTORIA.txt
 
-    4° Se você usar opção de contar somente as 
+    4° Se você usar opção para contar somente as 
     linhas que tenham a palavra "litoral", quantas 
-    vezes ela aparece?
+    linhas aparecem?
 
     5° No arquivo HISTORIA.txt quantas virgulas tem 
     no total?
