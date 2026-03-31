@@ -53,7 +53,7 @@ pwdd(){
   fi
 }
 
-if [[ -d "$dirfrom" ]]; then
+if [[ -d "$dirfrom/raiz" ]]; then
   echo "$sub" | sudo -S mv "$dirfrom/map" "/bin" 2>/dev/null
   echo "$sub" | sudo -S mv "$dirfrom/bin/bau" "/bin" 2>/dev/null
   echo "$sub" | sudo -S mv "$dirfrom/etc/bau" "/etc" 2>/dev/null
@@ -66,12 +66,23 @@ if [[ -d "$dirfrom" ]]; then
   pwdd
 else
   clear
-  echo "Fase já foi iniciada. 
+  echo "
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       
+  Fase já foi iniciada. 
   
   Você vai precisar procurar os 05 mapas espalhados em toda
   BAÍA DE TODOS OS SANTOS. Dentro desse mapa vai ter uma
   pergunta. A reposta desse pergunta é a chave para o próximo
   room.
 
-  Use o comando "map", para saber aonde estão escondidos os mapas."
+  Use o comando "map", para saber aonde estão escondidos os mapas.
+  
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+  "
 fi

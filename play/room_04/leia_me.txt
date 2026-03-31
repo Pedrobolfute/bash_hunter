@@ -13,6 +13,8 @@ room.
 
 Use o comando "map", para saber aonde estão escondidos os mapas.
 
+Dica: Use caneta e papel para ir salvando as informações
+
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌

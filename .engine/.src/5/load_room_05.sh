@@ -59,6 +59,10 @@ if [ -e "$engine_out/5/loaded.txt" ]; then
   clear
   echo "
   
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
   Fase já foi iniciada. 
   
     O código é a soma do resultado dessas questões:
@@ -81,6 +85,10 @@ if [ -e "$engine_out/5/loaded.txt" ]; then
     A soma de todos os 05 resultados é o código para o arquivo
     "chave.txt". E ai, qual é o código?
     
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
     "
 else
   if [[ -d "$dirfrom" ]]; then
