@@ -22,6 +22,16 @@ utilize a senha correta.
 Se você não souber como usar o comando "vim", volte para
 o diretório "/home/bau" e aprenda com as instruções de lá.
 
+-------------------------------------
+Tutorial em video
+-------------------------------------
+
+Comando vim
+https://youtu.be/UtG4iny2yM8
+
+Comando vim com senha
+https://youtu.be/YUMKlRF7pMY
+
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
