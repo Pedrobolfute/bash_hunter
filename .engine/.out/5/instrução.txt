@@ -67,6 +67,12 @@ Ex:
 grep -w "brasil" HISTORIA.txt
 
 
+[VIDEO]
+
+comando grep 1/3 -> https://youtu.be/7KPDNAJMF8w
+comando grep 2/3 -> https://youtu.be/E7QX_Y2ALyE
+comando grep 3/3 -> https://youtu.be/iyoJmwWrV-k
+
 ---------------------------------------
 
 [ | ]
@@ -76,6 +82,10 @@ Conecta comandos.
 Ex:
 comando1 | comando2
 
+
+[VIDEO]
+
+comando pipe -> https://youtu.be/5Slvi3XlT-U
 
 ---------------------------------------
 
@@ -90,6 +100,11 @@ Ex:
 grep -o "," HISTORIA.txt | wc -w
 
 
+[VIDEO]
+
+comando wc -> https://youtu.be/mHqkDwW_twU
+comando wc making off -> https://youtu.be/5w2OYDgzqxg
+
 ---------------------------------------
 
 Fluxo:
@@ -99,7 +114,16 @@ buscar → filtrar → contar
 Teste. Combine. Descubra.
 
 
-=======================================
+=========== 📘 MANUAL EM VIDEO ===========
+
+comando grep 1/3 -> https://youtu.be/7KPDNAJMF8w
+comando grep 2/3 -> https://youtu.be/E7QX_Y2ALyE
+comando grep 3/3 -> https://youtu.be/iyoJmwWrV-k
+
+comando pipe -> https://youtu.be/5Slvi3XlT-U
+
+comando wc -> https://youtu.be/mHqkDwW_twU
+comando wc making off -> https://youtu.be/5w2OYDgzqxg
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
