@@ -1,0 +1,121 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+==================================================
+📘 MINI TUTORIAL - COMANDO FIND
+==================================================
+
+O comando "find" é utilizado para localizar arquivos e diretórios
+no sistema de forma recursiva.
+
+[ESTRUTURA BÁSICA]
+
+$ find [CAMINHO] [OPÇÕES] [CRITÉRIO]
+
+--------------------------------------------------
+🔎 EXEMPLOS PRÁTICOS
+--------------------------------------------------
+
+1. Buscar um arquivo pelo nome:
+
+$ find /home -name "arquivo.txt"
+
+→ Procura "arquivo.txt" dentro de /home
+
+--------------------------------------------------
+
+2. Buscar ignorando maiúsculas/minúsculas:
+
+$ find /home -iname "arquivo.txt"
+
+--------------------------------------------------
+
+3. Buscar apenas diretórios:
+
+$ find / -type d
+
+--------------------------------------------------
+
+4. Buscar apenas arquivos:
+
+$ find / -type f
+
+--------------------------------------------------
+
+5. Evitar erros de permissão:
+
+$ find / -name "arquivo.txt" 2>/dev/null
+
+==================================================
+📘 FIND + GREP (FILTRAGEM AVANÇADA)
+==================================================
+
+O "grep" é usado para filtrar resultados com base em padrões.
+
+Quando combinado com "find", permite buscas mais refinadas.
+
+[ESTRUTURA]
+
+$ find [CAMINHO] | grep [FILTRO]
+
+--------------------------------------------------
+🔎 EXEMPLOS PRÁTICOS
+--------------------------------------------------
+
+1. Buscar e filtrar por nome:
+
+$ find / | grep "config"
+
+→ Retorna apenas resultados que contenham "config"
+
+--------------------------------------------------
+
+2. Filtrar extensões específicas:
+
+$ find / | grep "\.log$"
+
+→ Mostra apenas arquivos .log
+
+--------------------------------------------------
+
+3. Buscar arquivos e filtrar por diretório:
+
+$ find /home | grep "/Documentos/"
+
+--------------------------------------------------
+
+4. Combinar com ignore case:
+
+$ find / | grep -i "senha"
+
+--------------------------------------------------
+
+⚠️ IMPORTANTE
+
+- "find" faz a busca no sistema
+- "grep" filtra o resultado
+- Use "2>/dev/null" para evitar poluição visual
+- Sempre use "/" com cuidado (pode ser lento)
+
+==================================================
+📘 DICA DE OPERADOR
+==================================================
+
+Prefira usar filtros direto no "find" quando possível:
+
+✔ Melhor:
+$ find / -name "*.log"
+
+✖ Evitar:
+$ find / | grep ".log"
+
+Motivo: mais rápido e eficiente.
+
+==================================================
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
