@@ -11,18 +11,22 @@ i=0
 j=0
 destino=""
 while true; do
+    echo "to dentro do while"
     i=$(func_i)
     j=$(func_j)
 
     destino="$my_base_dir/.engine/.out/6/tempestade/$i/$j"
 
     if [ -d "$destino" ]; then
+        echo "saindo do whale"
         break
     fi
 done
 
 if [ -e "$my_base_dir/.engine/.out/6/saida" ]; then
+    echo "tem o arquivo saida, vou mover..."
     mv $my_base_dir/.engine/.out/6/saida "$destino"
+    echo "movido"
 else
     echo "A saida não é por aqui, enfrente a tempestade e procure."
 fi

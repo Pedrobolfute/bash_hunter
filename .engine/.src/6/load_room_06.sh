@@ -77,13 +77,14 @@ Siga o arquivo de instruções.
     "
 else
   if [[ -d "$dirfrom" ]]; then
-    echo "$sub" | sudo -S source "$dirfrom/atravessar" 2>/dev/null
+    echo "$sub" | sudo -S source "$dirfrom/atravessar"
+    echo "cabei execultar source"
     echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
     echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
-    echo "$sub" | sudo -S mv "$dirfrom/tempestade/" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/tempestade/" 
 
     echo "$sub" | sudo -S echo "true" > $engine_out/6/loaded.txt
-    clear 
+    # clear 
     pwdd
   else
     clear
