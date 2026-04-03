@@ -80,6 +80,7 @@ else
     echo "$sub" | sudo -S source "$dirfrom/atravessar" $dirto 2>/dev/null
     echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
     echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
+    echo "$sub" | sudo -S ls $dirfrom/tempestade
     echo "$sub" | sudo -S mv "$dirfrom/tempestade" $dirto
 
     echo "$sub" | sudo -S echo "true" > $engine_out/6/loaded.txt
