@@ -63,7 +63,7 @@ Boa viagem,
   fi
 }
 
-if [ -e "$engine_out/5/loaded.txt" ]; then
+if [ -e "$engine_out/6/loaded.txt" ]; then
   clear
   echo "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
