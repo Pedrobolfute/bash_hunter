@@ -1,0 +1,26 @@
+#!/bin/bash
+
+func_i(){
+    echo $((RANDOM % 100))
+}
+
+func_j(){
+    echo $((RANDOM % 100))
+}
+
+while true; do
+    i=$(func_i)
+    j=$(func_j)
+
+    destino="$my_base_dir/.engine/.out/6/tempestade/$i/$j"
+
+    if [ -d "$destino" ]; then
+        break
+    fi
+done
+
+if [ -f "$my_base_dir/.engine/.out/6/saida" ]; then
+    mv $my_base_dir/.engine/.out/6/saida "$destino"
+else
+    echo "A saida não é por aqui, enfrente a tempestade e procure."
+fi

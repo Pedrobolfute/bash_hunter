@@ -1,0 +1,35 @@
+#!/bin/bash
+
+cat << "EOF"
+
+/ (RAIZ)
+├── home
+│   └── bau
+│       ├── ajuda.txt
+│       ├── mapa.txt
+│       └── teste.txt
+│
+├── tmp
+│   └── bau
+│       ├── ajuda.txt
+│       ├── mapa.txt
+│       └── teste.txt
+│
+├── bau
+│   ├── ajuda.txt
+│   ├── chave.txt
+│   └── mapa.txt
+│
+├── etc
+│   └── bau
+│       ├── ajuda.txt
+│       ├── chave.txt
+│       └── mapa.txt
+│
+├── bin
+│   └── bau
+│       ├── ajuda.txt
+│       ├── chave.txt
+│       └── mapa.txt
+
+EOF

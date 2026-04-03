@@ -2,18 +2,23 @@
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-Bem vindo, Jogador Marujo!
-Aqui você vai precisar usar bem os comandos grep, | e wc.
 
-Após carrecar a sala siga as instruções.
+# home 
+    - diretório de usuário comun
 
-Para conseguir avançar, decifre o código dos marinheiros
-para ter acesso a chave que leva ao próximo room.
+# chave:
+    - MAPA 1/5 -> ( qual )
 
-Boa sorte,
+# Curiosidade: 
+    - você pode chegar de duas formas.
+        1° Caminho relativo (um passo de cada vez):
+            cd /
+            cd home
+            cd bau
+        2° Caminho absoluto:
+            cd /home/bau
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
+

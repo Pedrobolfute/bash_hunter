@@ -1,9 +1,9 @@
 #!/bin/bash
 
-finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
+finished=$( (tr -d '\r\n ' < "$engine_out/2/finished.txt") 2>/dev/null )
 
 if [[ "$finished" != "true" ]]; then
-  echo "⚠️ O room_01 precisa ser finalizado antes de prosseguir!"
+  echo "⚠️ O room_02 precisa ser finalizado antes de prosseguir!"
   return 1
 fi
 
@@ -13,14 +13,14 @@ if [[ -z "$1" ]]; then
     return 1
 fi
 
-correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/1/key.txt" 2>/dev/null)
+correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/2/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
     echo "❌ Senha errada. Você não pode carregar o cenário."
     return 1
 fi
 
-dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
-dirto="$my_base_dir/play/room_02"
+dirfrom="$my_base_dir/.engine/.out/3"
+dirto="$my_base_dir/play/room_03"
 
 pwdd(){
   local mensagem="
@@ -28,9 +28,9 @@ pwdd(){
     ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
     ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-    Sala (room_02) carregada.
+    Sala (room_03) carregada.
 
-    Use o comando "ls" para ver o novo caminho que se abriu!
+    Use o comando "ls" para ver o novo arquivo que foi criado em room_03!
 "
 
   if command -v whiptail >/dev/null 2>&1; then
@@ -41,14 +41,11 @@ pwdd(){
 }
 
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/mini_mapa.txt" "$dirto" 2>/dev/null
-  mv "$dirfrom" "$dirto" 2>/dev/null
-  echo "true" > $engine_out/2/loaded.txt
+  mv "$dirfrom/atracar_saubara.txt" "$dirto" 2>/dev/null
+  echo "true" > $engine_out/3/loaded.txt
   clear
   pwdd
 else
   clear
-  echo "
-  Fase já foi iniciada. Use ls para ver novos arquivos em room_02
-  "
+  echo "Fase já foi iniciada. Use o comando "ls" para ver o novo arquivo que foi criado em room_03!"
 fi

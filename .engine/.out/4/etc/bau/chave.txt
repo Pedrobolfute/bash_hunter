@@ -2,18 +2,12 @@
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-Bem vindo, Jogador Marujo!
-Aqui você vai precisar usar bem os comandos grep, | e wc.
 
-Após carrecar a sala siga as instruções.
-
-Para conseguir avançar, decifre o código dos marinheiros
-para ter acesso a chave que leva ao próximo room.
-
-Boa sorte,
+A chave para abrir esse mapa é a 
+peça do mapa anterior. (MAPA 3/5)
+que está no diretório "/"
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
+

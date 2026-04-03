@@ -4,14 +4,20 @@
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
                        
 Bem vindo, Jogador Marujo!
-Aqui você vai precisar usar bem os comandos grep, | e wc.
 
-Após carrecar a sala siga as instruções.
+Aqui você vai precisar usar bem o comando "find".
+Você pode ate combinar os comandos (cat, |, grep)
+junto com o "find". Tudo vai depender da sua
+criatividade para resolver o problema ou sair de uma
+situação PERIGOSA.
 
-Para conseguir avançar, decifre o código dos marinheiros
-para ter acesso a chave que leva ao próximo room.
+Após carregar a sala, siga as instruções.
 
-Boa sorte,
+Para conseguir sair dessa situação desesperadora,
+procure sair da Baia de Todos os Santos. Vá de
+encontro ao oceano atlantico, Marujo!
+
+Boa viagem,
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
