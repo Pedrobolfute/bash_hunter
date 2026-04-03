@@ -77,7 +77,7 @@ Siga o arquivo de instruções.
     "
 else
   if [[ -d "$dirfrom" ]]; then
-    echo "$sub" | sudo -S source "$dirfrom/atravessar"
+    source "$dirfrom/atravessar"
     echo "cabei execultar source"
     echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
     echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
