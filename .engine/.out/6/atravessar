@@ -7,7 +7,9 @@ func_i(){
 func_j(){
     echo $((RANDOM % 10))
 }
-
+i=0
+j=0
+destino=""
 while true; do
     i=$(func_i)
     j=$(func_j)
