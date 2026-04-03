@@ -38,12 +38,22 @@ pwdd_02(){
                        
 "
 
+  local next="
+  Acesso liberado para o room_03, volte umas
+  pastas e vá para o próximo nível (room_03).
+  Use a senha desse room_02 para abrir room_03.
+
+  "
+
+
   if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BASH HUNTER ⚓" --msgbox "$mensagem $sss. \n Use o comando "ls" para converir o novo caminho que se abriu." 25 80
+    whiptail --title "🏴‍☠️ BASH HUNTER ⚓" --msgbox "$mensagem $next $sss $mensagem." 25 80
   else
-    echo -e "\n$mensagem $sss\n  Use o comando "ls" para converir o novo caminho que se abriu."
+    echo -e "$mensagem $next $sss $mensagem."
   fi
 }
 
+clear
 pwdd_02
 echo $sss
+echo "Vá para room_03!"

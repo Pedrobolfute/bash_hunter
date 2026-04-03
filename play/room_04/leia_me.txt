@@ -1,1 +1,21 @@
-...
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       
+Bem vindo ao room_04, aqui você vai precisar montar 
+um quebra cabeça de palavras até formar uma pergunta.
+
+Após carregar essa fase, você vai precisar procurar 
+05 mapas espalhados em toda BAÍA DE TODOS OS SANTOS. 
+A reposta desse pergunta é a chave para o próximo
+room.
+
+Use o comando "map", para saber aonde estão escondidos os mapas.
+
+Dica: Use caneta e papel para ir salvando as informações
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       

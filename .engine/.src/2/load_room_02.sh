@@ -44,7 +44,11 @@ if [[ -d "$dirfrom" ]]; then
   mv "$dirfrom/mini_mapa.txt" "$dirto" 2>/dev/null
   mv "$dirfrom" "$dirto" 2>/dev/null
   echo "true" > $engine_out/2/loaded.txt
+  clear
   pwdd
 else
-  echo "Fase já foi iniciada. Use ls para ver novos arquivos em room_02"
+  clear
+  echo "
+  Fase já foi iniciada. Use ls para ver novos arquivos em room_02
+  "
 fi

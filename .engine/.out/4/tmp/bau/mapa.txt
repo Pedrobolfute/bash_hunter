@@ -1,0 +1,24 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+# /tmp 
+    - diretório de arquivos temporários
+
+# chave:
+    - MAPA 2/5 -> ( nome )
+
+# Curiosidade: 
+    - você pode chegar de duas formas.
+        1° Caminho relativo (um passo de cada vez):
+            cd /
+            cd tmp
+            cd bau
+        2° Caminho absoluto:
+            cd /tmp/bau
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
