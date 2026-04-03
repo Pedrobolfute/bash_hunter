@@ -42,11 +42,7 @@ Bem vindo, Jogador Marujo!
 
 Aqui você vai precisar usar bem o comando /"find/".
 Você pode ate combinar os comandos (cat, |, grep)
-junto com o /"find/". Tudo vai depender da sua
-criatividade para resolver o problema ou sair de uma
-situação PERIGOSA.
-
-Após carregar a sala, siga as instruções.
+junto com o /"find/" para sair dessa siatuação...
 
 Para conseguir sair dessa situação desesperadora,
 procure sair da Baia de Todos os Santos. Vá de
