@@ -5,7 +5,7 @@ func_i(){
 }
 
 func_j(){
-    echo $((RANDOM % 100))
+    echo $((RANDOM % 10))
 }
 
 while true; do
