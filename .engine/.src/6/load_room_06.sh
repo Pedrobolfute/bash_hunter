@@ -42,11 +42,7 @@ Bem vindo, Jogador Marujo!
 
 Aqui você vai precisar usar bem o comando /"find/".
 Você pode ate combinar os comandos (cat, |, grep)
-junto com o /"find/". Tudo vai depender da sua
-criatividade para resolver o problema ou sair de uma
-situação PERIGOSA.
-
-Após carregar a sala, siga as instruções.
+junto com o /"find/" para sair dessa siatuação...
 
 Para conseguir sair dessa situação desesperadora,
 procure sair da Baia de Todos os Santos. Vá de
@@ -63,7 +59,7 @@ Boa viagem,
   fi
 }
 
-if [ -e "$engine_out/5/loaded.txt" ]; then
+if [ -e "$engine_out/6/loaded.txt" ]; then
   clear
   echo "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
@@ -81,12 +77,12 @@ Siga o arquivo de instruções.
     "
 else
   if [[ -d "$dirfrom" ]]; then
-    source "$dirfrom/atravessar" $dirto 2>/dev/null
-    mv "$dirfrom/find.txt" $dirto 2>/dev/null
-    mv "$dirfrom/instrução" $dirto 2>/dev/null
-    mv "$dirfrom/tempestade" $dirto 2>/dev/null
+    source "$dirfrom/atravessar"
+    echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/tempestade/" $dirto 2>/dev/null
 
-    echo "true" > $engine_out/6/loaded.txt
+    echo "$sub" | sudo -S echo "true" > $engine_out/6/loaded.txt
     clear 
     pwdd
   else

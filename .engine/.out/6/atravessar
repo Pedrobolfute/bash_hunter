@@ -5,9 +5,11 @@ func_i(){
 }
 
 func_j(){
-    echo $((RANDOM % 100))
+    echo $((RANDOM % 10))
 }
-
+i=0
+j=0
+destino=""
 while true; do
     i=$(func_i)
     j=$(func_j)
@@ -19,8 +21,8 @@ while true; do
     fi
 done
 
-if [ -f "$my_base_dir/.engine/.out/6/saida" ]; then
-    mv $my_base_dir/.engine/.out/6/saida "$destino"
+if [ -e "$my_base_dir/.engine/.out/6/saidA" ]; then
+    mv $my_base_dir/.engine/.out/6/saidA "$destino"
 else
     echo "A saida não é por aqui, enfrente a tempestade e procure."
 fi
