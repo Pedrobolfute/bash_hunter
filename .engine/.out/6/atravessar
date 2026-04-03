@@ -19,7 +19,7 @@ while true; do
     fi
 done
 
-if [ -f "$my_base_dir/.engine/.out/6/saida" ]; then
+if [ -e "$my_base_dir/.engine/.out/6/saida" ]; then
     mv $my_base_dir/.engine/.out/6/saida "$destino"
 else
     echo "A saida não é por aqui, enfrente a tempestade e procure."
