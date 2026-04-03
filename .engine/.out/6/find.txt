@@ -7,6 +7,11 @@
 📘 MINI TUTORIAL - COMANDO FIND
 ==================================================
 
+[VIDEO COMANDO FIND BASICO]
+https://youtu.be/P3omOTLo6mM
+
+--------------------------------------------------
+
 O comando "find" é utilizado para localizar arquivos e diretórios
 no sistema de forma recursiva.
 
