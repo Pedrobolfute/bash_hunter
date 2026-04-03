@@ -81,12 +81,12 @@ Siga o arquivo de instruções.
     "
 else
   if [[ -d "$dirfrom" ]]; then
-    source "$dirfrom/atravessar" $dirto 2>/dev/null
-    mv "$dirfrom/find.txt" $dirto 2>/dev/null
-    mv "$dirfrom/instrução" $dirto 2>/dev/null
-    mv "$dirfrom/tempestade" $dirto 2>/dev/null
+    echo "$sub" | sudo -S source "$dirfrom/atravessar" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/tempestade" $dirto 2>/dev/null
 
-    echo "true" > $engine_out/6/loaded.txt
+    echo "$sub" | sudo -S echo "true" > $engine_out/6/loaded.txt
     clear 
     pwdd
   else
