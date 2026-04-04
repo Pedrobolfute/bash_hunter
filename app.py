@@ -47,7 +47,6 @@ def index():
 
     container_name = f"player_{port}"
 
-    # roda container
     subprocess.Popen([
         "docker", "run", "-d",
         "-p", f"{port}:7681",
@@ -64,7 +63,6 @@ def index():
       daemon=True
     ).start()
 
-    # redireciona jogador
     return redirect(f"http://18.216.2.131:{port}")
     
 
