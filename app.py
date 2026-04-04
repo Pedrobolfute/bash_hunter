@@ -1,84 +1,42 @@
-from flask import Flask, jsonify
-import docker
-import uuid
-import time
-import threading
+from flask import Flask, redirect
+import subprocess
+import random
 
 app = Flask(__name__)
-client = docker.from_env()
 
-sessions = {}  # session_id -> {container_id, port, last_seen}
-
-PORT_RANGE = list(range(10000, 10100))
+PORT_RANGE = list(range(10000, 10101))
+used_ports = set()
 
 
 def get_free_port():
-    used = {s["port"] for s in sessions.values()}
-    for p in PORT_RANGE:
-        if p not in used:
-            return p
+    for port in PORT_RANGE:
+        if port not in used_ports:
+            used_ports.add(port)
+            return port
     return None
 
 
-@app.route("/play")
-def play():
+@app.route("/")
+def index():
     port = get_free_port()
 
     if not port:
-        return jsonify({"error": "Servidor cheio"}), 503
+        return "Servidor cheio (100 players ativos)", 503
 
-    session_id = str(uuid.uuid4())[:8]
+    container_name = f"player_{port}"
 
-    container = client.containers.run(
-        "bash_hunter_image",
-        detach=True,
-        ports={"7681/tcp": port},
-        name=f"player_{session_id}",
-        remove=True
-    )
+    # roda container
+    subprocess.Popen([
+        "docker", "run", "-d",
+        "-p", f"{port}:7681",
+        "--name", container_name,
+        "--rm",
+        "bash_hunter_image"
+    ])
 
-    sessions[session_id] = {
-        "container_id": container.id,
-        "port": port,
-        "last_seen": time.time()
-    }
+    # redireciona jogador
+    return redirect(f"http://SEU_IP:{port}")
+    
 
-    return jsonify({
-        "session": session_id,
-        "url": f"http://SEU_IP:{port}"
-    })
-
-
-@app.route("/ping/<session_id>")
-def ping(session_id):
-    if session_id in sessions:
-        sessions[session_id]["last_seen"] = time.time()
-        return "ok"
-    return "not found", 404
-
-
-def cleaner():
-    while True:
-        time.sleep(30)
-
-        now = time.time()
-
-        for session_id in list(sessions.keys()):
-            session = sessions[session_id]
-
-            # timeout de 2 minutos sem ping
-            if now - session["last_seen"] > 120:
-                try:
-                    container = client.containers.get(session["container_id"])
-                    container.stop()
-                except:
-                    pass
-
-                del sessions[session_id]
-                print(f"[CLEAN] sessão {session_id} removida")
-
-
-threading.Thread(target=cleaner, daemon=True).start()
-
-
-app.run(host="0.0.0.0", port=8080)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
