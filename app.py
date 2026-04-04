@@ -60,7 +60,7 @@ def index():
     ).start()
 
     # redireciona jogador
-    return redirect(f"http://SEU_IP:{port}")
+    return redirect(f"http://18.216.2.131/:{port}")
     
 
 if __name__ == "__main__":
