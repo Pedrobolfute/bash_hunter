@@ -81,13 +81,10 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
 # 6. Permissões de escrita para as pastas de jogo do aluno
 RUN chown -R jogador:jogador /home/jogador/bash_hunter/play
 
-#7. passwd
 RUN echo "jogador:arise" | chpasswd && \
   adduser jogador sudo
 
-# 8. Configuração Final
 USER jogador
 EXPOSE 7681
 
-# -o: encerra o container ao desconectar (reset total para o aluno)
 CMD ["ttyd", "-o", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"]
