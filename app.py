@@ -22,7 +22,7 @@ def get_free_port():
     return None
 
 def monitor_container(container_id, port, session_id):
-    time.sleep(2)
+    time.sleep(5)
     while True:
         # Verifica se o ID específico ainda está rodando
         result = subprocess.run(
@@ -36,7 +36,7 @@ def monitor_container(container_id, port, session_id):
             sessions.pop(session_id, None)
             print(f"[FREE] Porta {port} liberada (Sessão: {session_id})")
             break
-        time.sleep(3)
+        time.sleep(5)
 
 @app.route("/")
 def index():
@@ -48,10 +48,9 @@ def index():
     session_id = uuid.uuid4().hex[:8]
 
     container_name = f"player_{session_id}"
-    sessions[session_id] = port
 
     subprocess.run(
-        ["docker", "rm", "-f", f"player_{session_id}"],
+        ["docker", "rm", "-f", container_name],
         stderr=subprocess.DEVNULL
     )
     
@@ -65,11 +64,18 @@ def index():
         "--cpus=0.5",
         "bash_hunter_image",
         "ttyd", "-o", "-p", "7681", "-W", 
-        "-b", f"/play/{session_id}",
+        "-b", f"/play/{session_id}", "bash",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ], capture_output=True, text=True)
     
     container_id = process.stdout.strip()
+    
+    if process.returncode != 0 or not container_id:
+        used_ports.discard(port)
+        print(f"ERRO DOCKER: {process.stderr}")
+        return "Erro ao criar ambiente", 500
+    
+    sessions[session_id] = port
     
     threading.Thread(
       target=monitor_container,
