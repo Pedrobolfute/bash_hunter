@@ -55,7 +55,10 @@ def index():
         "--memory=48m",
         "--memory-swap=64m"
         "--cpus=0.5",
-        "bash_hunter_image"
+        "bash_hunter_image",
+        "ttyd", "-o", "-p", "7681", "-W", 
+        "-b", f"/play/{port}",
+        "/home/jogador/bash_hunter/.engine/init_game.sh"
     ])
     
     threading.Thread(
