@@ -49,7 +49,7 @@ def index():
         "docker", "run", "-d",
         "-p", f"{port}:7681",
         "--name", container_name,
-        # "--rm",
+        "--rm",
         "bash_hunter_image"
     ])
     
