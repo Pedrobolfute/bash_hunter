@@ -1,9 +1,9 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, request, abort, make_response
 from werkzeug.middleware.proxy_fix import ProxyFix
 import subprocess
-import random
 import threading
 import time
+import uuid
 
 app = Flask(__name__)
 
@@ -11,6 +11,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 PORT_RANGE = list(range(10000, 10101))
 used_ports = set()
+sessions = {}
 
 
 def get_free_port():
@@ -20,7 +21,7 @@ def get_free_port():
             return port
     return None
 
-def monitor_container(container_name, port):
+def monitor_container(container_name, port, session_id):
     time.sleep(2)
   
     while True:
@@ -33,7 +34,8 @@ def monitor_container(container_name, port):
         if not result.stdout.strip():
             # container morreu
             used_ports.discard(port)
-            print(f"[FREE] Porta {port} liberada")
+            sessions.pop(session_id, None)
+            print(f"[FREE] Porta {port} liberada (sessão {session_id})")
             break
 
         time.sleep(2)
@@ -44,9 +46,18 @@ def index():
 
     if not port:
         return "Servidor cheio (100 players ativos)", 503
+    
+    session_id = uuid.uuid4().hex[:8]
 
-    container_name = f"player_{port}"
+    container_name = f"player_{session_id}"
+    sessions[session_id] = port
 
+    subprocess.run(
+        ["docker", "rm", "-f", container_name],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
+    )
+    
     subprocess.Popen([
         "docker", "run", "-d",
         "-p", f"{port}:7681",
@@ -57,17 +68,34 @@ def index():
         "--cpus=0.5",
         "bash_hunter_image",
         "ttyd", "-o", "-p", "7681", "-W", 
-        "-b", f"/play/{port}",
+        "-b", f"/play/{session_id}",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ])
     
     threading.Thread(
       target=monitor_container,
-      args=(container_name, port),
+      args=(container_name, port, session_id),
       daemon=True
     ).start()
 
-    return redirect(f"http://18.216.2.131/play/{port}/")
+    # return redirect(f"http://18.216.2.131/play/{session_id}/")
+    return redirect(f"/play/{session_id}/")
+
+  
+@app.route("/play/<session_id>/")
+def play(session_id):
+    port = sessions.get(session_id)
+
+    if not port:
+        return "Sessão inválida ou expirada", 404
+
+    # NÃO redireciona — deixa o NGINX decidir
+    response = make_response("OK")
+
+    # envia a porta como header interno
+    response.headers["X-Container-Port"] = str(port)
+
+    return response
     
 
 if __name__ == "__main__":
