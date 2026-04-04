@@ -1,87 +1,70 @@
+from flask import Flask, redirect
+from werkzeug.middleware.proxy_fix import ProxyFix
 import subprocess
-import time
-import socket
-import secrets
+import random
 import threading
-from flask import Flask, render_template_string
+import time
 
 app = Flask(__name__)
 
-# --- CONFIGURAÇÕES DO AMBIENTE ---
-# IP Público da sua instância AWS no Debian
-PUBLIC_IP = "18.216.2.131" 
-# Intervalo de portas liberado no Security Group da AWS
-PORT_RANGE = range(10000, 10100)
-# Nome da imagem Docker que você buildou na branch stage
-DOCKER_IMAGE = "bash_hunter_image"
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
-def is_port_in_use(port):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        return s.connect_ex(('localhost', port)) == 0
+PORT_RANGE = list(range(10000, 10101))
+used_ports = set()
 
-def find_free_port():
+
+def get_free_port():
     for port in PORT_RANGE:
-        if not is_port_in_use(port):
+        if port not in used_ports:
+            used_ports.add(port)
             return port
     return None
 
-def cleanup_zombies():
-    """Limpa containers que possam ter ficado travados por erro de rede."""
+def monitor_container(container_name, port):
+    time.sleep(2)
+  
     while True:
-        # Remove containers com o prefixo do jogo criados há algum tempo
-        subprocess.run("sudo docker ps -q --filter 'name=bh_' | xargs -r sudo docker stop", shell=True)
-        time.sleep(3600) # Executa a limpeza a cada 1 hora
+        result = subprocess.run(
+            ["docker", "ps", "-q", "-f", f"name={container_name}"],
+            capture_output=True,
+            text=True
+        )
 
-@app.route('/')
+        if not result.stdout.strip():
+            # container morreu
+            used_ports.discard(port)
+            print(f"[FREE] Porta {port} liberada")
+            break
+
+        time.sleep(2)
+
+@app.route("/")
 def index():
-    port = find_free_port()
+    port = get_free_port()
+
     if not port:
-        return "<h1>Servidor Lotado!</h1><p>Não há portas disponíveis no momento.</p>", 503
+        return "Servidor cheio (100 players ativos)", 503
 
-    # Gera um token de acesso único para garantir a privacidade do aluno
-    token = secrets.token_hex(3) 
-    container_name = f"bh_{port}_{token}"
-    
-    # COMANDO DOCKER ATUALIZADO:
-    # -o: ttyd encerra após uma conexão (reset automático ao fechar aba)
-    # -c: exige usuário:senha para evitar 'port jumping' entre alunos
-    docker_cmd = [
-        "sudo", "docker", "run", "-d",
-        "--name", container_name,
+    container_name = f"player_{port}"
+
+    subprocess.Popen([
+        "docker", "run", "-d",
         "-p", f"{port}:7681",
-        "--memory", "128m",  # Proteção de recursos da AWS
-        "--cpus", "0.2",     # Proteção de processamento
-        "--rm",              # Remove o container automaticamente ao parar
-        DOCKER_IMAGE,
-        "ttyd", "-o", "-c", f"jogador:{token}", "-p", "7681", "-W", "/home/jogador/bash_hunter/init_game.sh"
-    ]
+        "--name", container_name,
+        "--rm",
+        "--memory=256m",
+        "--cpus=0.5",
+        "bash_hunter_image"
+    ])
     
-    try:
-        subprocess.run(docker_cmd, check=True)
-        time.sleep(1.5) # Tempo para o ttyd iniciar na AWS
-        
-        # Página de boas-vindas com as credenciais da sala
-        return render_template_string("""
-            <div style="font-family: sans-serif; text-align: center; margin-top: 50px;">
-                <h1>⚓ Bem-vindo ao Bash Hunter! ⚓</h1>
-                <p>Sua sala de treinamento foi preparada.</p>
-                <div style="background: #f4f4f4; border: 1px solid #ccc; display: inline-block; padding: 20px; border-radius: 10px;">
-                    <p><strong>URL de Acesso:</strong> <a href="http://{{ ip }}:{{ port }}" target="_blank">http://{{ ip }}:{{ port }}</a></p>
-                    <p><strong>Usuário:</strong> <code style="font-size: 1.2em;">jogador</code></p>
-                    <p><strong>Token (Senha):</strong> <code style="font-size: 1.5em; color: #d9534f;">{{ token }}</code></p>
-                </div>
-                <p style="color: #666; margin-top: 20px;">
-                    <i>Atenção: Se você fechar a aba ou atualizar a página, seu progresso será perdido e o container destruído.</i>
-                </p>
-            </div>
-        """, ip=PUBLIC_IP, port=port, token=token)
-        
-    except subprocess.CalledProcessError:
-        return "<h1>Erro ao iniciar o container.</h1><p>Verifique os logs do sistema.</p>", 500
+    threading.Thread(
+      target=monitor_container,
+      args=(container_name, port),
+      daemon=True
+    ).start()
 
-if __name__ == '__main__':
-    # Inicia a thread de limpeza em segundo plano
-    threading.Thread(target=cleanup_zombies, daemon=True).start()
+    return redirect(f"http://18.216.2.131:{port}")
     
-    # Roda na porta 80 para facilitar o acesso dos alunos sem precisar digitar porta na URL
-    app.run(host='0.0.0.0', port=80)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
