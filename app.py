@@ -18,7 +18,7 @@ def get_free_port():
     return None
 
 def monitor_container(container_name, port):
-    time.sleep(5)
+    time.sleep(2)
   
     while True:
         result = subprocess.run(

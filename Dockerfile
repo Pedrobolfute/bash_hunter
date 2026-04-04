@@ -93,4 +93,4 @@ EXPOSE 7681
 # -o: encerra o container ao desconectar (reset total para o aluno)
 # -t 1: timeout de 1 segundo para fechamento
 # -p 7681: porta interna do container
-CMD ["ttyd", "-o", "-t", "1", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"]
+CMD ["ttyd", "-o", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"]
