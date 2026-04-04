@@ -30,7 +30,7 @@ def cleanup_zombies():
     while True:
         # Remove containers com o prefixo do jogo criados há algum tempo
         subprocess.run("sudo docker ps -q --filter 'name=bh_' | xargs -r sudo docker stop", shell=True)
-        time.sleep(3600) # Executa a limpeza a cada 1 hora
+        time.sleep(36000) # Executa a limpeza a cada 10 hora
 
 @app.route('/')
 def index():
@@ -64,7 +64,7 @@ def index():
         return render_template_string("""
             <div style="font-family: sans-serif; text-align: center; margin-top: 50px;">
                 <h1>⚓ Bem-vindo ao Bash Hunter! ⚓</h1>
-                <p>Sua sala de treinamento foi preparada.</p>
+                <p>Sua sala de treinamento foi preparada, Pedro.</p>
                 <div style="background: #f4f4f4; border: 1px solid #ccc; display: inline-block; padding: 20px; border-radius: 10px;">
                     <p><strong>URL de Acesso:</strong> <a href="http://{{ ip }}:{{ port }}" target="_blank">http://{{ ip }}:{{ port }}</a></p>
                     <p><strong>Usuário:</strong> <code style="font-size: 1.2em;">jogador</code></p>
