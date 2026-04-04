@@ -21,24 +21,21 @@ def get_free_port():
             return port
     return None
 
-def monitor_container(container_name, port, session_id):
-    time.sleep(2)
-  
+def monitor_container(container_id, port, session_id):
     while True:
+        # Verifica se o ID específico ainda está rodando
         result = subprocess.run(
-            ["docker", "ps", "-q", "-f", f"name={container_name}"],
-            capture_output=True,
-            text=True
-        )
-
-        if not result.stdout.strip():
-            # container morreu
+          ["docker", "inspect", "-f", "{{.State.Running}}", container_id],
+          capture_output=True,
+          text=True
+          )
+        
+        if "true" not in result.stdout.lower():
             used_ports.discard(port)
             sessions.pop(session_id, None)
-            print(f"[FREE] Porta {port} liberada (sessão {session_id})")
+            print(f"[FREE] Porta {port} liberada (Sessão: {session_id})")
             break
-
-        time.sleep(2)
+        time.sleep(3)
 
 @app.route("/")
 def index():
@@ -53,12 +50,11 @@ def index():
     sessions[session_id] = port
 
     subprocess.run(
-        ["docker", "rm", "-f", container_name],
-        stdout=subprocess.DEVNULL,
+        ["docker", "rm", "-f", f"player_{session_id}"],
         stderr=subprocess.DEVNULL
     )
     
-    subprocess.Popen([
+    process = subprocess.run([
         "docker", "run", "-d",
         "-p", f"{port}:7681",
         "--name", container_name,
@@ -70,16 +66,18 @@ def index():
         "ttyd", "-o", "-p", "7681", "-W", 
         "-b", f"/play/{session_id}",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
-    ])
+    ], capture_output=True, text=True)
+    
+    container_id = process.stdout.strip()
     
     threading.Thread(
       target=monitor_container,
-      args=(container_name, port, session_id),
+      args=(container_id, port, session_id),
       daemon=True
     ).start()
 
-    return redirect(f"http://18.216.2.131/play/{session_id}/")
-    # return redirect(f"/play/{session_id}/")
+    # return redirect(f"http://18.216.2.131/play/{session_id}/")
+    return redirect(f"/play/{session_id}/")
 
   
 @app.route("/play/<session_id>/")
@@ -90,7 +88,7 @@ def play(session_id):
         return "Sessão inválida ou expirada", 404
 
     # NÃO redireciona — deixa o NGINX decidir
-    response = make_response("OK")
+    response = make_response("Redirecting to container", 418)
 
     # envia a porta como header interno
     response.headers["X-Container-Port"] = str(port)
