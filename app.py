@@ -53,7 +53,7 @@ def index():
         "--name", container_name,
         "--rm",
         "--memory=48m",
-        "--memory-swap=64m"
+        "--memory-swap=64m",
         "--cpus=0.5",
         "bash_hunter_image",
         "ttyd", "-o", "-p", "7681", "-W", 
