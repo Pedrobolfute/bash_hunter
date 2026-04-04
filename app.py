@@ -50,6 +50,8 @@ def index():
         "-p", f"{port}:7681",
         "--name", container_name,
         "--rm",
+        "--memory=256m",
+        "--cpus=0.5",
         "bash_hunter_image"
     ])
     
