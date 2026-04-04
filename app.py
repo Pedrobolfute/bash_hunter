@@ -22,6 +22,7 @@ def get_free_port():
     return None
 
 def monitor_container(container_id, port, session_id):
+    time.sleep(2)
     while True:
         # Verifica se o ID específico ainda está rodando
         result = subprocess.run(
