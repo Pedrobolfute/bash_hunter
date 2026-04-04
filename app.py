@@ -31,7 +31,7 @@ def monitor_container(container_name, port):
             print(f"[FREE] Porta {port} liberada")
             break
 
-        time.sleep(2)
+        time.sleep(5)
 
 @app.route("/")
 def index():
