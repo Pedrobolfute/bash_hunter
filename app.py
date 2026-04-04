@@ -52,9 +52,13 @@ def index():
         "-p", f"{port}:7681",
         "--name", container_name,
         "--rm",
-        "--memory=256m",
+        "--memory=48m",
+        "--memory-swap=64m",
         "--cpus=0.5",
-        "bash_hunter_image"
+        "bash_hunter_image",
+        "ttyd", "-o", "-p", "7681", "-W", 
+        "-b", f"/play/{port}",
+        "/home/jogador/bash_hunter/.engine/init_game.sh"
     ])
     
     threading.Thread(
@@ -63,7 +67,7 @@ def index():
       daemon=True
     ).start()
 
-    return redirect(f"http://18.216.2.131:{port}")
+    return redirect(f"http://18.216.2.131/play/{port}/")
     
 
 if __name__ == "__main__":
