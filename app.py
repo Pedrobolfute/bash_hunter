@@ -78,8 +78,8 @@ def index():
       daemon=True
     ).start()
 
-    # return redirect(f"http://18.216.2.131/play/{session_id}/")
-    return redirect(f"/play/{session_id}/")
+    return redirect(f"http://18.216.2.131/play/{session_id}/")
+    # return redirect(f"/play/{session_id}/")
 
   
 @app.route("/play/<session_id>/")
