@@ -1,10 +1,13 @@
 from flask import Flask, redirect
+from werkzeug.middleware.proxy_fix import ProxyFix
 import subprocess
 import random
 import threading
 import time
 
 app = Flask(__name__)
+
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 PORT_RANGE = list(range(10000, 10101))
 used_ports = set()
