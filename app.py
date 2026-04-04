@@ -18,6 +18,8 @@ def get_free_port():
     return None
 
 def monitor_container(container_name, port):
+    time.sleep(5)
+  
     while True:
         result = subprocess.run(
             ["docker", "ps", "-q", "-f", f"name={container_name}"],
@@ -31,7 +33,7 @@ def monitor_container(container_name, port):
             print(f"[FREE] Porta {port} liberada")
             break
 
-        time.sleep(5)
+        time.sleep(2)
 
 @app.route("/")
 def index():
