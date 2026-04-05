@@ -1,37 +1,77 @@
-## COMANDOS PARA NAVEGAR
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-Para entrar dentro de uma pasta, use o comando **cd**
-> cd nome_da_pasta
-[comando cd](https://youtu.be/Soa5VwW09-w)
+=== MISSÃO: APRENDER A NAVEGAR ===
 
----
+Você está dentro do sistema.
+Agora precisa aprender a se mover!
 
-Para sair de dentro de uma pasta (voltar), use o comando **cd ..**
-> cd ..
-[comando cd..](https://youtu.be/LfHKCZVD1Vk)
 
----
+[1] ENTRAR EM UMA PASTA
 
-Para ver os arquivos que está dentro da pasta, use o comando **ls**
-> ls
-[comando ls](https://youtu.be/PxYCr1UuI9M)
+Digite:
+cd nome_da_pasta
 
----
+Saiba mais:
+https://youtu.be/Soa5VwW09-w
 
-Para ver em qual pasta você está, use o comando **pwd**
-> pwd
-[comando pwd](https://youtu.be/vXOXg9eBC-w)
 
----
+[2] VOLTAR UMA PASTA
 
-Para ver o conteudo dentro de um arquivo de texto .txt, use o comando **cat**
-> cat arquivo_de_texto.txt
-[comando cat](https://youtu.be/0KB3nRkfRxw)
+Digite:
+cd ..
 
----
+Saiba mais:
+https://youtu.be/LfHKCZVD1Vk
 
-Para carregar scripts (.sh), use o comando **source**
-> source arquivo.sh
-[comando source](https://youtu.be/P7qs23fMN2A)
 
----
+[3] VER OS ARQUIVOS
+
+Digite:
+ls
+
+Saiba mais:
+https://youtu.be/PxYCr1UuI9M
+
+
+[4] DESCOBRIR ONDE VOCÊ ESTÁ
+
+Digite:
+pwd
+
+Saiba mais:
+https://youtu.be/vXOXg9eBC-w
+
+
+[5] LER UM ARQUIVO
+
+Digite:
+cat arquivo.txt
+
+Saiba mais:
+https://youtu.be/0KB3nRkfRxw
+
+
+[6] ATIVAR UM SCRIPT
+
+Digite:
+source arquivo.sh
+
+Saiba mais:
+https://youtu.be/P7qs23fMN2A
+
+
+=== DESAFIO ===
+
+Teste cada comando acima.
+Explore as pastas e descubra o que existe nelas!
+
+Dica:
+Errou? Tente de novo. Faz parte da missão!
+
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+

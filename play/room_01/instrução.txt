@@ -1,0 +1,35 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+=== NOVA MISSÃO ===
+
+O mar guarda a resposta...
+
+Para chegar na próxima fase (room_02),
+você precisa ativar o cenário atual.
+
+
+COMO FAZER:
+
+Digite o comando abaixo:
+
+source carregar_cenario_01.sh
+
+
+=== DICA ===
+
+Se algo não acontecer,
+verifique se você digitou tudo certo.
+
+
+=== OBJETIVO ===
+
+Descubra o que está escondido no mar
+e avance para a próxima fase!
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
