@@ -5,14 +5,11 @@
 
 
 === BEM-VINDO, VIAJANTE ===
-Você chegou à ilha de Madre de Deus
-e seguiu viegem para ilha visinha, saubara.
-
-Vocẽ foi recebido em Saubara.
+Você chegou à ilha de Saubara
+Somos visinhos à Madre de Deus.
 
 Aqui, o mar é calmo.
 Mas o conhecimento é profundo.
-
 
 A comunidade local vai te ensinar:
 
