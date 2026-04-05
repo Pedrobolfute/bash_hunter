@@ -58,7 +58,7 @@ pwdd(){
   fi
 }
 
-if [[ -d "$dirfrom" ]]; then
+if [[ ! -e "$engine_out/3/loaded.txt" ]]; then
   mv "$dirfrom/atracar_saubara.txt" "$dirto" 2>/dev/null
   echo "true" > $engine_out/3/loaded.txt
   clear
