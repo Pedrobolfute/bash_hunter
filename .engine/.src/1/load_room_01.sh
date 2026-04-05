@@ -18,7 +18,7 @@ original_bash=$(head -n "$original_bash_line" "$HOME/.bashrc")
 echo -e "\n###BASH_HUNTER AREA###" >> $HOME/.bashrc
 echo -e "my_base_dir=\"$my_base_dir\"" >> $HOME/.bashrc
 echo -e "engine_out=\"$my_base_dir/.engine/.out\"" >> $HOME/.bashrc
-echo -e "engine_src=\"$engine_src/.engine/.src\"" >> $HOME/.bashrc
+echo -e "engine_src=\"$my_base_dir/.engine/.src\"" >> $HOME/.bashrc
 echo -e "play_dir=\"$my_base_dir/play\"" >> $HOME/.bashrc
 
 cat <<'EOF' >> $HOME/.bashrc
