@@ -1,6 +1,7 @@
 
+# MAPA DA BAIA DE TODOS OS SANTOS - BAHIA
 
-Você está saindo do terminal nautico de Salvador e indo para Ilha Madre de Deus.
+Você está saindo do Terminal Nautico de Salvador e indo para Ilha Madre de Deus.
 Você está no Ponto (X1) Siga os pontos cardinais (X) da viegem até o ponto (X2).
 
 *********=**********-=****=**********************-=***:=**********=---= -:-****#:-
