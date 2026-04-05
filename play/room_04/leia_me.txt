@@ -2,20 +2,39 @@
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-Bem vindo ao room_04, aqui você vai precisar montar 
-um quebra cabeça de palavras até formar uma pergunta.
 
-Após carregar essa fase, você vai precisar procurar 
-05 mapas espalhados em toda BAÍA DE TODOS OS SANTOS. 
-A reposta desse pergunta é a chave para o próximo
-room.
+=== BEM-VINDO À FASE 04 (room_04) ===
+Prepare-se, marujo...
+Agora é hora de resolver um desafio!
 
-Use o comando "map", para saber aonde estão escondidos os mapas.
+=== O DESAFIO ===
+Você precisa montar um quebra-cabeça
+de palavras até formar uma pergunta.
 
-Dica: Use caneta e papel para ir salvando as informações
+A resposta será a chave
+para o próximo room.
+
+=== SUA MISSÃO ===
+Procure 5 mapas escondidos
+pela Baía de Todos os Santos.
+
+=== COMO FAZER ===
+Use o comando:
+map
+
+Ele vai te mostrar
+onde os mapas estão.
+
+=== DICA ===
+Anote tudo que encontrar.
+Use papel ou bloco de notas.
+
+=== OBJETIVO ===
+Junte as palavras,
+forme a pergunta
+e descubra a resposta!
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
+
