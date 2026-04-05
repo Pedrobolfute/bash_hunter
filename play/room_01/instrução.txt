@@ -8,26 +8,72 @@
 O mar guarda a resposta...
 
 Para chegar na próxima fase (room_02),
-você precisa ativar o cenário atual.
+você precisa navegar até o mar.
 
 
-COMO FAZER:
+=== COMO FUNCIONA ===
 
-Digite o comando abaixo:
+Pastas (diretórios):
+geralmente aparecem em azul
 
-source carregar_cenario_01.sh
+Arquivos de texto:
+terminam com .txt
+
+
+=== COMANDOS ===
+
+[1] ENTRAR EM UMA PASTA
+
+Digite:
+cd nome_da_pasta
+
+Saiba mais:
+https://youtu.be/Soa5VwW09-w
+
+
+[2] VOLTAR UMA PASTA
+
+Digite:
+cd ..
+
+Saiba mais:
+https://youtu.be/LfHKCZVD1Vk
+
+
+[3] VER O QUE TEM NA PASTA
+
+Digite:
+ls
+
+Saiba mais:
+https://youtu.be/PxYCr1UuI9M
+
+
+[4] LER UM ARQUIVO DE TEXTO
+
+Digite:
+cat arquivo.txt
+
+Saiba mais:
+https://youtu.be/0KB3nRkfRxw
 
 
 === DICA ===
 
-Se algo não acontecer,
-verifique se você digitou tudo certo.
+Use o comando "ls" para ver
+para onde você pode ir.
 
+Use "cat" para ler pistas
+dentro dos arquivos.
+
+Confira o arquivo z_help.txt,
+para mais informações.
 
 === OBJETIVO ===
 
-Descubra o que está escondido no mar
-e avance para a próxima fase!
+Encontre o caminho até o mar
+e descubra o que está escondido lá!
+
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
