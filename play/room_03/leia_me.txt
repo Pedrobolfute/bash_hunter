@@ -2,25 +2,41 @@
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-Seja bem-vindo, viajante da ilha de Madre de Deus!
 
-É uma honra recebê-lo em nossa querida Saubara.
-Terra de mar calmo, tradição e coragem, onde os 
-saberes da navegação são passados de geração em geração.
 
-Aqui, junto à Marujada e à comunidade pesqueira, 
-você aprenderá as artimanhas do mar, os segredos 
-dos ventos e a força de quem vive das águas.
+=== BEM-VINDO, VIAJANTE ===
+Você chegou à ilha de Madre de Deus
+e seguiu viegem para ilha visinha, saubara.
 
-Prepare-se: sua jornada está apenas começando. ⚓🌊
+Vocẽ foi recebido em Saubara.
 
-Aprenda com a marujada algumas tecnicas de navegação.
-Carregue a sala room_03 com o comando abaixo:
+Aqui, o mar é calmo.
+Mas o conhecimento é profundo.
 
-> source carregar_cenario_03.sh
+
+A comunidade local vai te ensinar:
+
+- Como navegar melhor
+- Como entender o vento
+- Como viver do mar
+
+
+=== PREPARE-SE ===
+Sua jornada está só começando...
+
+
+=== PRÓXIMO PASSO ===
+Para continuar, digite:
+
+source carregar_cenario_03.sh "senha_do_room_02"
+
+
+=== MISSÃO ===
+Aprenda com a marujada
+e avance para a próxima fase!
+
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
+
