@@ -1,15 +1,37 @@
-Bem vindo ao TERMINAL MARÍTIMO DE MADRE DE DEUS!
 
-Por mais Dificultoso que possa ter chegado até aqui,
-você ganhou experiência em navegação usando os principais
-comandos para navegar no termianl.
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+=== TERMINAL MARÍTIMO DE MADRE DE DEUS ===
+Bem-vindo, marujo!
+
+Você chegou até aqui.
+E isso não foi fácil...
+
+=== O QUE VOCÊ APRENDEU ===
+Você já sabe usar:
 
 - cd
 - cd ..
 - ls
 - cat
 
-Carregue sua Senha e as próximas instruções e vá para 
-próxima jornada aprender mais comando com os pescadores.
 
-Carregar senha: source minha_senha.sh
+=== PRÓXIMO PASSO ===
+Agora, carregue sua senha
+e veja as próximas instruções.
+
+Digite:
+source minha_senha.sh
+
+
+=== MISSÃO ===
+Siga para a próxima jornada
+e aprenda novos comandos
+com os pescadores!
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
