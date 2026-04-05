@@ -67,7 +67,7 @@ def index():
       daemon=True
     ).start()
 
-    return redirect(f"http://18.216.2.131/play/{port}/")
+    return redirect(f"http://191.252.220.242/play/{port}/")
     
 
 if __name__ == "__main__":
