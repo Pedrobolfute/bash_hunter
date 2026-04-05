@@ -4,119 +4,103 @@
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
 ==================================================
-📘 MINI TUTORIAL - COMANDO FIND
+📘 MINI TUTORIAL - FIND
 ==================================================
 
-[VIDEO COMANDO FIND BASICO]
+O comando "find" serve para
+procurar arquivos e pastas.
+
+
+🎥 Vídeo básico:
 https://youtu.be/P3omOTLo6mM
 
---------------------------------------------------
-
-O comando "find" é utilizado para localizar arquivos e diretórios
-no sistema de forma recursiva.
-
-[ESTRUTURA BÁSICA]
-
-$ find [CAMINHO] [OPÇÕES] [CRITÉRIO]
 
 --------------------------------------------------
-🔎 EXEMPLOS PRÁTICOS
+🔎 COMO USAR
 --------------------------------------------------
 
-1. Buscar um arquivo pelo nome:
+find caminho opção nome
 
-$ find /home -name "arquivo.txt"
+Exemplo:
+find /home -name "arquivo.txt"
 
-→ Procura "arquivo.txt" dentro de /home
-
---------------------------------------------------
-
-2. Buscar ignorando maiúsculas/minúsculas:
-
-$ find /home -iname "arquivo.txt"
 
 --------------------------------------------------
-
-3. Buscar apenas diretórios:
-
-$ find / -type d
-
+🔎 EXEMPLOS
 --------------------------------------------------
 
-4. Buscar apenas arquivos:
+[1] Buscar arquivo pelo nome:
 
-$ find / -type f
+find /home -name "arquivo.txt"
 
---------------------------------------------------
 
-5. Evitar erros de permissão:
+[2] Ignorar maiúsculas/minúsculas:
 
-$ find / -name "arquivo.txt" 2>/dev/null
+find /home -iname "arquivo.txt"
+
+
+[3] Buscar só pastas:
+
+find / -type d
+
+
+[4] Buscar só arquivos:
+
+find / -type f
+
+
+[5] Evitar erros:
+
+find / -name "arquivo.txt" 2>/dev/null
+
 
 ==================================================
-📘 FIND + GREP (FILTRAGEM AVANÇADA)
+📘 FIND + GREP
 ==================================================
 
-O "grep" é usado para filtrar resultados com base em padrões.
+Use "grep" para filtrar resultados.
 
-Quando combinado com "find", permite buscas mais refinadas.
 
-[ESTRUTURA]
+Exemplo:
 
-$ find [CAMINHO] | grep [FILTRO]
+find / | grep "config"
 
---------------------------------------------------
-🔎 EXEMPLOS PRÁTICOS
---------------------------------------------------
+→ Mostra só o que tem "config"
 
-1. Buscar e filtrar por nome:
 
-$ find / | grep "config"
+Outros exemplos:
 
-→ Retorna apenas resultados que contenham "config"
+find / | grep "\.log$"
 
---------------------------------------------------
+find /home | grep "/Documentos/"
 
-2. Filtrar extensões específicas:
+find / | grep -i "senha"
 
-$ find / | grep "\.log$"
-
-→ Mostra apenas arquivos .log
 
 --------------------------------------------------
-
-3. Buscar arquivos e filtrar por diretório:
-
-$ find /home | grep "/Documentos/"
-
---------------------------------------------------
-
-4. Combinar com ignore case:
-
-$ find / | grep -i "senha"
-
---------------------------------------------------
-
 ⚠️ IMPORTANTE
+--------------------------------------------------
 
-- "find" faz a busca no sistema
-- "grep" filtra o resultado
-- Use "2>/dev/null" para evitar poluição visual
-- Sempre use "/" com cuidado (pode ser lento)
+- find → procura
+- grep → filtra
+- "/" pode ser lento
+- use com cuidado
+
 
 ==================================================
-📘 DICA DE OPERADOR
+📘 DICA
 ==================================================
 
-Prefira usar filtros direto no "find" quando possível:
+Prefira usar o find direto:
 
 ✔ Melhor:
-$ find / -name "*.log"
+find / -name "*.log"
 
-✖ Evitar:
-$ find / | grep ".log"
+✖ Evite:
+find / | grep ".log"
 
-Motivo: mais rápido e eficiente.
+(melhor desempenho)
+
 
 ==================================================
 

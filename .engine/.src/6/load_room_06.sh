@@ -40,9 +40,9 @@ Sala (room_06) carregada.
 
 Bem vindo, Jogador Marujo!
 
-Aqui você vai precisar usar bem o comando /"find/".
+Aqui você vai precisar usar bem o comando \"find\".
 Você pode ate combinar os comandos (cat, |, grep)
-junto com o /"find/" para sair dessa siatuação...
+junto com o \"find\" para sair dessa siatuação...
 
 Para conseguir sair dessa situação desesperadora,
 procure sair da Baia de Todos os Santos. Vá de
@@ -67,7 +67,6 @@ if [ -e "$engine_out/6/loaded.txt" ]; then
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
 Fase já foi iniciada. 
-  
 Siga o arquivo de instruções.
     
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
@@ -79,7 +78,7 @@ else
   if [[ -d "$dirfrom" ]]; then
     source "$dirfrom/atravessar"
     echo "$sub" | sudo -S mv "$dirfrom/find.txt" $dirto 2>/dev/null
-    echo "$sub" | sudo -S mv "$dirfrom/instrução" $dirto 2>/dev/null
+    echo "$sub" | sudo -S mv "$dirfrom/instrução.txt" $dirto 2>/dev/null
     echo "$sub" | sudo -S mv "$dirfrom/tempestade/" $dirto 2>/dev/null
 
     echo "$sub" | sudo -S echo "true" > $engine_out/6/loaded.txt
