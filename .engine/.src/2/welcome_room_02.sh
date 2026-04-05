@@ -18,12 +18,19 @@ welcome(){
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
                        
 
-🪶 Bem vindo a fase 02 (room_02)!
+🪶 BEM-VINDO À FASE 02 (room_02)
 
-Marujo, parece fácil navegar, mas você ainda nem
-chegou ao mar aberto. Dentro da BAIA DE TODOS OS
-SANTOS você tem que aprender a navegar direito e 
-usar alguns recursos do barco.
+Marujo...
+
+Navegar parece fácil,
+mas você ainda não chegou ao mar aberto.
+
+Você está na Baía de Todos os Santos.
+
+Aqui é o lugar para treinar.
+
+Aprenda a navegar melhor
+e a usar os recursos do seu barco.
 
 "
 
@@ -43,16 +50,29 @@ echo -e "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       "
 
-echo "Use o comando \"cd NOME_DA_PASTA\" para entrar em pastas"
-echo "Use o comando \"cd ..\" para voltar uma pasta atrás"
-echo "Use o comando \"pwd\" para ver a pasta que você está"
-echo "Use o comando \"ls\" para ver as pastas e arquivos "
-echo "Use o comando \"cat NOME_DO_ARQUIVO_DE_TEXTO\" para ver conteúdo de um arquivo."
-echo "Use o comando \"source ARQUIVO.sh\" para carregar funcionalidades em arquivos \".sh\". Mas use-o com cuidado!"
+=== GUIA RÁPIDO ===
 
-echo -e "
+Use estes comandos para explorar o sistema:
+
+[1] ENTRAR EM UMA PASTA
+cd nome_da_pasta
+
+[2] VOLTAR UMA PASTA
+cd ..
+
+[3] VER ONDE VOCÊ ESTÁ
+pwd
+
+[4] VER ARQUIVOS E PASTAS
+ls
+
+[5] LER UM ARQUIVO
+cat arquivo.txt
+
+[6] ATIVAR UM SCRIPT
+source arquivo.sh
+
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
