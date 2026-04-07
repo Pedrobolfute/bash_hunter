@@ -56,7 +56,7 @@ def index():
         "--memory-swap=64m",
         "--cpus=0.5",
         "bash_hunter_image",
-        "timeout", "1m",
+        "timeout", "120m",
         "ttyd", "-o", "-p", "7681", "-W", 
         "-b", f"/play/{port}",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
