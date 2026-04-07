@@ -33,7 +33,7 @@ def monitor_container(container_name, port):
         if not result.stdout.strip():
             # container morreu
             used_ports.discard(port)
-            print(f"[FREE] Porta {port} liberada")
+            print(f"[FREE] Porta {port} liberada", flush=True)
             break
 
         time.sleep(2)
