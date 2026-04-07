@@ -19,6 +19,21 @@ def get_free_port():
             used_ports.add(port)
             return port
     return None
+  
+import socket
+import time
+
+def wait_for_port(port, timeout=10):
+    start = time.time()
+    
+    while time.time() - start < timeout:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            result = sock.connect_ex(("127.0.0.1", port))
+            if result == 0:
+                return True
+        time.sleep(0.2)
+    
+    return False
 
 def monitor_container(container_name, port):
     time.sleep(2)
@@ -68,8 +83,10 @@ def index():
       daemon=True
     ).start()
 
+    if not wait_for_port(port):
+        return "Erro ao iniciar sessão", 500
+
     return redirect(f"http://18.216.2.131/play/{port}/")
-    
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
