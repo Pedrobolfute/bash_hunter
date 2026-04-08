@@ -72,7 +72,9 @@ def index():
         "--cpus=0.5",
         "bash_hunter_image",
         "timeout", "120m",
-        "ttyd", "-o", "-p", "7681", "-W", 
+        "ttyd", "-o", "-p", "7681", "-W",
+        "--font-family", "monospace",
+        "--font-size", "18", 
         "-b", f"/play/{port}",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ])
