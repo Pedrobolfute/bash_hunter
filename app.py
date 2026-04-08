@@ -1,11 +1,9 @@
 from flask import Flask, redirect
 from werkzeug.middleware.proxy_fix import ProxyFix
 import subprocess
-import random
 import threading
 import time
 import socket
-import re
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
@@ -86,7 +84,7 @@ def index():
     ]
     
     try:
-      subprocess.Popen(cmd, check=True)
+      subprocess.Popen(cmd)
 
       threading.Thread(
         target=monitor_container,
@@ -98,12 +96,15 @@ def index():
         return redirect(f"http://bashhunter.com.br/play/{port}/")
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
-        return "Erro: O Container iniciou mas o serviço não respondeu.", 500
-    
-    except subprocess.CalledProcessError:
+        with ports_lock:
+          used_ports.discard(port)
+        return "Erro ao criar container (Porta possivelmente presa no Docker)", 500
+    except Exception as e:
       with ports_lock:
         used_ports.discard(port)
-      return "Erro ao criar container (Porta possivelmente presa no Docker)", 500
+
+    print(f"[ERRO] {e}", flush=True)
+    return "Erro interno ao iniciar container", 500
 
 if __name__ == "__main__":
   sync_ports_with_docker()
