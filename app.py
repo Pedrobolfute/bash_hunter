@@ -86,7 +86,7 @@ def index():
     if not wait_for_port(port):
         return "Erro ao iniciar sessão", 500
 
-    return redirect(f"http://18.216.2.131/play/{port}/")
+    return redirect(f"http://bashhunter.com.br/play/{port}/")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
