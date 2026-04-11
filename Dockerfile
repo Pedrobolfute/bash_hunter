@@ -41,6 +41,8 @@ RUN apt-get update && apt-get install -y \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
+RUN echo "Defaults timestamp_timeout=0" > /etc/sudoers.d/timeout && \
+    chmod 0440 /etc/sudoers.d/timeout
 # 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
 RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen

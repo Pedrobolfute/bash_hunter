@@ -3,33 +3,37 @@
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-=== TERMINAL MARÍTIMO DE MADRE DE DEUS ===
-Bem-vindo, marujo!
+=== PRÓXIMA PARADA ===
+Madre de Deus - BA
 
-Você chegou até aqui.
-E isso não foi fácil...
-
-=== O QUE VOCÊ APRENDEU ===
-Você já sabe usar:
-
-- cd
-- cd ..
-- ls
-- cat
+Prepare-se para continuar a jornada!
 
 
-=== PRÓXIMO PASSO ===
-Agora, carregue sua senha
-e veja as próximas instruções.
+=== COMANDOS DE NAVEGAÇÃO ===
+Entrar em uma pasta:
+cd nome_da_pasta
 
-Digite:
-source minha_senha.sh
+Voltar:
+cd ..
+
+Ver arquivos e pastas:
+ls
+
+Ler um arquivo:
+cat arquivo.txt
 
 
 === MISSÃO ===
-Siga para a próxima jornada
-e aprenda novos comandos
-com os pescadores!
+No room_02,
+vá até o Terminal Marítimo
+de Madre de Deus.
+
+
+=== DICA ===
+Use "ls" para encontrar o caminho
+e "cat" para ler pistas.
+
+Observe o arquivo mapa.txt.
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

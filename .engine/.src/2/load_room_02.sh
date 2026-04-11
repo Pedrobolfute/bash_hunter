@@ -3,19 +3,27 @@
 finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
 
 if [[ "$finished" != "true" ]]; then
-  echo "⚠️ O room_01 precisa ser finalizado antes de prosseguir!"
+  echo "
+    ⚠️ O room_01 precisa ser finalizado antes de prosseguir!
+  "
   return 1
 fi
 
 if [[ -z "$1" ]]; then
-    echo "❌ Nenhuma senha informada. Informe a senha como no Exemplo abaixo:"
-    echo "source carregar_cenario_02.sh \"senha_aqui\""
+    echo "
+      ❌ Nenhuma senha informada. Informe a senha como no Exemplo abaixo:
+      "
+    echo "
+      source carregar_cenario_02.sh \"senha_aqui\"
+      "
     return 1
 fi
 
 correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
-    echo "❌ Senha errada. Você não pode carregar o cenário."
+    echo "
+      ❌ Senha errada. Você não pode carregar o cenário.
+      "
     return 1
 fi
 
@@ -28,9 +36,19 @@ pwdd(){
     ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
     ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-    Sala (room_02) carregada.
+    === SALA CARREGADA ===
+    Você entrou na fase 02 (room_02)!
+    Um novo caminho foi aberto...
 
-    Use o comando "ls" para ver o novo caminho que se abriu!
+    === PRÓXIMO PASSO ===
+    Digite:
+    ls
+
+    Veja o que apareceu
+    e escolha para onde ir.
+
+    === MISSÃO ===
+    Explore o novo caminho!
 "
 
   if command -v whiptail >/dev/null 2>&1; then
@@ -41,7 +59,8 @@ pwdd(){
 }
 
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/mini_mapa.txt" "$dirto" 2>/dev/null
+  mv "$dirfrom/instrução.txt" "$dirto" 2>/dev/null
+  mv "$dirfrom/mapa.txt" "$dirto" 2>/dev/null
   mv "$dirfrom" "$dirto" 2>/dev/null
   echo "true" > $engine_out/2/loaded.txt
   clear
@@ -49,6 +68,20 @@ if [[ -d "$dirfrom" ]]; then
 else
   clear
   echo "
-  Fase já foi iniciada. Use ls para ver novos arquivos em room_02
-  "
+    === FASE JÁ INICIADA ===
+    Você já está na fase 02 (room_02).
+
+
+    === PRÓXIMO PASSO ===
+    Digite:
+    ls
+
+    Veja os novos arquivos
+    e escolha o que fazer.
+
+
+    === DICA ===
+    Sempre use "ls"
+    para descobrir caminhos novos.
+    "
 fi
