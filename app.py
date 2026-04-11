@@ -92,7 +92,7 @@ def index():
       ).start()
 
       if wait_for_port(port):
-        return redirect(f"http://bashhunter.com.br/play/{port}/")
+        return redirect(f"/play/{port}/")
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
         with ports_lock:
