@@ -70,7 +70,7 @@ def index():
       "docker", "run", "-d",
         "-p", f"{port}:7681",
         "--name", container_name,
-        "--rm",
+        # "--rm",
         "--memory=48m",
         "--memory-swap=64m",
         "--cpus=0.5",
