@@ -76,10 +76,9 @@ def index():
         "--cpus=0.5",
         "bash_hunter_image",
         "timeout", "120m",
-        "ttyd", "-i", "0.0.0.0",
-        "-p", "7681", "-W",
+        "ttyd", "-o", "-p", "7681", "-W",
+        "-t", "fontSize=14",
         "-b", f"/play/{port}",
-        # "-+t", "fontSize=14",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
     
@@ -103,8 +102,8 @@ def index():
       with ports_lock:
         used_ports.discard(port)
 
-      print(f"[ERRO] {e}", flush=True)
-      return "Erro interno ao iniciar container", 500
+    print(f"[ERRO] {e}", flush=True)
+    return "Erro interno ao iniciar container", 500
 
 if __name__ == "__main__":
   sync_ports_with_docker()
