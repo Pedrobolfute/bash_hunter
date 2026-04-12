@@ -93,7 +93,7 @@ def index():
       ).start()
 
       if wait_for_port(port):
-        return redirect(f"http://191.252.220.242/play/{port}/")
+        return redirect(f"/play/{port}/")
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
         with ports_lock:
@@ -103,8 +103,8 @@ def index():
       with ports_lock:
         used_ports.discard(port)
 
-    print(f"[ERRO] {e}", flush=True)
-    return "Erro interno ao iniciar container", 500
+      print(f"[ERRO] {e}", flush=True)
+      return "Erro interno ao iniciar container", 500
 
 if __name__ == "__main__":
   sync_ports_with_docker()
