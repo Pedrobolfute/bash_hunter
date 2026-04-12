@@ -78,7 +78,7 @@ def index():
         "timeout", "120m",
         "ttyd", "-i", "0.0.0.0",
         "-p", "7681", "-W",
-        # "-b", f"/play/{port}",
+        "-b", f"/play/{port}",
         # "-+t", "fontSize=14",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
