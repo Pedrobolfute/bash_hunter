@@ -77,8 +77,9 @@ def index():
         "bash_hunter_image",
         "timeout", "120m",
         "ttyd", "-p", "7681", "-W",
-        "-t", "fontSize=14",
+        "i", "0.0.0.0"
         "-b", f"/play/{port}",
+        "-t", "fontSize=14",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
     
