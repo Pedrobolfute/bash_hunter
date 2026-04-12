@@ -93,7 +93,7 @@ def index():
       ).start()
 
       if wait_for_port(port):
-        return redirect(f"/play/{port}/")
+        return redirect(f"http://191.252.220.242:{port}/play/{port}/")
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
         with ports_lock:
