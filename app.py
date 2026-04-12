@@ -76,7 +76,7 @@ def index():
         "--cpus=0.5",
         "bash_hunter_image",
         "timeout", "120m",
-        "ttyd", "i", "0.0.0.0",
+        "ttyd", "-i", "0.0.0.0",
         "-p", "7681", "-W",
         # "-b", f"/play/{port}",
         # "-+t", "fontSize=14",
