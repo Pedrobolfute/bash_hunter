@@ -144,10 +144,13 @@ echo "antes da funcao"
 decr(){
   local in="evmwi"
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+  echo "detro da funcao"
 }
 
-sub=$(decr)
-echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/dev/null
+decr
+
+# sub=$(decr)
+# echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/dev/null
 
 echo "depois da funcao"
 
