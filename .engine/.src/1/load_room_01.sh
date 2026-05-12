@@ -140,14 +140,16 @@ zarpar() {
 
 EOF
 
-echo "fora da funcao"
+echo "antes da funcao"
 decr(){
   local in="evmwi"
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
-  echo "dentro da funcao"
 }
+
 sub=$(decr)
-echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/tmp/error.txt
+echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/dev/null
+
+echo "depois da funcao"
 
   
 source $HOME/.bashrc
