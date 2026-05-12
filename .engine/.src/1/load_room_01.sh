@@ -21,9 +21,11 @@ echo -e "engine_out=\"$my_base_dir/.engine/.out\"" >> $HOME/.bashrc
 echo -e "engine_src=\"$my_base_dir/.engine/.src\"" >> $HOME/.bashrc
 echo -e "play_dir=\"$my_base_dir/play\"" >> $HOME/.bashrc
 
+echo "fora da funcao"
 decr(){
   local in="evmwi"
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+  echo "dentro da funcao"
 }
   sub=$(decr)
   echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/tmp/error.txt
