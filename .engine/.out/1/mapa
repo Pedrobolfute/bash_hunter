@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import os
+
+VERMELHO = "\033[31m"
+RESET = "\033[0m"
+
+atual = os.path.basename(os.getcwd()).lower()
+
+def cor(nome):
+    return VERMELHO + nome + RESET if atual == nome.lower() else nome
+
+mapa = f"""
+                  {cor("senhor_do_bonfim")}
+                        |
+        -----------------------------------------
+        |               |            |          |
+   {cor("andorinha")}   {cor("feira_de_santana")}   {cor("jacobina")}   {cor("juazeiro")}
+                        |
+        -----------------------------------------
+        |               |                |
+   {cor("barreiras")}         {cor("salvador")}   {cor("vitoria_da_conquista")}
+                        |
+        ----------------------------------------
+        |           |                      |
+    {cor("aracaju")}   {cor("porto_seguro")}   {cor("terminal_nautico_de_salvador")}
+                                           |
+                                          {cor("Barcos")}
+                                             |
+                                      -------------
+                                      |           |
+                                  {cor("caravela")}     {cor("canoa")}
+"""
+
+print(mapa)
+
