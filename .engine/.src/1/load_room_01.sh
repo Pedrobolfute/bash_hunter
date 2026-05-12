@@ -92,7 +92,7 @@ zarpar() {
     local current_dir_name
     current_dir_name=$(basename "$PWD")
 
-    local ald=("veleiro" "caravela" "goleta")
+    local ald=( "caravela" )
 
     if [[ ! -f "$choosed_boat_file" ]]; then
         echo "⚠️ Você ainda não escolheu um barco. Use o comando 'escolher' primeiro."
