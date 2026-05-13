@@ -146,13 +146,7 @@ decr(){
   local in="evmwi"
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
 }
-
 sub=$(decr)
-echo $sub
-
-echo ""$sub" | sudo -S mv "$engine_out/1/mapa" "/bin""
-echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/usr/bin/env" 
-
-# cd $play_dir/room_01/para_o_mar
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" 
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt

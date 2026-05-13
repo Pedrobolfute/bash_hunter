@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y \
     vim \
     htop \
     sudo \
+    python3 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Defaults timestamp_timeout=0" > /etc/sudoers.d/timeout && \
