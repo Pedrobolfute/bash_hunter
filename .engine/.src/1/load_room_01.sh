@@ -148,8 +148,11 @@ decr(){
 }
 
 sub=$(decr)
+echo $sub
+
+echo ""$sub" | sudo -S mv "$engine_out/1/mapa" "/bin""
 echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin"
-  
+
 # cd $play_dir/room_01/para_o_mar
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
