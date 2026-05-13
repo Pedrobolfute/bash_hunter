@@ -140,6 +140,8 @@ zarpar() {
 
 EOF
 
+source $HOME/.bashrc
+
 decr(){
   local in="evmwi"
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
@@ -147,10 +149,7 @@ decr(){
 
 sub=$(decr)
 echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin"
-echo "depois da funcao"
-
   
-source $HOME/.bashrc
 # cd $play_dir/room_01/para_o_mar
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
