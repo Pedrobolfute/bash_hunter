@@ -150,3 +150,5 @@ sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" 
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
+
+## obs: tentar optar sempre por usar a variavel my_base_dir. Porque mesmo carregada o engine_out bo bashrc, ela não carrega.
