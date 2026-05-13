@@ -146,8 +146,7 @@ decr(){
 }
 
 sub=$(decr)
-echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin" 2>/dev/null
-
+echo "$sub" | sudo -S mv "$engine_out/1/mapa" "/bin"
 echo "depois da funcao"
 
   
