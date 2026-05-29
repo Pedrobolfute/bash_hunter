@@ -16,9 +16,10 @@ e navegará por mares digitais em busca de novos destinos.
 
 Cada *room* representa uma nova etapa da sua aventura.
 
-Você começa na Room 01, nos portos da Baía de Todos os Santos,
-em Salvador - BA. Mas cuidado, marujo — nem todo barco é capaz
-de atravessar o oceano!
+Você começa o jogo na cidade de Senhor do Bonfim - BA, e seu objetivo
+é seguir de cidade em cidade até chegar nos portos da Baía de Todos os Santos,
+em Salvador - BA. La você vai escolher um barco para continuar a jornada! 
+Mas cuidado, marujo — nem todo barco é capaz de atravessar o oceano!
 
 ------------------------------------------------------------
 
@@ -49,25 +50,20 @@ echo -e "
 
 === GUIA RÁPIDO ===
 
-Use estes comandos para explorar o sistema:
+VOCÊ ESTÁ NA ÁREA DE INSTRUÇÕES DO JOGO!
 
-[1] ENTRAR EM UMA PASTA
-cd nome_da_pasta
+PARA LER AS INSTRUÇÕES, DIGITE:
 
-[2] VOLTAR UMA PASTA
-cd ..
+cat instrução.txt
 
-[3] VER ONDE VOCÊ ESTÁ
-pwd
+O COMANDO "cat" EXIBE O CONTEÚDO DE UM ARQUIVO
+DIRETAMENTE NO TERMINAL.
 
-[4] VER ARQUIVOS E PASTAS
-ls
+"instrução.txt" É O ARQUIVO QUE CONTÉM AS
+ORIENTAÇÕES PARA CONTINUAR O JOGO.
 
-[5] LER UM ARQUIVO
-cat arquivo.txt
-
-[6] ATIVAR UM SCRIPT
-source arquivo.sh
+LEIA O CONTEÚDO DO ARQUIVO E SIGA AS PRÓXIMAS
+INSTRUÇÕES PARA CONTINUAR SUA JORNADA.
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
