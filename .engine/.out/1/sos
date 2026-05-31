@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+import os
+
+now = os.path.os.getcwd().lower()
+
+#COLOR
+RED = "\033[31m"
+GREEN = "\033[32m"
+BLUE = "\033[34m"
+RESET = "\033[0m"
+
+#MENSSAGENS
+use_cd = ""
+use_cd_dotdot = ""
+use_ls = ""
+use_ls_a = ""
+use_ls_l = ""
+use_ls_la = ""
+use_find = ""
+use_cat = ""
+
+#MESSAGENS ROOMS
+objective_room_1 = "Entrar em um barco ápto para longas navegações."
+
+#FUNCTION
+def destiny():
+    if now == "/home/user/senhor_do_bonfim": 
+      return "feira_de_santana"
+    if now == "/home/user/andorinha":
+      return "senhor_do_bonfim"
+    if now == "/home/user/feira_de_santana":
+      return "salvador"
+    if now == "/home/user/jacobina":
+      return "senhor_do_bonfim"
+    if now == "/home/user/juazeiro":
+      return "senhor_do_bonfim"
+    if now == "/home/user/barreiras":
+      return "feira_de_santana"
+    if now == "/home/user/salvador":
+      return "terminal_nautico_de_salvador"
+    if now == "/home/user/vitoria_da_conquista":
+      return "feira_de_santana"
+    if now == "/home/user/aracaju":
+      return "salvador"
+    if now == "/home/user/porto_seguro":
+      return "salvador"
+    if now == "/home/user/terminal_nautico_de_salvador":
+      return "barcos"
+    if now == "/home/user/barcos":
+      return "caravela"
+    if now == "/home/user/caravela":
+      return "escolher"
+    if now == "/home/user/canoa":
+      return "barcos"
+    
+# MSG_STRUCTURE
+sos_structure = f""" 
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       
+=== SOS TUTORIAL ===
+
+Você está em:
+{now}
+
+Próximo destino:
+{destiny()}
+
+Objetivo do room_1:
+{objective_room_1}
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+                       
+"""
+
+
+print(sos_structure)
