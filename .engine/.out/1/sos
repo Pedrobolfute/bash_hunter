@@ -66,7 +66,7 @@ def type_text(text, velocity=0.05):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
-  print()
+  command = input("> ")
     
 # MSG_STRUCTURE
 sos_structure = f""" 
