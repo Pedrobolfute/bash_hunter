@@ -115,43 +115,41 @@ print_blocking_input(sos_structure)
 
 
 def print_help_command():
-  print(now)
-  
   if now == "/home/jogador/bash_hunter/play":
-      return "use_ls"
+      return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return "use_ls"
+      return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return "use_ls"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
-  #     return f""" {use_ls + use_cd} """
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-  #     return f""" {use_ls + use_cd_dotdot} """
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
-  #     return f""" {use_ls + use_cd_dotdot} """
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
-  #     return f""" {use_ls + use_cd_dotdot} """
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
-  #     return f""" {use_ls + use_cd} """
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
-  #     return "feira_de_santana"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
-  #     return "feira_de_santana"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
-  #     return "terminal_nautico_de_salvador"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
-  #     return "salvador"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
-  #     return "salvador"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
-  #     return "Barcos"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
-  #     return "caravela"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
-  #     return "escolher"
-  # if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
-  #     return "Barcos"
-  # if "None":
-  #   return "Voltar para o ambiente do jogo."
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
+      return "terminal_nautico_de_salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
+      return "salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
+      return "salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
+      return "Barcos"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
+      return "caravela"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
+      return "escolher"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
+      return "Barcos"
+  if "None":
+    return "Voltar para o ambiente do jogo."
   
-print_help_command()
+  print(print_help_command())
