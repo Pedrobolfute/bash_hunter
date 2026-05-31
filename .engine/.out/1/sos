@@ -80,7 +80,7 @@ use_cd = f"""-> Use o comando {RED} cd {RESET} {BLUE} {destiny()} {RESET}""" if 
 
 use_cd_dotdot = f"""-> Use o comando {RED} cd .. {RESET} para voltar uma pasta para trás.""" if destiny() != "None" else f"""use o comando {RED} cd {RESET} {BLUE} nome_da_pasta {RESET} para voltar para o ambiente do jogo."""
 
-use_ls = f"""-> Use o comando {RED} ls {RESET} para ver os arquivos e pastas que você pode manipular."""
+use_ls = f"""-> {WHITE} Use o comando {RED} ls {WHITE} para ver os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}"""
 
 use_ls_a = ""
 use_ls_l = ""
@@ -116,11 +116,11 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      return f""" {use_ls} """
+      return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return f""" {use_ls} """
+      return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return f""" {use_ls} """
+      return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
       return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
@@ -153,6 +153,3 @@ def print_help_command():
     return "Voltar para o ambiente do jogo."
   
 print(print_help_command())
-  
-print("test")
-print(use_ls)
