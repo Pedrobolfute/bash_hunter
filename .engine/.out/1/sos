@@ -65,7 +65,7 @@ def destiny():
   if "None":
     return "Voltar para o ambiente do jogo."
   
-def type_text(text, velocity=0.01):
+def type_text(text, velocity=0.005):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
