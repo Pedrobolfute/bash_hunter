@@ -64,7 +64,7 @@ def print_blocking_input(text):
 
 #COLOR
 RESET = "\033[0m"     #RESET COLOR
-RED = "\033[31m"      # COMANDOS
+RED = "\033[31m"      #COMANDOS
 GREEN = "\033[32m"    #ARQUIVOS DE TEXTO SIMPLES
 YELLOW = "\033[33m"   #OBJETIVOS
 BLUE = "\033[34m"     #DITERORIOS
@@ -116,11 +116,11 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      return f""" {use_ls + use_cd} """
+      return f""" {use_ls} """
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return f""" {use_ls + use_cd} """
+      return f""" {use_ls} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return f""" {use_ls + use_cd} """
+      return f""" {use_ls} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
       return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
@@ -153,3 +153,6 @@ def print_help_command():
     return "Voltar para o ambiente do jogo."
   
   print(print_help_command())
+  
+  print("test")
+  print(use_ls)
