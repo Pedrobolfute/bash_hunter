@@ -152,7 +152,7 @@ def print_help_command():
   if "None":
     return "Voltar para o ambiente do jogo."
   
-  print(print_help_command())
+print(print_help_command())
   
-  print("test")
-  print(use_ls)
+print("test")
+print(use_ls)
