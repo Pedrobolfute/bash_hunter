@@ -9,6 +9,7 @@ now = os.path.os.getcwd().lower()
 #COLOR
 RED = "\033[31m"
 GREEN = "\033[32m"
+YELLOW = "\033[33m"
 BLUE = "\033[34m"
 RESET = "\033[0m"
 
@@ -83,7 +84,6 @@ def print_blocking_input(text):
 
 # MSG_STRUCTURE
 sos_structure = f""" 
-
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -91,13 +91,13 @@ sos_structure = f"""
 === SOS TUTORIAL ===
 
 Você está em:
-{now}
+{BLUE + now + RESET}
 
 Próximo destino:
-{destiny()}
+{BLUE + destiny() + RESET}
 
 Objetivo do room_1:
-{objective_room_1}
+{YELLOW + objective_room_1 + RESET}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
