@@ -16,7 +16,7 @@ e navegará por mares digitais em busca de novos destinos.
 
 Cada *room* representa uma nova etapa da sua aventura.
 
-Você começa o jogo na cidade de Senhor do Bonfim - BA, e seu objetivo
+Você começa o jogo nas proximidades de Senhor do Bonfim - BA, e seu objetivo
 é seguir de cidade em cidade até chegar nos portos da Baía de Todos os Santos,
 em Salvador - BA. La você vai escolher um barco para continuar a jornada! 
 Mas cuidado, marujo — nem todo barco é capaz de atravessar o oceano!

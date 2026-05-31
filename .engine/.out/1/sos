@@ -6,29 +6,6 @@ import sys
 
 now = os.path.os.getcwd().lower()
 
-#COLOR
-RESET = "\033[0m"     #RESET COLOR
-RED = "\033[31m"      #
-GREEN = "\033[32m"    #ARQUIVOS DE TEXTO SIMPLES
-YELLOW = "\033[33m"   #OBJETIVOS
-BLUE = "\033[34m"     #DITERORIOS
-MAGENTA = "\033[35m"  #RESTRITO NOME
-CYAN = "\033[36m"     #RESTRITO PASTAS
-WHITE = "\033[37m"    #BASH HUNTER NEGRITADO
-
-#MENSSAGENS
-use_cd = ""
-use_cd_dotdot = ""
-use_ls = ""
-use_ls_a = ""
-use_ls_l = ""
-use_ls_la = ""
-use_find = ""
-use_cat = ""
-
-#MESSAGENS ROOMS
-objective_room_1 = "Entrar em um barco ápto para longas navegações."
-
 #FUNCTION
 def destiny():
   if now == "/home/jogador/bash_hunter/play":
@@ -85,8 +62,34 @@ def print_blocking_input(text):
   finally:
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
+#COLOR
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[31m"      # COMANDOS
+GREEN = "\033[32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[34m"     #DITERORIOS
+MAGENTA = "\033[35m"  #RESTRITO NOME
+CYAN = "\033[36m"     #RESTRITO PASTAS
+WHITE = "\033[37m"    #BASH HUNTER NEGRITADO
+
+#MESSAGENS ROOMS
+objective_room_1 = "Entrar em um barco ápto para longas navegações."
+    
+#MENSSAGENS
+use_cd = f"""-> Use o comando {RED} cd {RESET} {BLUE} {destiny()} {RESET}""" if destiny() != "None" else f"""use o comando {RED} cd {RESET} {BLUE} nome_da_pasta {RESET} para voltar para o ambiente do jogo."""
+
+use_cd_dotdot = f"""-> Use o comando {RED} cd .. {RESET} para voltar uma pasta para trás.""" if destiny() != "None" else f"""use o comando {RED} cd {RESET} {BLUE} nome_da_pasta {RESET} para voltar para o ambiente do jogo."""
+
+use_ls = f"""-> Use o comando {RED} ls {RESET} para ver os arquivos e pastas que você pode manipular."""
+
+use_ls_a = ""
+use_ls_l = ""
+use_ls_la = ""
+use_find = ""
+use_cat = ""
+
 # MSG_STRUCTURE
-sos_structure = RED + f""" 
+sos_structure = f""" 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -106,6 +109,47 @@ Objetivo do room_1:
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-""" + RESET
+"""
 
 print_blocking_input(sos_structure)
+
+
+def print_help_command():
+  if now == "/home/jogador/bash_hunter/play":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
+      return f""" {use_ls + use_cd_dotdot} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
+      return f""" {use_ls + use_cd} """
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
+      return "terminal_nautico_de_salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
+      return "salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
+      return "salvador"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
+      return "Barcos"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
+      return "caravela"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
+      return "escolher"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
+      return "Barcos"
+  if "None":
+    return "Voltar para o ambiente do jogo."
+  
+print_help_command()
