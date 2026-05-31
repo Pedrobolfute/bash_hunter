@@ -76,7 +76,7 @@ WHITE = "\033[1;37m"  #BASH HUNTER NEGRITADO
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
     
 #MENSSAGENS
-use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta {destiny()}{RESET}""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
+use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta {destiny()}{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
 
 use_cd_dotdot = f"""{WHITE}-> Digite o comando {RED} cd .. {WHITE} para voltar uma pasta para trás.{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} para voltar para o ambiente do jogo.{RESET}\n"""
 
