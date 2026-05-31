@@ -86,7 +86,7 @@ def print_blocking_input(text):
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
 # MSG_STRUCTURE
-sos_structure = WHITE + f""" 
+sos_structure = RED + f""" 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
