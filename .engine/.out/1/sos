@@ -7,11 +7,14 @@ import sys
 now = os.path.os.getcwd().lower()
 
 #COLOR
-RED = "\033[31m"
-GREEN = "\033[32m"
-YELLOW = "\033[33m"
-BLUE = "\033[34m"
-RESET = "\033[0m"
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[31m"      #
+GREEN = "\033[32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[34m"     #DITERORIOS
+MAGENTA = "\033[35m"  #RESTRITO NOME
+CYAN = "\033[36m"     #RESTRITO PASTAS
+WHITE = "\033[37m"    #BASH HUNTER NEGRITADO
 
 #MENSSAGENS
 use_cd = ""
@@ -83,7 +86,7 @@ def print_blocking_input(text):
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
 # MSG_STRUCTURE
-sos_structure = f""" 
+sos_structure = WHITE + f""" 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -102,8 +105,7 @@ Objetivo do room_1:
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-"""
 
+""" + RESET
 
 print_blocking_input(sos_structure)
