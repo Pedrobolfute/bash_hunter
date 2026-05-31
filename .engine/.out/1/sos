@@ -24,34 +24,48 @@ objective_room_1 = "Entrar em um barco ápto para longas navegações."
 
 #FUNCTION
 def destiny():
-    if now == "/home/user/senhor_do_bonfim": 
-      return "feira_de_santana"
-    if now == "/home/user/andorinha":
+  if now == "/":
+    return "Você está fora do ambiente dos desafios."
+  if now == "/home":
+    return "Você está fora do ambiente dos desafios."
+  if now == "/home/jogador":
+    return "Você está fora do ambiente dos desafios."
+  if now == "/home/jogador/bash_hunter":
+      return "Você está fora do ambiente dos desafios."
+  if now == "/home/jogador/bash_hunter/play":
+      return "Escolha o room que você parou!"
+  if now == "/home/jogador/bash_hunter/play/room_01":
+      return "para_o_mar"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
       return "senhor_do_bonfim"
-    if now == "/home/user/feira_de_santana":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
+      return "senhor_do_bonfim"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
+      return "senhor_do_bonfim"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
+      return "senhor_do_bonfim"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
       return "salvador"
-    if now == "/home/user/jacobina":
-      return "senhor_do_bonfim"
-    if now == "/home/user/juazeiro":
-      return "senhor_do_bonfim"
-    if now == "/home/user/barreiras":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
       return "feira_de_santana"
-    if now == "/home/user/salvador":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
+      return "feira_de_santana"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
       return "terminal_nautico_de_salvador"
-    if now == "/home/user/vitoria_da_conquista":
-      return "feira_de_santana"
-    if now == "/home/user/aracaju":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
       return "salvador"
-    if now == "/home/user/porto_seguro":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
       return "salvador"
-    if now == "/home/user/terminal_nautico_de_salvador":
-      return "barcos"
-    if now == "/home/user/barcos":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
+      return "Barcos"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
       return "caravela"
-    if now == "/home/user/caravela":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
       return "escolher"
-    if now == "/home/user/canoa":
-      return "barcos"
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
+      return "Barcos"
     
 # MSG_STRUCTURE
 sos_structure = f""" 
