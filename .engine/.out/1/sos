@@ -74,7 +74,7 @@ def print_blocking_input(text):
   old_settings = termios.tcgetattr(fd)
   try:
     new_settings = termios.tcgetattr(fd)
-    new_settings[3] = new_settings[3] & ~termios.ICANON
+    new_settings[3] = new_settings[3] & ~termios.ECHO
     termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
     type_text(text)
     termios.tcflush(sys.stdin, termios.TCIFLUSH)
