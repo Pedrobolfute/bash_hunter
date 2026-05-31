@@ -70,7 +70,7 @@ YELLOW = "\033[33m"   #OBJETIVOS
 BLUE = "\033[34m"     #DITERORIOS
 MAGENTA = "\033[35m"  #RESTRITO NOME
 CYAN = "\033[36m"     #RESTRITO PASTAS
-WHITE = "\033[37m"    #BASH HUNTER NEGRITADO
+WHITE = "\033[1;37m"  #BASH HUNTER NEGRITADO
 
 #MESSAGENS ROOMS
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
@@ -116,15 +116,15 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      return f""" {use_ls + use_cd} """
+      return f"""{use_ls + use_cd}\n"""
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return f""" {use_ls + use_cd} """
+      return f"""{use_ls + use_cd}\n"""
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return f""" {use_ls + use_cd} """
+      return f"""{use_ls + use_cd}\n"""
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
-      return f""" {use_ls + use_cd} """
+      return f"""{use_ls + use_cd}\n"""
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-      return f""" {use_ls + use_cd_dotdot} """
+      return f"""{use_ls + use_cd_dotdot}\n"""
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
       return f""" {use_ls + use_cd_dotdot} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
