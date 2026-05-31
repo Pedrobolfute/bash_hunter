@@ -116,11 +116,11 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      return f""" {use_ls + use_cd} """
+      return use_ls
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return f""" {use_ls + use_cd} """
+      return use_ls
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return f""" {use_ls + use_cd} """
+      return use_ls
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
       return f""" {use_ls + use_cd} """
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
