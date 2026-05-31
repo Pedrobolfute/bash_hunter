@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import time
 
 now = os.path.os.getcwd().lower()
 
@@ -24,14 +25,6 @@ objective_room_1 = "Entrar em um barco ápto para longas navegações."
 
 #FUNCTION
 def destiny():
-  if now == "/":
-    return "Você está fora do ambiente dos desafios."
-  if now == "/home":
-    return "Você está fora do ambiente dos desafios."
-  if now == "/home/jogador":
-    return "Você está fora do ambiente dos desafios."
-  if now == "/home/jogador/bash_hunter":
-      return "Você está fora do ambiente dos desafios."
   if now == "/home/jogador/bash_hunter/play":
       return "Escolha o room que você parou!"
   if now == "/home/jogador/bash_hunter/play/room_01":
@@ -66,6 +59,14 @@ def destiny():
       return "escolher"
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
       return "Barcos"
+  if "None":
+    return "Voltar para o ambiente do jogo."
+  
+def type_text(text, velocity=0.05):
+  for char in text:
+      print(char, end='', flush=True)
+      time.sleep(velocity)
+  print()
     
 # MSG_STRUCTURE
 sos_structure = f""" 
@@ -92,4 +93,4 @@ Objetivo do room_1:
 """
 
 
-print(sos_structure)
+type_text(sos_structure)
