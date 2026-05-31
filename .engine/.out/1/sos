@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import os
 import time
+import termios
+import sys
 
 now = os.path.os.getcwd().lower()
 
@@ -62,12 +64,23 @@ def destiny():
   if "None":
     return "Voltar para o ambiente do jogo."
   
-def type_text(text, velocity=0.05):
+def type_text(text, velocity=0.01):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
-  command = input("> ")
-    
+      
+def print_blocking_input(text):
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+    new_settings = termios.tcgetattr(fd)
+    new_settings[3] = new_settings[3] & ~termios.ICANON
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    type_text(text)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
+  finally:
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
 # MSG_STRUCTURE
 sos_structure = f""" 
 
@@ -93,4 +106,4 @@ Objetivo do room_1:
 """
 
 
-type_text(sos_structure)
+print_blocking_input(sos_structure)
