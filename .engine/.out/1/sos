@@ -70,7 +70,7 @@ YELLOW = "\033[33m"   #OBJETIVOS
 BLUE = "\033[0;4;34m"     #DITERORIOS
 MAGENTA = "\033[35m"  #RESTRITO NOME
 CYAN = "\033[36m"     #RESTRITO PASTAS
-WHITE = "\033[1;37m"  #BASH HUNTER NEGRITADO
+WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
 
 #MESSAGENS ROOMS
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
