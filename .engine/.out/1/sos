@@ -50,7 +50,7 @@ def type_text(text, velocity=0.005):
       print(char, end='', flush=True)
       time.sleep(velocity)
       
-def print_blocking_input(text, speed=0.005):
+def print_blocking_input(text, speed=0.001):
   fd = sys.stdin.fileno()
   old_settings = termios.tcgetattr(fd)
   try:
@@ -119,7 +119,7 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      print_blocking_input(f"""{use_ls + use_cd}""", 0.05)
+      print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01":
       print_blocking_input(f"""{use_ls + use_cd}""", 0.05)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
