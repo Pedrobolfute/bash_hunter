@@ -45,7 +45,7 @@ def destiny():
   if "None":
     return "Voltar para o ambiente do jogo."
   
-def type_text(text, velocity=0.005):
+def type_text(text, velocity=0.001):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
@@ -119,21 +119,21 @@ print_blocking_input(sos_structure)
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
-      return print_blocking_input(f"""{use_ls + use_cd}""", 0.05)
+      print_blocking_input(f"""{use_ls + use_cd}""", 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01":
-      return print_blocking_input(f"""{use_ls + use_cd}""", 0.05)
+      print_blocking_input(f"""{use_ls + use_cd}""", 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return print_blocking_input(f"""{use_ls + use_cd}""", 0.05)
+      print_blocking_input(f"""{use_ls + use_cd}""", 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
-      return print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.05)
+      print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-      return print_blocking_input(f"""{use_ls + use_cd_dotdot}""", 0.05)
+      print_blocking_input(f"""{use_ls + use_cd_dotdot}""", 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
-      return print_blocking_input(f""" {use_ls_l + use_cd_dotdot} """, 0.05)
+      print_blocking_input(f""" {use_ls_l + use_cd_dotdot} """, 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
-      return print_blocking_input(f""" {use_ls + use_cd_dotdot} """, 0.05)
+      print_blocking_input(f""" {use_ls + use_cd_dotdot} """, 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
-      return print_blocking_input(f""" {use_ls + use_cd} """, 0.05)
+      print_blocking_input(f""" {use_ls + use_cd} """, 0.009)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
       return "feira_de_santana"
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
@@ -155,4 +155,4 @@ def print_help_command():
   # if "None":
   #   return "Voltar para o ambiente do jogo."
   
-print(print_help_command())
+print_help_command()
