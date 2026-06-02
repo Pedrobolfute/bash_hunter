@@ -84,14 +84,11 @@ for i in range(1, 7):
   except FileNotFoundError:
     break  
   
-
-print(room_upstream)
-
 #MESSAGENS ROOMS
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
     
 #MENSSAGENS
-use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta {destiny()}{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
+use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
 
 use_cd_dotdot = f"""{WHITE}-> Digite o comando {RED} cd .. {WHITE} para voltar uma pasta para trás.{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} para voltar para o ambiente do jogo.{RESET}\n"""
 
@@ -136,13 +133,13 @@ def print_help_command():
   if now == "/home/jogador/bash_hunter/play":
       print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01":
-      print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
+      print_blocking_input(f"""{use_ls + use_cat_instrucao + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
       print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
       print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-      print_blocking_input(f"""{use_ls + use_cd_dotdot}""", 0.01)
+      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01) #aki
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
       print_blocking_input(f""" {use_ls_l + use_cd_dotdot} """, 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
