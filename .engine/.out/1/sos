@@ -78,8 +78,8 @@ room_upstream = ""
 for i in range(1, 7):
   try:
     with open(f"""/home/jogador/bash_hunter/.engine/.out/{i}/loaded.txt""", "r") as f:
-      print(f.read())
-      if f.read() == "true":
+      content = f.read().strip()
+      if content == "true":
         room_upstream = i
       print(room_upstream)
   except FileNotFoundError:
