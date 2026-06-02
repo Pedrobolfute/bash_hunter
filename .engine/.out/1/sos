@@ -81,9 +81,10 @@ for i in range(1, 7):
       content = f.read().strip()
       if content == "true":
         room_upstream = i
-      print(room_upstream)
   except FileNotFoundError:
     break  
+  
+  print(room_upstream)
 
 #MESSAGENS ROOMS
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
