@@ -11,17 +11,18 @@ welcome_room_01(){
 🪶 SOBRE O JOGO
 
 Bash Hunter é uma jornada dentro do seu próprio terminal Linux!
-Você explorará diretórios, encontrará personagens, decifrará pistas
-e navegará por mares digitais em busca de novos destinos.
+Você explorará pastas, decifrará pistas e navegará por mares 
+digitais em busca de novos destinos.
 
 Cada *room* representa uma nova etapa da sua aventura.
 
-Você começa o jogo nas proximidades de Senhor do Bonfim - BA, e seu objetivo
-é seguir de cidade em cidade até chegar nos portos da Baía de Todos os Santos,
-em Salvador - BA. La você vai escolher um barco para continuar a jornada! 
-Mas cuidado, marujo — nem todo barco é capaz de atravessar o oceano!
+Você começa o jogo nas proximidades da cidade de Senhor do Bonfim - BA, 
+e o seu primeiro objetivo é seguir de cidade em cidade até chegar 
+nos portos da Baía de Todos os Santos, em Salvador - BA.
+
 
 ------------------------------------------------------------
+
 
 🪶 INSTRUÇÕES
 
@@ -33,7 +34,7 @@ para abrir baús e avançar na jornada!
 Boa sorte, marujo! Que os ventos estejam a seu favor!"
 
   if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --msgbox "$mensagem" 25 80
+    whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --textbox "$mensagem" 25 80
   else
     echo -e "\n$mensagem\n"
   fi
