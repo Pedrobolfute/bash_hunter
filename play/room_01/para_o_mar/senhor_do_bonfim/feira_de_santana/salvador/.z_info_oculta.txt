@@ -1,0 +1,38 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+
+=== INFORMATIVO SECRETO ===
+
+Isso é um arquivo oculto. Os arquivos
+ocultos podem guardar informações especiais.
+Para você ver os arquivos ocultos utilize o
+comando "ls" passando a opção "a". Por exemplo:
+
+-> ls -a
+ou
+-> ls -l -a
+ou
+ls -la
+
+Para criar um arquivo oculto, é só colocar um ponto
+antes do seu nome para informar que você está criando
+um arquivo oculto. Por exemplo
+
+arquivo     -> arquivo visivel
+.arquivo    -> arquivo oculto
+
+
+=== SEGREDO ===
+
+Guarde essa senha, você vai utilizar
+para abrir a próxima fase:
+
+içar_âncora
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+

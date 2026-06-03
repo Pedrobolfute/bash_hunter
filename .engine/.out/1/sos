@@ -151,21 +151,19 @@ def print_help_command():
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
       print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
-      print_blocking_input(f"""{use_ls_la + use_cat_zinfo + use_cd}""", 0.01) #aki criando arquivo oculto com senha.
+      print_blocking_input(f"""{use_ls_la + use_cat_zinfo + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
-      return "salvador"
+      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
-      return "salvador"
+      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
-      return "Barcos"
+      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
-      return "caravela"
+      print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
-      return "escolher"
+      print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
-      return "Barcos"
-  # if "None":
-  #   return "Voltar para o ambiente do jogo."
+      print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
   
 print_help_command()
 print("")

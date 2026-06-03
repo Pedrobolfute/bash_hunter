@@ -63,14 +63,10 @@ Saiba mais:
 https://youtu.be/P7qs23fMN2A
 
 
-=== DESAFIO ===
+[7] AJUDA
 
-Teste cada comando acima.
-Explore as pastas e descubra o que existe nelas!
-
-Dica:
-Errou? Tente de novo. Faz parte da missão!
-
+Digite:
+sos
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

@@ -7,12 +7,22 @@ Primeira capital do Brasil.
 Coração cultural da Bahia.
 Cercada pela Baía de Todos os Santos.
 
+
 === INFORMATIVO ===
 
 Você encontrou um ponto importante!
 
+Até agora você viu os comandos: 
+cd, ls, ls -l, ls -la, cat.
 
-=== COMO RODAR SCRIPTS ===
+Mas para seguir em frente você
+precisará aprender outros comandos,
+como o comando de executar script.
+
+Os scripts são arquivos que tem o
+suffixo ".sh" em seu nome.
+
+=== COMANDO PARA EXECUTAR SCRIPTS ===
 
 [1] USANDO SOURCE
 
@@ -20,34 +30,15 @@ Digite:
 source arquivo.sh
 
 Saiba mais:
-https://youtu.be/P7qs23fMN2A
+https://youtu.be/P7qs23fM2A
 
 O que acontece:
-O script roda no mesmo terminal.
-
-
-[2] USANDO BASH
-
-Digite:
-bash arquivo.sh
-
-Saiba mais:
-https://youtu.be/zIposV_3aHc
-
-O que acontece:
-O script roda em outro terminal (separado).
-
+O código script executa no mesmo terminal.
 
 === DICA ===
 
-Use "source" quando quiser
-continuar no mesmo lugar.
-
-Use "bash" quando quiser
-rodar separado.
-
-Mas durante essa jornada
-escolha sempre o "source"
+Use o comando "source" para executar
+os arquivos de scripts dentro do jogo.
 
 === MISSÃO ===
 

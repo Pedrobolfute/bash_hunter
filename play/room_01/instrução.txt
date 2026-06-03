@@ -14,13 +14,13 @@ você precisa navegar até o mar.
 === COMO FUNCIONA ===
 
 Pastas (diretórios):
-geralmente aparecem em azul
+geralmente aparecem com a 
+coloração azul.
 
 Arquivos de texto:
 terminam com .txt
 
-
-=== COMANDOS ===
+=== COMANDOS PARA JOGAR ===
 
 [1] ENTRAR EM UMA PASTA
 
@@ -60,20 +60,14 @@ https://youtu.be/0KB3nRkfRxw
 
 === DICA ===
 
-Use o comando "ls" para ver
-para onde você pode ir.
-
-Use "cat" para ler pistas
-dentro dos arquivos.
-
-Confira o arquivo z_help.txt,
-para mais informações.
+Comando de ajuda
+  sos
 
 === OBJETIVO ===
 
-Encontre o caminho até o mar
-e descubra o que está escondido lá!
-
+Saia da sua cidade e vá para o litoral,
+em Salvador - BA. Lá escolha um barco
+para iniciar sua jornada.
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
