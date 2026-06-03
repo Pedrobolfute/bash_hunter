@@ -15,8 +15,8 @@ Cada *room* representa uma nova etapa da sua aventura.
 Você começa o jogo nas proximidades da cidade de Senhor do Bonfim - BA, 
 e o seu primeiro objetivo é seguir de cidade em cidade até chegar 
 nos portos da Baía de Todos os Santos, em Salvador - BA.
-
-
+-
+--
 ------------------------------------------------------------
 
 
