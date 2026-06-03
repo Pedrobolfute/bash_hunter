@@ -1,7 +1,7 @@
 #!/bin/bash
 
 welcome_room_01(){
-  local path="/home/jogador/room_01/.z_info_oculto.txt"
+  local path="/home/jogador/bash_hunter/play/room_01/.z_info_oculto.txt"
   
   if command -v whiptail >/dev/null 2>&1; then
     whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --textbox "$path" 25 80
