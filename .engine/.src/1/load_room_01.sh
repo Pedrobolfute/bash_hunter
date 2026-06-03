@@ -149,7 +149,7 @@ decr(){
 sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" 
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin"
-echo "$sub" | sudo -Sfind . -type f -name "*.txt" -exec chown root:jogador {} + 
+echo "$sub" | sudo -S find . -type f -name "*.txt" -exec chown root:jogador {} + 
 
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
