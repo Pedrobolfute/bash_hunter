@@ -12,7 +12,7 @@ welcome_room_01(){
 
 welcome_room_01
 
-clear
+# clear
 
 echo -e "
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
