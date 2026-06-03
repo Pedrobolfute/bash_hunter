@@ -1,42 +1,12 @@
 #!/bin/bash
 
 welcome_room_01(){
-  local mensagem="
-
-▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
-▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
-▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-
-🪶 SOBRE O JOGO
-
-Bash Hunter é uma jornada dentro do seu próprio terminal Linux!
-Você explorará pastas, decifrará pistas e navegará por mares 
-digitais em busca de novos destinos.
-
-Cada *room* representa uma nova etapa da sua aventura.
-
-Você começa o jogo nas proximidades da cidade de Senhor do Bonfim - BA, 
-e o seu primeiro objetivo é seguir de cidade em cidade até chegar 
-nos portos da Baía de Todos os Santos, em Salvador - BA.
-
-
-------------------------------------------------------------
-
-
-🪶 INSTRUÇÕES
-
-💀 O jogo é composto por 'rooms' (salas).
-🔑 Cada sala tem uma chave (key) que permite seguir para a próxima.
-📜 Anote todas as chaves que encontrar — elas serão essenciais
-para abrir baús e avançar na jornada!
-
-Boa sorte, marujo! Que os ventos estejam a seu favor!"
-
+  local path="/home/jogador/room_01/.z_info_oculto.txt"
+  
   if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --textbox "$mensagem" 25 80
+    whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --textbox "$path" 25 80
   else
-    echo -e "\n$mensagem\n"
+    cat "$path"
   fi
 }
 
