@@ -128,7 +128,6 @@ Objetivo do room_1:
 
 """
 
-print_blocking_input(sos_structure)
 
 
 def print_help_command():
@@ -168,5 +167,6 @@ def print_help_command():
       print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
 
 os.system("clear")  
+print_blocking_input(sos_structure)
 print_help_command()
 print("")
