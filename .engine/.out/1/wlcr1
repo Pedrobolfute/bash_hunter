@@ -3,12 +3,12 @@ import time
 import termios
 import sys
 
-def type_text(text, velocity=0.05):
+def type_text(text, velocity=0.01):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
       
-def print_blocking_input(text, speed=0.05):
+def print_blocking_input(text, speed=0.01):
   fd = sys.stdin.fileno()
   old_settings = termios.tcgetattr(fd)
   try:
@@ -41,23 +41,25 @@ wlc_structure = f"""
 {WHITE}
 🪶 SOBRE O JOGO
 {RESET}
-Bash Hunter é uma jornada dentro do seu próprio terminal Linux!
-Você explorará {BLUE}pastas{RESET}, decifrará pistas e navegará por mares 
-digitais em busca de novos destinos.
+Bash Hunter é uma jornada dentro do seu próprio
+terminal Linux! Você explorará {BLUE}pastas{RESET}, decifrará pistas 
+e navegará por mares digitais em busca de novos destinos.
 
-Cada *room* representa uma nova etapa da sua aventura.
+Cada {BLUE}room{RESET} representa uma nova etapa da sua aventura.
 
-Você começa o jogo nas proximidades da cidade de Senhor do Bonfim - BA, 
-e o seu primeiro objetivo é seguir de cidade em cidade até chegar 
-nos portos da Baía de Todos os Santos, em Salvador - BA.
+Você começa o jogo nas proximidades da cidade de 
+{BLUE}Senhor do Bonfim - BA{RESET}, e o seu primeiro {YELLOW}objetivo{RESET} 
+é seguir de {BLUE}cidade{RESET} em {BLUE}cidade{RESET} até chegar no 
+{YELLOW}Porto da Baía de Todos os Santos{RESET}, em {BLUE}Salvador - BA{RESET}.
 
-
-------------------------------------------------------------
-
+{WHITE}
+---------------------------------------------------------
+---------------------------------------------------------
+{RESET}
 {WHITE}
 🪶 INSTRUÇÕES
 {RESET}
-💀 O jogo é composto por 'rooms' (salas).
+💀 O jogo é composto por {BLUE}rooms{RESET} que são {BLUE}salas{RESET}.
 🔑 Cada sala tem uma chave (key) que permite seguir para a próxima.
 📜 Anote todas as chaves que encontrar — elas serão essenciais
 para abrir baús e avançar na jornada!
@@ -68,6 +70,22 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 {RESET}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 """
 
 print_blocking_input(wlc_structure)
