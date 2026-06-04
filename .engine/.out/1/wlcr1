@@ -104,6 +104,11 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 .
 .
 .
+.
+.
+.
+.
+.
 """
 
 print_blocking_input(wlc_structure)
