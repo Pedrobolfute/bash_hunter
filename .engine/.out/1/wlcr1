@@ -2,6 +2,7 @@
 import time
 import termios
 import sys
+import os
 
 def type_text(text, velocity=0.04):
   for char in text:
@@ -42,10 +43,30 @@ wlc_structure = f"""{ORANGE}
 {RESET}
 Bash Hunter é uma jornada dentro do seu próprio
 terminal Linux! Você explorará {BLUE}pastas{RESET}, decifrará pistas 
-e navegará por mares digitais em busca de novos destinos.
+e navegará por mares digitais em busca de {YELLOW}novos destinos{RESET}.
 
-Cada {BLUE}room{RESET} representa uma nova etapa da sua aventura.
+O jogo é composto por fases chamados de {BLUE}ROOM{RESET}. Cada {BLUE}room{RESET},
+tem uma chave que te permite abrir a próxima fase {BLUE}room{RESET}.
 
+Dentro do jogo as {BLUE}pastas{RESET} que também são conhecidas 
+pelo nome de {BLUE}diretórios{RESET}, são representadas pela cor 
+{BLUE}azul{RESET}. Cada {BLUE}pasta{RESET} tem o nome de uma {BLUE}cidade{RESET} ou {BLUE}objeto{RESET} 
+no qual você consegue interagir utilizando {RED}comandos{RESET}.
+
+Os arquivos com a coloração {GREEN}verde{RESET} e com o sufixo "{GREEN}.txt{RESET}"
+são arquivos de {GREEN}texto simples{RESET} que contém {GREEN}instruções{RESET} e 
+{GREEN}menssagens{RESET} para te ajudar a seguir jogando. para 
+conseguir ver o conteúdo dessas {GREEN}menssagens{RESET} é utilizado
+um {RED}comando específico{RESET}.
+
+Sempre que precisar de ajuda, use o comando {RED}sos{RESET}.
+{WHITE}
+---------------------------------------------------------
+---------------------------------------------------------
+{RESET}
+{WHITE}
+🪶 PONTO DE PARTIDA
+{RESET}
 Você começa o jogo nas proximidades da cidade de 
 {BLUE}Senhor do Bonfim - BA{RESET}, e o seu primeiro {YELLOW}objetivo{RESET} 
 é seguir de {BLUE}cidade{RESET} em {BLUE}cidade{RESET} até chegar no 
@@ -113,3 +134,4 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 """
 
 print_blocking_input(wlc_structure)
+os.system("sleep 3")
