@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+import time
+import termios
+import sys
+
+def type_text(text, velocity=0.005):
+  for char in text:
+      print(char, end='', flush=True)
+      time.sleep(velocity)
+      
+def print_blocking_input(text, speed=0.005):
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+    new_settings = termios.tcgetattr(fd)
+    new_settings[3] = new_settings[3] & ~termios.ECHO
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    type_text(text, speed)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
+  finally:
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+#COLOR
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[0;31m"      #COMANDOS
+GREEN = "\033[0;32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[0;34m"     #DITERORIOS
+MAGENTA = "\033[0;35m"  #RESTRITO NOME
+CYAN = "\033[0;36m"     #RESTRITO PASTAS
+WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
+ORANGE = "\033[38;5;208m" #SCRIPTS
+  
+# MSG_STRUCTURE
+guide_structure = f"""
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{WHITE}
+=== GUIA RÁPIDO ===
+{RESET}
+VOCÊ ESTÁ NA ÁREA DE INSTRUÇÕES DO JOGO!
+
+PARA LER AS INSTRUÇÕES, DIGITE:
+
+{RED}cat{RESET} {GREEN}instrução.txt{RESET}
+
+O COMANDO {RED}cat{RESET} EXIBE O CONTEÚDO DE UM ARQUIVO
+DIRETAMENTE NO TERMINAL.
+
+{GREEN}instrução.txt{RESET} É O ARQUIVO QUE CONTÉM AS
+ORIENTAÇÕES PARA CONTINUAR O JOGO.
+
+LEIA O CONTEÚDO DO ARQUIVO E SIGA AS PRÓXIMAS
+INSTRUÇÕES PARA CONTINUAR SUA JORNADA.
+
+=== ATENÇÃO ===
+NA DUVIDA, USE O COMANDO {RED}sos{RESET} PARA RECEBER 
+DICAS E ORIENTAÇÕES SOBRE O JOGO.
+
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+"""
+
+print_blocking_input(guide_structure)
+
+print("")

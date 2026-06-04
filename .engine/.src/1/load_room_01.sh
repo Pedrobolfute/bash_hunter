@@ -152,6 +152,9 @@ decr(){
 sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" >/dev/null 2>&1 
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin" >/dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/wlcr1" "/bin" >/dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/guide_01" "/bin" >/dev/null 2>&1
+
 echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 644 {} + >/dev/null 2>&1
 
 

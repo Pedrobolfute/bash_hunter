@@ -110,7 +110,7 @@ sos_structure = f"""
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-{RESET}                
+                
 === SOS TUTORIAL ===
 
 Agora você está em:
@@ -121,12 +121,10 @@ Próximo destino:
 
 Objetivo do room_1:
 {YELLOW + objective_room_1 + RESET}
-{ORANGE}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-{RESET}
 
 """
 
