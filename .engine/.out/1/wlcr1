@@ -4,12 +4,12 @@ import termios
 import sys
 import os
 
-def type_text(text, velocity=0.04):
+def type_text(text, velocity=0.08):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
       
-def print_blocking_input(text, speed=0.04):
+def print_blocking_input(text, speed=0.08):
   fd = sys.stdin.fileno()
   old_settings = termios.tcgetattr(fd)
   try:
