@@ -79,7 +79,7 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
 
 
-RUN echo "export PS1='\[\e[0;36m\]⚓ \[\e[0;35m\]\u@\h\[\e[0m\] \[\e[1;33m\]\w\[\e[0m\] \[\e[0;36m\]➜\[\e[0m\] '" >> /home/jogador/.bashrc
+RUN echo "export PS1='\[\e[0;36m\]⚓\[\e[0;35m\]\u@\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\] \[\e[0;36m\]➜\[\e[0m\] '" >> /home/jogador/.bashrc
 
 # 6. Permissões de escrita para as pastas de jogo do aluno
 RUN chown -R jogador:jogador /home/jogador/bash_hunter/play
