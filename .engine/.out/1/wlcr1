@@ -80,9 +80,9 @@ Você começa o jogo nas proximidades da cidade de
 🪶 INSTRUÇÕES
 {RESET}
 💀 O jogo é composto por {BLUE}rooms{RESET} que são {BLUE}salas{RESET}.
-🔑 Cada sala tem uma chave (key) que permite seguir para a próxima.
-📜 Anote todas as chaves que encontrar — elas serão essenciais
-para abrir baús e avançar na jornada!
+🔑 Cada sala tem uma {YELLOW}chave (key){RESET} que permite seguir para a próxima.
+📜 Anote todas as {YELLOW}chaves{RESET} que encontrar — elas serão essenciais
+para avançar na jornada!
 
 Boa sorte, marujo! Que os ventos estejam a seu favor!"
 {ORANGE}
@@ -93,5 +93,5 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 """
 
 print_blocking_input(wlc_structure)
-os.system("sleep 3")
-os.system("for i in $(seq 1 25); do echo "" && sleep 0.05; done")
+os.system("sleep 5")
+os.system("for i in $(seq 1 50); do echo "" && sleep 0.05; done")
