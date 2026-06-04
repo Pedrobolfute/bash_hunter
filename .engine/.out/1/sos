@@ -161,9 +161,9 @@ def print_help_command():
       print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos":
       print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/caravela":
       print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
       print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
 
 os.system("clear")  
