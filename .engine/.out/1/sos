@@ -89,20 +89,20 @@ for i in range(1, 7):
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
     
 #MENSSAGENS
-use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta.\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
+use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta.\n""" if destiny() != "None" else f"""{WHITE}-> Digite o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
 
-use_cd_dotdot = f"""{WHITE}-> Digite o comando {RED} cd .. {WHITE} para voltar uma pasta para trás.{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Use o comando {RED} cd {BLUE} nome_da_pasta {WHITE} para voltar para o ambiente do jogo.{RESET}\n"""
+use_cd_dotdot = f"""{WHITE}-> Digite o comando {RED} cd .. {WHITE} para voltar uma pasta para trás.{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Digite o comando {RED} cd {BLUE} nome_da_pasta {WHITE} para voltar para o ambiente do jogo.{RESET}\n"""
 
-use_ls = f"""{WHITE}-> Use o comando {RED} ls {WHITE} para ver os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
+use_ls = f"""{WHITE}-> Digite o comando {RED} ls {WHITE} para ver os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
 
-use_ls_a = f"""{WHITE}-> Use o comando {RED} ls -a {WHITE} para ver todos os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
-use_ls_l = f"""{WHITE}-> Use o comando {RED} ls -l {WHITE} para ver com mais detalhes os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
-use_ls_la = f"""{WHITE}-> Use o comando {RED} ls -la {WHITE} para ver todos os detalhes dos {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
-use_cat = f"""{WHITE}-> Use o comando {RED} cat {GREEN} nome_do_arquivo.txt {WHITE} para ver o conteúdo do arquivo.{RESET}\n"""
-use_cat_zinfo = f"""{WHITE}-> Use o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
-use_cat_zhelp = f"""{WHITE}-> Use o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
-use_cat_instrucao = f"""{WHITE}-> Use o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
-# use_find = f"""{WHITE}-> Use o comando {RED} find {BLUE} diretório {WHITE} -name {BLUE} "padrão" {WHITE} para buscar arquivos ou pastas.{RESET}\n"""
+use_ls_a = f"""{WHITE}-> Digite o comando {RED} ls -a {WHITE} para ver todos os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
+use_ls_l = f"""{WHITE}-> Digite o comando {RED} ls -l {WHITE} para ver com mais detalhes os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
+use_ls_la = f"""{WHITE}-> Digite o comando {RED} ls -la {WHITE} para ver todos os detalhes dos {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
+use_cat = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} nome_do_arquivo.txt {WHITE} para ver o conteúdo do arquivo.{RESET}\n"""
+use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
+use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
+use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
+# use_find = f"""{WHITE}-> Digite o comando {RED} find {BLUE} diretório {WHITE} -name {BLUE} "padrão" {WHITE} para buscar arquivos ou pastas.{RESET}\n"""
 
 # MSG_STRUCTURE
 sos_structure = f""" 
