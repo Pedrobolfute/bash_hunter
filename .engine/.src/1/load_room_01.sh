@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Carregando room_01..."
 
 if [[ -z "$my_base_dir" ]]; then
   echo "❌ Erro: diretório 'bash_hunter' não encontrado."
@@ -158,8 +157,4 @@ echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/guide_01" "/bin" >/dev/nul
 echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 644 {} + >/dev/null 2>&1
 echo "$sub" | sudo -S find "/usr/bin" -user jogador -exec chown root:jogador {} + -exec chmod 755 {} + >/dev/null 2>&1
 
-
-
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
-
-## obs: tentar optar sempre por usar a variavel my_base_dir. Porque mesmo carregada o engine_out bo bashrc, ela não carrega.
