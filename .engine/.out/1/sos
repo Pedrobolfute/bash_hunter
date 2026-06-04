@@ -106,7 +106,7 @@ use_cat_instrucao = f"""{WHITE}-> Use o comando {RED} cat {GREEN} instrução.tx
 
 # MSG_STRUCTURE
 sos_structure = f""" 
-{ORANGE}
+
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌

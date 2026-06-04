@@ -58,12 +58,13 @@ INSTRUÇÕES PARA CONTINUAR SUA JORNADA.
 NA DUVIDA, USE O COMANDO {RED}sos{RESET} PARA RECEBER 
 DICAS E ORIENTAÇÕES SOBRE O JOGO.
 
+SE ESTIVER PERDIDO, USE O COMANDO {RED}mapa{RESET} 
+PARA VER O MAPA DA REGIÃO.
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
 """
 
 print_blocking_input(guide_structure)
-
-print("")
