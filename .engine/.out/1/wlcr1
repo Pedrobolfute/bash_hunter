@@ -50,8 +50,8 @@ tem uma chave que te permite abrir a próxima fase {BLUE}room{RESET}.
 
 Dentro do jogo as {BLUE}pastas{RESET} que também são conhecidas 
 pelo nome de {BLUE}diretórios{RESET}, são representadas pela cor 
-{BLUE}azul{RESET}. Cada {BLUE}pasta{RESET} tem o nome de uma {BLUE}cidade{RESET} ou {BLUE}objeto{RESET} 
-no qual você consegue interagir utilizando {RED}comandos{RESET}.
+{BLUE}azul{RESET}. Cada {BLUE}pasta{RESET} tem o nome de uma {BLUE}cidade{RESET} ou {BLUE}objeto{RESET}, 
+em que você consegue interagir utilizando {RED}comandos{RESET}.
 
 Os arquivos com a coloração {GREEN}verde{RESET} e com o sufixo "{GREEN}.txt{RESET}"
 são arquivos de {GREEN}texto simples{RESET} que contém {GREEN}instruções{RESET} e 
@@ -90,48 +90,8 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 {RESET}
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
 """
 
 print_blocking_input(wlc_structure)
 os.system("sleep 3")
+os.system("for i in $(seq 1 25); do print "" && sleep 0.05; done")
