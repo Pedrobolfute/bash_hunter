@@ -94,4 +94,4 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 
 print_blocking_input(wlc_structure)
 os.system("sleep 3")
-os.system("for i in $(seq 1 25); do print "" && sleep 0.05; done")
+os.system("for i in $(seq 1 25); do echo "" && sleep 0.05; done")
