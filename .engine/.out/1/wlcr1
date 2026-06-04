@@ -32,8 +32,7 @@ WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
 ORANGE = "\033[38;5;208m" #SCRIPTS
   
 # MSG_STRUCTURE
-wlc_structure = f"""
-{ORANGE} 
+wlc_structure = f"""{ORANGE} 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -86,8 +85,11 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 
 
 
+
+
+
+
+
 """
 
 print_blocking_input(wlc_structure)
-
-print("")
