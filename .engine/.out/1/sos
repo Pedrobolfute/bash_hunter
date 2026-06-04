@@ -71,6 +71,7 @@ BLUE = "\033[0;34m"     #DITERORIOS
 MAGENTA = "\033[0;35m"  #RESTRITO NOME
 CYAN = "\033[0;36m"     #RESTRITO PASTAS
 WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
+ORANGE = "\033[38;5;208m" #SCRIPTS
 
 #ROOMS
 rooms = ["room_01", "room_02", "room_03", "room_04", "room_05", "room_06"]
@@ -105,10 +106,11 @@ use_cat_instrucao = f"""{WHITE}-> Use o comando {RED} cat {GREEN} instrução.tx
 
 # MSG_STRUCTURE
 sos_structure = f""" 
+{ORANGE}
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
+{RESET}                
 === SOS TUTORIAL ===
 
 Agora você está em:
@@ -119,10 +121,12 @@ Próximo destino:
 
 Objetivo do room_1:
 {YELLOW + objective_room_1 + RESET}
+{ORANGE}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
 
 """
 
