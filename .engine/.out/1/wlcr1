@@ -45,21 +45,14 @@ Bash Hunter é uma jornada dentro do seu próprio
 terminal Linux! Você explorará {BLUE}pastas{RESET}, decifrará pistas 
 e navegará por mares digitais em busca de {YELLOW}novos destinos{RESET}.
 
-O jogo é composto por fases chamados de {BLUE}ROOM{RESET}. Cada {BLUE}room{RESET},
-tem uma chave que te permite abrir a próxima fase {BLUE}room{RESET}.
-
-Dentro do jogo as {BLUE}pastas{RESET} que também são conhecidas 
-pelo nome de {BLUE}diretórios{RESET}, são representadas pela cor 
-{BLUE}azul{RESET}. Cada {BLUE}pasta{RESET} tem o nome de uma {BLUE}cidade{RESET} ou {BLUE}objeto{RESET}, 
-em que você consegue interagir utilizando {RED}comandos{RESET}.
+Dentro do jogo as {BLUE}pastas{RESET}, conhecidas por {BLUE}diretórios{RESET}, 
+são representadas pela cor {BLUE}azul{RESET}. Cada {BLUE}pasta{RESET} tem o nome de uma 
+{BLUE}cidade{RESET} ou {BLUE}objeto{RESET}, em que você consegue interagir digitando {RED}comandos{RESET}.
 
 Os arquivos com a coloração {GREEN}verde{RESET} e com o sufixo "{GREEN}.txt{RESET}"
-são arquivos de {GREEN}texto simples{RESET} que contém {GREEN}instruções{RESET} e 
-{GREEN}menssagens{RESET} para te ajudar a seguir jogando. para 
-conseguir ver o conteúdo dessas {GREEN}menssagens{RESET} é utilizado
-um {RED}comando específico{RESET}.
+são arquivos de {GREEN}texto simples{RESET} que contém {GREEN}informações{RESET} 
+para te ajudar a seguir jogando.
 
-Sempre que precisar de ajuda, use o comando {RED}sos{RESET}.
 {WHITE}
 ---------------------------------------------------------
 ---------------------------------------------------------
@@ -72,19 +65,6 @@ Você começa o jogo nas proximidades da cidade de
 é seguir de {BLUE}cidade{RESET} em {BLUE}cidade{RESET} até chegar no 
 {YELLOW}Porto da Baía de Todos os Santos{RESET}, em {BLUE}Salvador - BA{RESET}.
 
-{WHITE}
----------------------------------------------------------
----------------------------------------------------------
-{RESET}
-{WHITE}
-🪶 INSTRUÇÕES
-{RESET}
-💀 O jogo é composto por {BLUE}rooms{RESET} que são {BLUE}salas{RESET}.
-🔑 Cada sala tem uma {YELLOW}chave (key){RESET} que permite seguir para a próxima.
-📜 Anote todas as {YELLOW}chaves{RESET} que encontrar — elas serão essenciais
-para avançar na jornada!
-
-Boa sorte, marujo! Que os ventos estejam a seu favor!"
 {ORANGE}
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
@@ -93,5 +73,5 @@ Boa sorte, marujo! Que os ventos estejam a seu favor!"
 """
 
 print_blocking_input(wlc_structure)
-os.system("sleep 5")
-os.system("for i in $(seq 1 50); do echo "" && sleep 0.05; done")
+os.system("sleep 3")
+os.system("for i in $(seq 1 40); do echo "" && sleep 0.05; done")
