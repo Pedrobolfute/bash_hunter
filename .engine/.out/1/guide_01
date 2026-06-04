@@ -3,12 +3,12 @@ import time
 import termios
 import sys
 
-def type_text(text, velocity=0.007):
+def type_text(text, velocity=0.01):
   for char in text:
       print(char, end='', flush=True)
       time.sleep(velocity)
       
-def print_blocking_input(text, speed=0.007):
+def print_blocking_input(text, speed=0.01):
   fd = sys.stdin.fileno()
   old_settings = termios.tcgetattr(fd)
   try:
@@ -42,19 +42,16 @@ guide_structure = f"""
 VOCÊ ESTÁ NA ÁREA DE INSTRUÇÕES DO JOGO!
 
 PARA LER AS INSTRUÇÕES, DIGITE:
-
 {RED}cat{RESET} {GREEN}instrução.txt{RESET}
-
 O COMANDO {RED}cat{RESET} EXIBE O CONTEÚDO DE UM ARQUIVO
 DIRETAMENTE NO TERMINAL.
 
 {GREEN}instrução.txt{RESET} É O ARQUIVO QUE CONTÉM AS
 ORIENTAÇÕES PARA CONTINUAR O JOGO.
 
-LEIA O CONTEÚDO DO ARQUIVO E SIGA AS PRÓXIMAS
-INSTRUÇÕES PARA CONTINUAR SUA JORNADA.
-
+{WHITE}
 === ATENÇÃO ===
+{RESET}
 NA DUVIDA, USE O COMANDO {RED}sos{RESET} PARA RECEBER 
 DICAS E ORIENTAÇÕES SOBRE O JOGO.
 
