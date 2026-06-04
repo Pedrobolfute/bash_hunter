@@ -138,6 +138,9 @@ zarpar() {
 }
 #zarpar_end
 
+export LS_COLORS="$LS_COLORS:*.txt=01;32"
+export LS_COLORS="$LS_COLORS:*.sh=38;5;208"
+
 EOF
 
 source $HOME/.bashrc
@@ -149,7 +152,7 @@ decr(){
 sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" 
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin"
-echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 755 {} +
+echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 644 {} +
 
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt
