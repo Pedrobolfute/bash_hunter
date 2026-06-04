@@ -36,11 +36,11 @@ def destiny():
       return "salvador"
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
       return "Barcos"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos":
       return "caravela"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/caravela":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/caravela":
       return "escolher"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/Barcos/canoa":
+  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
       return "Barcos"
   if "None":
     return "Voltar para o ambiente do jogo."
