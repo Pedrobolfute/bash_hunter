@@ -150,7 +150,7 @@ sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" 
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin"
 ls -l $my_base_dir/play
-echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "$my_base_dir/play/*.txt" -exec chown root:jogador {} + 
+echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + 
 ls -l $my_base_dir/play
 
 
