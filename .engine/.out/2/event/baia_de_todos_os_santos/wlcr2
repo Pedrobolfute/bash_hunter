@@ -1,0 +1,231 @@
+#!/usr/bin/env python3
+import time
+import termios
+import sys
+import os
+
+parametro = sys.argv[1] if len(sys.argv) > 1 else "default"
+
+def type_text(text, velocity=0.03):
+  for char in text:
+      print(char, end='', flush=True)
+      time.sleep(velocity)
+      
+def print_blocking_input(text, speed=0.03):
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+    new_settings = termios.tcgetattr(fd)
+    new_settings[3] = new_settings[3] & ~termios.ECHO
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    type_text(text, speed)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
+  finally:
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+#COLOR
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[0;31m"      #COMANDOS
+GREEN = "\033[0;32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[0;34m"     #DITERORIOS
+MAGENTA = "\033[0;35m"  #RESTRITO NOME
+CYAN = "\033[0;36m"     #RESTRITO PASTAS
+WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
+ORANGE = "\033[38;5;208m" #SCRIPTS
+  
+# MSG_STRUCTURE
+wlc_room_02 = f"""{ORANGE} 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}                       
+{WHITE}
+=== BEM-VINDO À FASE 02 (room_02) ===
+{RESET}
+Marujo...
+
+Navegar parece fácil,
+mas você ainda não chegou ao mar aberto.
+
+Você está na Baía de Todos os Santos.
+
+Aqui é o lugar para treinar navegação.
+
+Por conta própria, aprenda a navegar melhor
+e a usar os recursos do seu barco.
+{ORANGE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+wlc_room_02_fast_guide = f"""{ORANGE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}{WHITE}
+=== GUIA RÁPIDO ===
+{RESET}
+Use estes comandos para explorar o sistema:
+
+[1] ENTRAR EM UMA PASTA, DIGITE:
+{RED}cd{RESET} {BLUE}nome_da_pasta{RESET}
+
+[2] VOLTAR UMA PASTA, DIGITE:
+{RED}cd{RESET} {BLUE}..{RESET}
+
+[3] VER ONDE VOCÊ ESTÁ, DIGITE:
+{RED}pwd{RESET}
+
+[4] VER ARQUIVOS E PASTAS, DIGITE:
+{RED}ls{RESET}
+
+[5] LER UM ARQUIVO, DIGITE:
+{RED}cat{RESET} {GREEN}arquivo.txt{RESET}
+
+[6] ATIVAR UM SCRIPT PASSANDO A SENHA, DIGITE:
+{RED}source{RESET} {ORANGE}arquivo.sh{RESET} SENHA_AQUI
+
+[7] ATIVAR UM SCRIPT NORMALMENTE, DIGITE:
+{RED}source{RESET} {ORANGE}arquivo.sh{RESET}
+{ORANGE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_room_02_fast_guide_p = f"""{WHITE}içar_âncora{RESET}"""
+
+wlc_structure = f"""{ORANGE} 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+{WHITE}
+=== SALA CARREGADA ===
+{RESET}
+    Você entrou na fase 02 ({BLUE}room_02{RESET})!
+    Um novo {BLUE}caminho{RESET} foi aberto...
+{WHITE}
+    === PRÓXIMO PASSO ===
+{RESET}
+    Digite:
+    {RED}ls{RESET}
+
+    Veja o que apareceu, e com o conhecimento 
+    que você teve, descubra o que fazer para
+    seguir em frente.
+{WHITE}
+    === MISSÃO ===
+{RESET}
+    Explore o novo caminho e encontre a saida
+    para o próximo room!
+{ORANGE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_started = f"""{WHITE} 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+{WHITE}
+=== SALA JÁ ESTAVA CARREGADA ===
+{RESET}
+    Você já está na fase 02 ({BLUE}room_02{RESET})!
+    Um novo {BLUE}caminho{RESET} foi aberto...
+{WHITE}
+    === PRÓXIMO PASSO ===
+{RESET}
+    Digite:
+    {RED}ls{RESET}
+{WHITE}
+    === MISSÃO ===
+{RESET}
+    Explore o novo {BLUE}caminho{RESET} e encontre a saida
+    para o próximo room!
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_not_finished = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+⚠️ O room_01 precisa ser finalizado antes de prosseguir!
+⚠️ Você ainda não pegou o barco e zarpou para o mar.
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}"""
+
+
+wlc_not_pass_informed = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+ ❌ Nenhuma senha informada. Informe a senha como no Exemplo abaixo:
+ 
+  {RED}source{RESET} {ORANGE}carregar_cenario_02.sh{RESET} {WHITE}senha_do_room_01_aqui{RESET}
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_pass_informed_wrong = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+  ❌ Senha errada. room_02 não carregado.
+  Confira novamente a senha do room_01 e tente novamente.
+  
+  Para ver a senha do room_01, digite:
+  {RED}source{RESET} {WHITE}minha_senha.sh{RESET}
+
+  Para usar a senha do room_01 e carregar o room_02, digite:
+  {RED}source{RESET} {ORANGE}carregar_cenario_02.sh{RESET} {WHITE}senha_do_room_01_aqui{RESET}
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+if parametro == "room_01_not_finished":
+    print_blocking_input(wlc_not_finished)
+
+if parametro == "pass_not_informed":
+    print_blocking_input(wlc_not_pass_informed)
+
+if parametro == "wrong_pass_informed":
+    print_blocking_input(wlc_pass_informed_wrong)
+
+if parametro == "alread_started":
+    print_blocking_input(wlc_started)
+
+if parametro == "default":
+    print_blocking_input(wlc_structure)
+    os.system("sleep 3")
+    os.system("for i in $(seq 1 5); do echo "" && sleep 0.05; done")
+
+if parametro == "wlc_room_02":
+  print_blocking_input(wlc_room_02)
+  os.system("sleep 3")
+  os.system("for i in $(seq 1 5); do echo "" && sleep 0.05; done")
+  
+if parametro == "wlc_room_02_fast_guide":
+  print_blocking_input(wlc_room_02_fast_guide)
