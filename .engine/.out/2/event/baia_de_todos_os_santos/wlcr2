@@ -229,3 +229,6 @@ if parametro == "wlc_room_02":
   
 if parametro == "wlc_room_02_fast_guide":
   print_blocking_input(wlc_room_02_fast_guide)
+  
+if parametro == "passwd":
+  print_blocking_input(wlc_room_02_fast_guide_p)

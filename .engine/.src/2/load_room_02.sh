@@ -22,9 +22,10 @@ dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
 dirto="$my_base_dir/play/room_02"
 
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/instrução.txt" "$dirto" 2>/dev/null
-  mv "$dirfrom/mapa.txt" "$dirto" 2>/dev/null
-  mv "$dirfrom" "$dirto" 2>/dev/null
+  mv "$dirfrom/instrução.txt" "$dirto" 2>&1/dev/null
+  mv "$dirfrom/mapa.txt" "$dirto" 2>&1/dev/null
+  mv "$dirfrom/wlcr2" "/bin" 2>&1/dev/null
+  mv "$dirfrom" "$dirto" 2>&1/dev/null
   echo "true" > $engine_out/2/loaded.txt
   clear
   wlcr2 default
