@@ -77,8 +77,7 @@ sos_structure = f"""
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-{print("AKI")}                
-=== SOS {rooms[room_upstream]} ===
+=== SOS {rooms[room_upstream - 1]} ===
 
 Agora você está em:
 {BLUE + now + RESET}

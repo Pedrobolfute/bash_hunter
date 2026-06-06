@@ -96,8 +96,7 @@ mapa_structure = f"""
 
 
 
-def print_mapa_command():
-  if now.startswith("/home/jogador/bash_hunter/play/room_02"):
-    print(mapa_structure)
-os.system("clear")  
-print_mapa_command()
+
+if now.startswith("/home/jogador/bash_hunter/play/room_02"):
+    os.system("clear")
+    print_blocking_input(mapa_structure, 0.001)
