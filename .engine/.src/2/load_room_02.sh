@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "aki 1 linha"
 finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
 
 if [[ "$finished" != "true" ]]; then
@@ -29,8 +28,12 @@ dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
 dirto="$my_base_dir/play/room_02"
 echo "entres de entrar no main dir"
 if [[ -d "$dirfrom" ]]; then
+  echo "dentro main dir"
+  echo $(sub)
+  echo "antes mv bin"
   echo "$sub" | sudo -S mv -f "$dirfrom/mapa" "/bin" # 2>&1/dev/null
   echo "$sub" | sudo -S mv -f "$dirfrom/sos" "/bin" #2>&1/dev/null
+  echo "depois mv bin"
   mv "$dirfrom/instrução.txt" "$dirto" 2>&1/dev/null
   mv "$dirfrom/mapa.txt" "$dirto" 2>&1/dev/null
   mv "$dirfrom" "$dirto" 2>&1/dev/null
