@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "aki 1 linha"
 finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
 
 if [[ "$finished" != "true" ]]; then
@@ -14,6 +14,7 @@ fi
 
 correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
+
     wlcr2 wrong_pass_informed
     return 1
 fi
@@ -26,7 +27,7 @@ sub=$(decr)
 
 dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
 dirto="$my_base_dir/play/room_02"
-
+echo "entres de entrar no main dir"
 if [[ -d "$dirfrom" ]]; then
   echo "$sub" | sudo -S mv -f "$dirfrom/mapa" "/bin" # 2>&1/dev/null
   echo "$sub" | sudo -S mv -f "$dirfrom/sos" "/bin" #2>&1/dev/null
@@ -34,9 +35,9 @@ if [[ -d "$dirfrom" ]]; then
   mv "$dirfrom/mapa.txt" "$dirto" 2>&1/dev/null
   mv "$dirfrom" "$dirto" 2>&1/dev/null
   echo "true" > $engine_out/2/loaded.txt
-  clear
+  # clear
   wlcr2 default
 else
-  clear
+  # clear
   wlcr2 alread_started
 fi

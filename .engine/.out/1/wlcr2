@@ -218,7 +218,6 @@ if parametro == "alread_started":
     print_blocking_input(wlc_started)
 
 if parametro == "default":
-    os.system("echo 'aki default parameter wlcr2' ")
     print_blocking_input(wlc_structure)
     os.system("sleep 3")
     os.system("for i in $(seq 1 5); do echo "" && sleep 0.05; done")
