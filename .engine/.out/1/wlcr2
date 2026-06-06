@@ -43,17 +43,18 @@ wlc_room_02 = f"""{ORANGE}
 {WHITE}
 === BEM-VINDO AO ROOM_02 ===
 {RESET}
-Marujo...
+Bem vindo, aprendiz de Marujo!
 
-Navegar parece fácil,
-mas você ainda não chegou ao mar aberto.
+Parabéns por chegar até aqui!
 
-Você está na Baía de Todos os Santos.
+Com tudo que você aprendeu no room_01,
+pratique embarcado até o próximo destino.
 
-Aqui é o lugar para treinar navegação.
+Você está no mar da Baía de Todos os Santos e
+aqui é o lugar para treinar navegação.
 
-Por conta própria, aprenda a navegar melhor
-e a usar os recursos do seu barco.
+Sem muita ajuda do tutorial, continue a navegar
+e chegue no próximo objetivo.
 {ORANGE}
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
