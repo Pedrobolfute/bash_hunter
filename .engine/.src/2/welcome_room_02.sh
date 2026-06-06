@@ -11,6 +11,5 @@ else
 fi
 
 wlcr2 wlc_room_02
-
 echo $sss
 wlcr2 wlc_room_02_fast_guide
