@@ -42,6 +42,10 @@ def destiny():
       return "escolher"
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
       return "Barcos"
+  if now == "/home/jogador/bash_hunter/play/room_02" and room_upstream == 0:
+    return "Finalizar o room_01"
+  if now == "/home/jogador/bash_hunter/play/room_02" and room_upstream == 1:
+    return "..."
   if "None":
     return "Voltar para o ambiente do jogo."
   
@@ -102,7 +106,6 @@ use_cat = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} nome_do_arquivo.txt {
 use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
 use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
 use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
-# use_find = f"""{WHITE}-> Digite o comando {RED} find {BLUE} diretório {WHITE} -name {BLUE} "padrão" {WHITE} para buscar arquivos ou pastas.{RESET}\n"""
 
 # MSG_STRUCTURE
 sos_structure = f""" 
@@ -127,8 +130,6 @@ Objetivo do room_1:
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
 """
-
-
 
 def print_help_command():
   if now == "/home/jogador/bash_hunter/play":

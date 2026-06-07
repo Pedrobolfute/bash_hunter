@@ -221,7 +221,6 @@ if parametro == "alread_started":
 if parametro == "default":
     print_blocking_input(wlc_structure)
     os.system("sleep 3")
-    os.system("for i in $(seq 1 2); do echo "" && sleep 0.05; done")
 
 if parametro == "wlc_room_02":
     os.system("clear")
