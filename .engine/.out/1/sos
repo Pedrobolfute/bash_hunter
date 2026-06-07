@@ -132,7 +132,7 @@ Próximo destino:
 {BLUE + destiny() + RESET}
 
 Objetivo do room_1:
-{YELLOW + objective_room_1 if is_finished == "" else objective_room_1_2 + RESET}
+{YELLOW + (objective_room_1 if is_finished == "" else objective_room_1_2) + RESET}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
