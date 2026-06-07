@@ -115,6 +115,8 @@ use_cat = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} nome_do_arquivo.txt {
 use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
 use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
 use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
+use_room = f"""{WHITE}Digite o comando {RED} cd {BLUE} room {WHITE} para voltar no inicio da jornada.{RESET}\n"""
+use_source_carregar_cenario_02 = f"""Digite o comando {RED}source {ORANGE}carregar_cenario_02.sh{WHITE} 'chave_secreta_do_room_01_aqui'{RESET}\n"""
 
 # MSG_STRUCTURE
 sos_structure = f""" 
@@ -132,7 +134,7 @@ Próximo destino:
 {BLUE + destiny() + RESET}
 
 Objetivo do room_1:
-{YELLOW + (objective_room_1 if is_finished == "" else objective_room_1_2) + RESET}
+{YELLOW + objective_room_1 + RESET if is_finished == "" else YELLOW + objective_room_1_2 + RESET}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
@@ -175,6 +177,10 @@ def print_help_command():
       print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
       print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
+  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "":
+      print_blocking_input(f"""{use_room}""")
+  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "true":
+      print_blocking_input(f"""{use_ls + use_source_carregar_cenario_02}""")
 
 os.system("clear")  
 print_blocking_input(sos_structure)

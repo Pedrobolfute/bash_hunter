@@ -19,6 +19,7 @@ echo -e "my_base_dir=\"$my_base_dir\"" >> $HOME/.bashrc
 echo -e "engine_out=\"$my_base_dir/.engine/.out\"" >> $HOME/.bashrc
 echo -e "engine_src=\"$my_base_dir/.engine/.src\"" >> $HOME/.bashrc
 echo -e "play_dir=\"$my_base_dir/play\"" >> $HOME/.bashrc
+echo -e "alias room=\"$my_base_dir/play/room_01\"" >> $HOME/.bashrc
 
 cat <<'EOF' >> $HOME/.bashrc
 # escolher_start
