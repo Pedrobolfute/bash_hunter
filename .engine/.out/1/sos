@@ -116,7 +116,8 @@ use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHI
 use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
 use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
 use_room = f"""{WHITE}Digite o comando {RED} room {WHITE} para voltar no inicio da jornada.{RESET}\n"""
-use_source_carregar_cenario_02 = f"""Digite o comando {RED}source {ORANGE}carregar_cenario_02.sh{WHITE} 'chave_secreta_do_room_01_aqui'{RESET}\n"""
+use_source_minha_senha = f"""{WHITE}Digite o comando {RED}source {ORANGE}minha_senha.sh{WHITE} para conferir a senha que você conseguiu ao finalizar room_01.{RESET}\n"""
+use_source_carregar_cenario_02 = f"""{WHITE}Digite o comando {RED}source {ORANGE}carregar_cenario_02.sh{WHITE} 'chave_secreta_do_room_01_aqui'{RESET}\n"""
 
 # MSG_STRUCTURE
 sos_structure = f""" 
