@@ -44,6 +44,7 @@ def print_blocking_input(text, speed=0.001):
 def my_location():
   if now == "/home/jogador/bash_hunter/play/room_02/baia_de_todos_os_santos":
     print("baia")
+    print [XP]
     XP = [G,H,H,H,H,H,H,H,H,H]
   elif now == "/home/jogador/bash_hunter/play/room_02/baia_de_todos_os_santos/oeste":
     XP = [H,G,H,H,H,H,H,H,H,H]
@@ -66,6 +67,7 @@ def my_location():
   else:
     XP = [H,H,H,H,H,H,H,H,H,H]
     print("opaaki")
+my_location()
 
 
 mapa_structure = f""" 
@@ -121,9 +123,10 @@ mapa_structure = f"""
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 {R}
+
+on map: printando {XP[0]}
 """
 
 if now.startswith("/home/jogador/bash_hunter/play/room_02"):
     os.system("clear")
-    my_location()
     print(mapa_structure)
