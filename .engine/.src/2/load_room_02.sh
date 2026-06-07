@@ -38,9 +38,10 @@ if [[ -d "$dirfrom" ]]; then
   echo "$sub" | sudo -S mv "$dirfrom" "$dirto" #2>&1/dev/null
   sleep 0.5
   echo "true" > $engine_out/2/loaded.txt
-  # clear
+  sleep 0.5
+  clear
   wlcr2 default
 else
-  # clear
+  clear
   wlcr2 alread_started
 fi
