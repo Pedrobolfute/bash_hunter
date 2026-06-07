@@ -102,5 +102,5 @@ def print_help_command():
       print_blocking_input(f"""{use_ls + use_ls_la + use_cat_zinfo + use_cd + use_cd_dotdot + use_source + use_mapa}""", 0.005)
 
 os.system("clear")  
-print_blocking_input(sos_structure)
+print(sos_structure)
 print_help_command()

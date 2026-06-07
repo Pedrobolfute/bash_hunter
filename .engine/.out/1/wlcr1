@@ -72,6 +72,6 @@ Você começa o jogo nas proximidades da cidade de
 {RESET}
 """
 
-print_blocking_input(wlc_structure)
+print_blocking_input(wlc_structure, 0.02)
 os.system("sleep 5")
 os.system("for i in $(seq 1 40); do echo "" && sleep 0.05; done")

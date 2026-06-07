@@ -68,5 +68,5 @@ PARA VER O MAPA DA REGIÃO INTERNA.
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
 """
-print("\033[H\033[J\033[38;5;208m\033[0m")
+print("\033[H\033[J\033[38;5;208m\033[0m") #ir para o topo
 print_blocking_input(guide_structure)

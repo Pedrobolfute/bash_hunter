@@ -184,6 +184,6 @@ def print_help_command():
       print_blocking_input(f"""{use_ls + use_source_carregar_cenario_02}""")
 
 os.system("clear")  
-print_blocking_input(sos_structure)
+print(sos_structure)
 print_help_command()
 print("")
