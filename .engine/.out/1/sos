@@ -5,6 +5,14 @@ import termios
 import sys
 
 now = os.path.os.getcwd().lower()
+is_finished = ""
+try:
+  with open(f"""/home/jogador/bash_hunter/.engine/.out/1/finished.txt""", "r") as f:
+    content = f.read().strip()
+    if content == "true":
+      is_finished = content
+except FileNotFoundError:
+  is_finished = ""
 
 #FUNCTION
 def destiny():
@@ -42,10 +50,10 @@ def destiny():
       return "escolher"
   if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
       return "Barcos"
-  if now == "/home/jogador/bash_hunter/play/room_02" and room_upstream == 0:
-    return "Finalizar o room_01"
-  if now == "/home/jogador/bash_hunter/play/room_02" and room_upstream == 1:
-    return "..."
+  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "":
+    return "Finalizar o room_01 antes prosseguir."
+  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "true":
+    return "Com o comando 'source', abra room_02 com a chave secreta de room_01."
   if "None":
     return "Voltar para o ambiente do jogo."
   
