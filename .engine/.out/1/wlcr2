@@ -168,7 +168,8 @@ wlc_not_finished = f"""{WHITE}
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-{RESET}"""
+{RESET}
+"""
 
 
 wlc_not_pass_informed = f"""{WHITE}
