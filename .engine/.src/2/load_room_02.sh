@@ -39,6 +39,8 @@ if [[ -d "$dirfrom" ]]; then
   sleep 0.5
   echo "true" > $engine_out/2/loaded.txt
   sleep 0.5
+  alias room="cd $my_base_dir/play/room_02"
+  sleep 0.5
   clear
   wlcr2 default
 else
