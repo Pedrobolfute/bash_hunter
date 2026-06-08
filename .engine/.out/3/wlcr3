@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+import time
+import termios
+import sys
+import os
+
+parametro = sys.argv[1] if len(sys.argv) > 1 else "default"
+
+def type_text(text, velocity=0.03):
+  for char in text:
+      print(char, end='', flush=True)
+      time.sleep(velocity)
+      
+def print_blocking_input(text, speed=0.03):
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+    new_settings = termios.tcgetattr(fd)
+    new_settings[3] = new_settings[3] & ~termios.ECHO
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    type_text(text, speed)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
+  finally:
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+#COLOR
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[0;31m"      #COMANDOS
+GREEN = "\033[0;32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[0;34m"     #DITERORIOS
+MAGENTA = "\033[0;35m"  #RESTRITO NOME
+CYAN = "\033[0;36m"     #RESTRITO PASTAS
+WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
+ORANGE = "\033[38;5;208m" #SCRIPTS
+  
+# MSG_STRUCTURE
+
+go_to_room_03 = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+{WHITE}Observe no jogo que o seu {MAGENTA}nome {WHITE}aparece 
+com uma coloração {MAGENTA}roxeada{WHITE}. Um pouco mais
+a frente aparece o {BLUE}caminho de diretórios{WHITE} 
+que você percorreu até chegar {YELLOW}aqui{WHITE}.
+
+{BLUE}~ (til){WHITE} Representa um caminho oculto que
+aponta para a {BLUE}pasta principal {WHITE}do {MAGENTA}jogador{WHITE}.
+{WHITE}EX: {BLUE}/home/jogador
+
+{BLUE}/ (barra) {WHITE}O primeiro {BLUE}barra {WHITE}reprezenta a {BLUE}raiz
+{WHITE}de todo o sistema aonde o jogo está contido.
+Já os restantes dos {BLUE}barras {WHITE}significa a seperação
+de uma {BLUE}pasta {WHITE}da {BLUE}outra.
+
+{WHITE}Então esse {BLUE}caminho azul {WHITE}que você está vendo acima
+é todo esse {BLUE}caminho {WHITE}aqui em baixo.
+{BLUE}${os.system("pwd")}{RESET}
+
+{WHITE}Sabendo disso, seu {YELLOW}objetivo é ir para room_03{WHITE},
+no qual é uma {BLUE}pasta {WHITE}que fica lado a lado com
+{BLUE}room_02{WHITE}.
+
+Para isso, você vai ter que voltar umas pastas
+atrás.
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_room_03 = f"""{ORANGE} 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}                       
+{WHITE}
+=== BEM-VINDO AO ROOM_03 ===
+{RESET}
+Bem vindo, aprendiz de Marujo!
+
+Parabéns por chegar até aqui!
+
+Com tudo que você aprendeu no room_01,
+pratique embarcado até o próximo destino.
+
+Você está no mar da Baía de Todos os Santos e
+aqui é o lugar para treinar navegação.
+
+Sem muita ajuda do tutorial, continue a navegar
+e chegue no próximo objetivo.
+{ORANGE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_started = f"""{WHITE} 
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+{WHITE}
+=== SALA JÁ ESTAVA CARREGADA ===
+{RESET}
+Você já está na fase 03 ({BLUE}room_03{RESET})!
+{WHITE}
+=== PRÓXIMO PASSO ===
+{RESET}
+Vá para a pasta room_03:
+{WHITE}
+=== MISSÃO ===
+{RESET}
+Siga as instruções do arquivo oculto.
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_not_finished = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+⚠️ O room_02 precisa ser finalizado antes de prosseguir!
+⚠️ Você ainda não carregou a chave secreta em Madre de Deus.
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_not_pass_informed = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+❌ Nenhuma senha informada. Informe a senha como no Exemplo abaixo:
+ 
+{RED}source{RESET} {ORANGE}carregar_cenario_03.sh{RESET} {WHITE}chave_do_room_02_aqui{RESET}
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+wlc_pass_informed_wrong = f"""{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+❌ Senha errada. room_03 não carregado.
+Confira novamente a senha do room_02 e tente novamente.
+
+Para ver novaente a senha do room_02:
+Vá para o Terminal de Madre de Deus.
+
+Para usar a senha do room_02 e carregar o room_03, digite:
+{RED}source{RESET} {ORANGE}carregar_cenario_03.sh{RESET} {WHITE}chave_do_room_02_aqui{RESET}
+{WHITE}
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+{RESET}
+"""
+
+if parametro == "room_02_not_finished":
+    print_blocking_input(wlc_not_finished, 0.005)
+
+if parametro == "pass_not_informed":
+    print_blocking_input(wlc_not_pass_informed, 0.005)
+
+if parametro == "wrong_pass_informed":
+    print_blocking_input(wlc_pass_informed_wrong, 0.005)
+
+if parametro == "alread_started":
+    print_blocking_input(wlc_started, 0.01)
+
+if parametro == "wlc_room_02":
+    os.system("clear")
+    print_blocking_input(wlc_room_03, 0.03)
+    os.system("sleep 1")
+  
+if parametro == "go_to_room_03":
+    print_blocking_input(go_to_room_03, 0.02)

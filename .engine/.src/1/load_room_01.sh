@@ -129,7 +129,7 @@ zarpar() {
 
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
-        sleep 3s
+        sleep 2s
         source "$my_base_dir/.engine/.src/2/welcome_room_02.sh"
     else
         echo "❌ A sala ROOM_2 não foi encontrada em: $room2_dir"
@@ -153,7 +153,6 @@ sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" >/dev/null 2>&1 
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin" >/dev/null 2>&1
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/wlcr1" "/bin" >/dev/null 2>&1
-echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/wlcr2" "/bin" >/dev/null 2>&1
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/guide_01" "/bin" >/dev/null 2>&1
 
 echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 644 {} + >/dev/null 2>&1

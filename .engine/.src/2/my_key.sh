@@ -28,14 +28,22 @@ if [[ -f "$my_base_dir/.engine/.out/2/key.txt" ]]; then
   echo $(dec) > "$my_base_dir/.engine/.out/2/key.txt"
   secret=$(head -n -0 "$my_base_dir/.engine/.out/2/key.txt")
   sss="
-    A chave da sala room_02 é: $secret
+  ⚠️ A chave da sala room_02 é: $secret
   "
 else
   secret=""
   sss="
-    Você não completou a fase 02 (room_02)!.
+  ⚠️ Algo deu errado ao tentar completar a sala room_02!.
   "
 fi
+
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+sub=$(decr)
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/3/wlcr3" "/bin" >/dev/null 2>&1
+sleep 0.5
 
 pwdd_02(){
   local mensagem="
@@ -43,10 +51,11 @@ pwdd_02(){
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-  Acesso liberado para o room_03, volte umas
-  pastas e vá para o próximo nível (room_03).
-  Use a senha desse room_02 para abrir room_03.
+Acesso liberado para o room_03, volte umas
+pastas e vá para o próximo nível (room_03).
+Use a senha desse room_02 para abrir room_03.
 
+$sss
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
@@ -54,13 +63,12 @@ pwdd_02(){
 "
 
   if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BASH HUNTER ⚓" --msgbox "$mensagem $sss $mensagem." 25 80
+    whiptail --title "🏴‍☠️ BASH HUNTER ⚓" --msgbox "$mensagem." 25 80
   else
-    echo -e "$mensagem $sss."
+    echo -e "$mensagem."
   fi
 }
 
 clear
 pwdd_02
-echo $sss
-echo "Vá para room_03!"
+wlcr3 "go_to_room_03"
