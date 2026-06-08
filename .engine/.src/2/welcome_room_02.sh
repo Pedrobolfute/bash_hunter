@@ -7,7 +7,7 @@ decr(){
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
 }
 sub=$(decr)
-echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/wlcr2" "/bin" >/dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/wlcr2" "/bin" #>/dev/null 2>&1
 sleep 0.5
 
 if [[ -s "$my_base_dir/.engine/.out/1/key.txt" ]]; then
