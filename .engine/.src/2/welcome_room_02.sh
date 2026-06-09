@@ -8,7 +8,7 @@ decr(){
 }
 sub=$(decr)
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos/wlcr2" "/usr/bin" > /dev/null 2>&1
-echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos/limbo_wlcr2" "/usr/bin" > /dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos/limbo_sos" "/usr/bin" > /dev/null 2>&1
 echo "$sub" | sudo -S chown root:jogador "/usr/bin/wlcr2" > /dev/null 2>&1
 echo "$sub" | sudo -S chown root:jogador "/usr/bin/limbo_wlcr2" > /dev/null 2>&1
 

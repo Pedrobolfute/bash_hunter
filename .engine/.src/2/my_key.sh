@@ -2,9 +2,32 @@
 
 secret=""
 sss=""
+msg1="
+Acesso liberado para o room_03, volte umas
+pastas e vá para o próximo nível (room_03).
+Use a senha desse room_02 para abrir room_03.
+
+"
+msg2="
+Acesso negado para o room_03, Algo deu errado
+entre room_02 e room_03. Tente novamente ou
+reinicie o jogo.
+
+"
 
 if [[ -z "$my_base_dir" ]]; then
-    echo "❌ Diretório bash_hunter não encontrado em $HOME."
+    echo "
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+❌ Diretório bash_hunter não encontrado em $HOME.
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+"
     return 1
 fi
 
@@ -12,8 +35,17 @@ terminal_me_deus="$play_dir/room_02/baia_de_todos_os_santos/oeste/noroeste/noroe
 
 if [[ "$PWD" != "$terminal_me_deus" ]]; then
     echo "
-    ⚠️ Você só pode pegar a senha dentro do Terminal Marítimo Madre de Deus.
-    "
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+⚠️ Você só pode pegar a senha dentro do Terminal Marítimo Madre de Deus.
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+"
     return 1
 fi
 
@@ -28,13 +60,14 @@ if [[ -f "$my_base_dir/.engine/.out/2/key.txt" ]]; then
   echo $(dec) > "$my_base_dir/.engine/.out/2/key.txt"
   secret=$(head -n -0 "$my_base_dir/.engine/.out/2/key.txt")
   sss="
-  ⚠️ A chave da sala room_02 é: $secret
+⚠️ A chave da sala room_02 é: $secret
   "
 else
   secret=""
   sss="
-  ⚠️ Algo deu errado ao tentar completar a sala room_02!.
-  "
+⚠️ Algo deu errado ao tentar completar a sala room_02!.
+"
+msg1=$msg2
 fi
 
 decr(){
@@ -53,9 +86,7 @@ pwdd_02(){
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
-Acesso liberado para o room_03, volte umas
-pastas e vá para o próximo nível (room_03).
-Use a senha desse room_02 para abrir room_03.
+$msg1
 
 $sss
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
