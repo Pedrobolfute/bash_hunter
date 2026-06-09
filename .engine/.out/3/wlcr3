@@ -4,6 +4,7 @@ import termios
 import sys
 import os
 
+now = os.path.os.getcwd()
 parametro = sys.argv[1] if len(sys.argv) > 1 else "default"
 
 def type_text(text, velocity=0.03):
@@ -57,7 +58,7 @@ de uma {BLUE}pasta {WHITE}da {BLUE}outra.
 
 {WHITE}Então esse {BLUE}caminho azul {WHITE}que você está vendo acima
 é todo esse {BLUE}caminho {WHITE}aqui em baixo.
-{BLUE}${os.system("pwd")}{RESET}
+{BLUE}{now}{RESET}
 
 {WHITE}Sabendo disso, seu {YELLOW}objetivo é ir para room_03{WHITE},
 no qual é uma {BLUE}pasta {WHITE}que fica lado a lado com
