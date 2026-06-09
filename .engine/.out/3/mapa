@@ -44,7 +44,7 @@ def my_location():
     XP = G
   else:
     XP = [H,H,H,H,H,H,H,H,H,H]
-
+ 
 my_location()
 mapa_structure = f""" 
 {ORANGE}
