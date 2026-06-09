@@ -24,7 +24,6 @@ Sua jornada está só começando...
 
 === PRÓXIMO PASSO ===
 Para continuar, digite:
-
 source carregar_cenario_03.sh "senha_do_room_03"
 
 Quando a sala carregar, digite:
