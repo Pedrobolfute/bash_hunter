@@ -90,8 +90,17 @@ Explore o arquivo que foi criado!
   fi
 }
 
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+sub=$(decr)
+echo "$sub" | sudo -S mv "/usr/bin/sos" "/usr/bin/bkp_sos" > /dev/null 2>&1
+
 if [[ ! -e "$engine_out/3/loaded.txt" ]]; then
   mv "$dirfrom/.instrução.txt" "$dirto" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/sos" "/usr/bin" 2>/dev/null
+  echo "$sub" | sudo -S mv "$dirfrom/mapa" "/usr/bin" 2>/dev/null
   echo "true" > $engine_out/3/loaded.txt
   clear
   pwdd

@@ -5,58 +5,10 @@ import termios
 import sys
 
 now = os.path.os.getcwd().lower()
-is_finished = ""
-try:
-  with open(f"""/home/jogador/bash_hunter/.engine/.out/1/finished.txt""", "r") as f:
-    content = f.read().strip()
-    if content == "true":
-      is_finished = content
-except FileNotFoundError:
-  is_finished = ""
 
 #FUNCTION
 def destiny():
-  if now == "/home/jogador/bash_hunter/play":
-      return "Escolha o room que você parou!"
-  if now == "/home/jogador/bash_hunter/play/room_01":
-      return "para_o_mar"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      return "senhor_do_bonfim"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
-      return "feira_de_santana"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-      return "senhor_do_bonfim"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
-      return "senhor_do_bonfim"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
-      return "senhor_do_bonfim"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
-      return "salvador"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
-      return "feira_de_santana"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
-      return "feira_de_santana"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
-      return "terminal_nautico_de_salvador"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
-      return "salvador"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
-      return "salvador"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
-      return "Barcos"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos":
-      return "caravela"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/caravela":
-      return "escolher"
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
-      return "Barcos"
-  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "":
-    return "Finalizar o room_01 antes prosseguir."
-  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "true":
-    return "Usando o comando 'source', abra room_02 com a chave secreta de room_01."
-  if "None":
-    return "Voltar para o ambiente do jogo."
-  
+  return "nome_da_pasta"
 def type_text(text, velocity=0.001):
   for char in text:
       print(char, end='', flush=True)
@@ -99,7 +51,8 @@ for i in range(1, 7):
   
 #MESSAGENS ROOMS
 objective_room_1 = "Entrar em um barco ápto para longas navegações."
-objective_room_1_2 = "Abrir a porta de room_02."
+objective_room_2 = "Navegar do Terminal Náutico de Salvador - BA para o Terminal Nautico de Madre de Deus - BA."
+objective_room_3 = "Atracar no Terminal Nautico de Madre de Deus - BA e reforçar o aprendizado com a Marujada."
     
 #MENSSAGENS
 use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta.\n""" if destiny() != "None" else f"""{WHITE}-> Digite o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
@@ -115,9 +68,8 @@ use_cat = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} nome_do_arquivo.txt {
 use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
 use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
 use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
-use_room = f"""{WHITE}-> Digite o comando {RED} room {WHITE} para voltar no inicio da jornada.{RESET}\n"""
-use_source_minha_senha = f"""{WHITE}-> Digite o comando {RED}source {ORANGE}minha_senha.sh{WHITE} para conferir a senha que você conseguiu ao finalizar room_01.{RESET}\n"""
-use_source_carregar_cenario_02 = f"""{WHITE}-> Digite o comando {RED}source {ORANGE}carregar_cenario_02.sh{WHITE} 'chave_secreta_do_room_01_aqui'{RESET}\n"""
+use_source = f"""{WHITE}-> Digite o comando {RED} source {ORANGE} nome_do_script.sh {WHITE} para executar um script.{RESET}\n"""
+use_mapa = f"""{WHITE}-> Use o comando {RED} mapa {WHITE} para ver o mapa da região.{RESET}\n"""
 
 # MSG_STRUCTURE
 sos_structure = f""" 
@@ -125,17 +77,21 @@ sos_structure = f"""
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                
-=== SOS TUTORIAL ===
+
+{WHITE}Parabéns, Marujo! Nem todos chegam até aqui
+em menos de 1 hora. O tempo médio de viagem
+é de 4 horas!{RESET}
+
+=== SOS {rooms[room_upstream - 1]} ===
 
 Agora você está em:
 {BLUE + now + RESET}
 
 Próximo destino:
-{BLUE + destiny() + RESET}
+{YELLOW}Além do mar!{RESET}
 
-Objetivo do room_1:
-{YELLOW + objective_room_1 + RESET if is_finished == "" else YELLOW + objective_room_1_2 + RESET}
+Objetivo do room_3:
+{YELLOW + objective_room_2 + RESET}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
@@ -143,47 +99,13 @@ Objetivo do room_1:
 
 """
 
+
+
 def print_help_command():
-  if now == "/home/jogador/bash_hunter/play":
-      print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01":
-      print_blocking_input(f"""{use_ls + use_cat_instrucao + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar":
-      print_blocking_input(f"""{use_ls + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim":
-      print_blocking_input(f"""{use_ls_l + use_cat_zinfo + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/andorinha":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/jacobina":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/juazeiro":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana":
-      print_blocking_input(f"""{use_ls_l + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/barreiras":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/vitoria_da_conquista":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador":
-      print_blocking_input(f"""{use_ls_la + use_cat_zinfo + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/aracaju":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/porto_seguro":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos":
-      print_blocking_input(f"""{use_ls_l + use_cat_zinfo}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/caravela":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_01/para_o_mar/senhor_do_bonfim/feira_de_santana/salvador/terminal_nautico_de_salvador/barcos/canoa":
-      print_blocking_input(f"""{use_ls + use_cat_zinfo + use_cd_dotdot}""", 0.01)
-  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "":
-      print_blocking_input(f"""{use_room}""")
-  if now == "/home/jogador/bash_hunter/play/room_02" and is_finished == "true":
-      print_blocking_input(f"""{use_ls + use_source_carregar_cenario_02}""")
+  if now.startswith("/home/jogador/bash_hunter/play/room_02"):
+      print("Use os comandos que você aprendeu no room_01 para conseguir navegar. \n")
+      print_blocking_input(f"""{use_ls_la}""", 0.005)
 
 os.system("clear")  
 print(sos_structure)
 print_help_command()
-print("")
