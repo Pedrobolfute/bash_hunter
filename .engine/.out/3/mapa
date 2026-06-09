@@ -40,7 +40,7 @@ def my_location():
     XP = [H,H,H,H,H,H,H,H,G,H]
   elif now == "/home/jogador/bash_hunter/play/room_02/baia_de_todos_os_santos/oeste/noroeste/noroeste/norte/norte/oeste/noroeste/norte/leste":
     XP = [H,H,H,H,H,H,H,H,H,G]
-  elif now == "/home/jogador/bash_hunter/play/room_02":
+  elif now == "/home/jogador/bash_hunter/play/room_03":
     XP = G
   else:
     XP = [H,H,H,H,H,H,H,H,H,H]
@@ -102,6 +102,6 @@ mapa_structure = f"""
 {R}
 """
 
-if now.startswith("/home/jogador/bash_hunter/play/room_03"):
+if now.startswith("/home/jogador/bash_hunter/play/room_02") or now.startswith("/home/jogador/bash_hunter/play/room_03"):
     os.system("clear")
     print(mapa_structure)
