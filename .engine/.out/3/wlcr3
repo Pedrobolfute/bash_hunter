@@ -56,8 +56,9 @@ aponta para a {BLUE}pasta principal {WHITE}do {MAGENTA}jogador{WHITE}.
 Já os restantes dos {BLUE}barras {WHITE}significa a seperação
 de uma {BLUE}pasta {WHITE}da {BLUE}outra.
 
-{WHITE}Então esse {BLUE}caminho azul {WHITE}que você está vendo acima
-é todo esse {BLUE}caminho {WHITE}aqui em baixo.
+{WHITE}Então esse {BLUE}caminho azul {WHITE}que você vê acima
+do local de digitar comandos é todo esse {BLUE}caminho {WHITE}
+aqui em baixo.
 {BLUE}{now}{RESET}
 
 {WHITE}Sabendo disso, seu {YELLOW}objetivo é ir para room_03{WHITE},
