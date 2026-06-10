@@ -91,7 +91,7 @@ Próximo destino:
 {YELLOW}Além do mar!{RESET}
 
 Objetivo do room_3:
-{YELLOW + objective_room_2 + RESET}
+{YELLOW + "Pegar a chave que destranca a história perdida." + RESET}
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
