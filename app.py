@@ -70,6 +70,22 @@ def spawn_container():
         return jsonify({"success": False, "error":"Servidor cheio (100 players ativos)"}), 503
 
     container_name = f"player_{port}"
+    js_script = """
+    window.addEventListener('load', function() {
+        var checkInterval = setInterval(function() {
+            if (window.term && window.term._core && window.term._core._io && window.term._core._io.socket) {
+                clearInterval(checkInterval);
+                var ws = window.term._core._io.socket;
+                ws.addEventListener('close', function() {
+                    console.log('Conexão perdida. Redirecionando em 3 segundos...');
+                    setTimeout(function() {
+                        window.location.href = 'http://108.174.144.164/';
+                    }, 3000);
+                });
+            }
+        }, 500);
+    });
+    """
     cmd = [
       "docker", "run", "-d",
         "-p", f"{port}:7681",
@@ -83,6 +99,7 @@ def spawn_container():
         "ttyd", "-p", "7681", "-o", "-W",
         "-t", "fontSize=14",
         "-b", f"/play/{port}",
+        "--index", f"data:text/html,<script>{js_script}</script>",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
     
