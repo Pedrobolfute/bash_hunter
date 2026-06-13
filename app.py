@@ -99,7 +99,7 @@ def spawn_container():
       if wait_for_port(port):
         return jsonify({
           "success": True,
-          "url": f"http://108.174.144.164/play/{port}/"})
+          "url": f"http://bashhunter.com.br/play/{port}/"})
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
         with ports_lock:
