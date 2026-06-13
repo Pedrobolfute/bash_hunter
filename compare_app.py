@@ -6,6 +6,7 @@ import time
 import socket
 
 app = Flask(__name__)
+# Garante que o Flask entenda os headers de Proxy Reverso do Nginx
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 PORT_RANGE = list(range(10000, 10101))
@@ -27,7 +28,6 @@ def sync_ports_with_docker():
           threading.Thread(target=monitor_container, args=(name, port), daemon=True).start()
         except ValueError:
           continue
-    
 
 def get_free_port():
   with ports_lock:
@@ -36,15 +36,12 @@ def get_free_port():
             used_ports.add(port)
             return port
   return None
-  
 
 def wait_for_port(port, timeout=10):
     start = time.time()
-    
     while time.time() - start < timeout:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
           sock.settimeout(1)
-          
           if sock.connect_ex(("127.0.0.1", port)) == 0:
               return True
         time.sleep(0.5)
@@ -52,22 +49,27 @@ def wait_for_port(port, timeout=10):
 
 def monitor_container(container_name, port):
   subprocess.run(["docker", "wait", container_name], capture_output=True)
-  
   with ports_lock:
     used_ports.discard(port)
   print(f"[FREE] Porta {port} liberada", flush=True)
 
+# ----------------------------------------------------
+# ROTAS CORRIGIDAS
+# ----------------------------------------------------
 
 @app.route("/")
 def index():
+    # Renderiza o HTML estático com o botão.
+    # Certifique-se de salvar o HTML dentro de uma pasta chamada 'templates'
     return render_template("index.html")
+
 
 @app.route("/spawn", methods=["POST"])
 def spawn_container():
     port = get_free_port()
 
     if not port:
-        return jsonify({"success": False, "error":"Servidor cheio (100 players ativos)"}), 503
+        return jsonify({"success": False, "error": "Servidor cheio (100 players ativos)"}), 503
 
     container_name = f"player_{port}"
     cmd = [
@@ -96,20 +98,22 @@ def spawn_container():
       ).start()
 
       if wait_for_port(port):
+        # Retorna a URL em formato JSON para o JavaScript fazer o redirecionamento limpo
         return jsonify({
-          "success": True,
-          "url": f"http://108.174.144.164/play/{port}/"})
+            "success": True,
+            "url": f"http://108.174.144.164/play/{port}/"
+        })
       else:
         subprocess.run(["docker", "stop", container_name], capture_output=True)
         with ports_lock:
           used_ports.discard(port)
-        return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
+        return jsonify({"success": False, "error": "Ambiente Docker demorou a responder."}), 500
+        
     except Exception as e:
       with ports_lock:
         used_ports.discard(port)
-
-    print(f"[ERRO] {e}", flush=True)
-    return jsonify({"success": False, "error": "Erro interno ao iniciar container"}), 500
+      print(f"[ERRO] {e}", flush=True)
+      return jsonify({"success": False, "error": "Erro interno ao subir container."}), 500
 
 if __name__ == "__main__":
   sync_ports_with_docker()

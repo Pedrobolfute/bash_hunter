@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bash Hunter - Terminal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .terminal-card {
+            width: 100%;
+            max-width: 600px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background-color: #21262d;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .window-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .c-red { background-color: #f85149; }
+        .c-yellow { background-color: #f0883e; }
+        .c-green { background-color: #56d364; }
+
+        .terminal-title {
+            margin-left: 20px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+
+        .terminal-body {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #58a6ff;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.15);
+        }
+
+        p {
+            color: #8b949e;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .code-box {
+            background-color: #0d1117;
+            border: 1px solid #21262d;
+            padding: 14px;
+            border-radius: 6px;
+            text-align: left;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+            color: #79c0ff;
+        }
+
+        .btn-spawn {
+            background-color: #238636;
+            color: #ffffff;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-spawn:hover:not(:disabled) {
+            background-color: #2ea44f;
+            box-shadow: 0 0 20px rgba(46, 164, 79, 0.4);
+        }
+
+        .btn-spawn:disabled {
+            background-color: #21262d;
+            color: #8b949e;
+            border-color: #30363d;
+            cursor: not-allowed;
+        }
+
+        #status-msg {
+            margin-top: 30px;
+            min-height: 30px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .load-spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(88, 166, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: #58a6ff;
+            animation: spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <div class="window-buttons">
+                <div class="circle c-red"></div>
+                <div class="circle c-yellow"></div>
+                <div class="circle c-green"></div>
+            </div>
+            <div class="terminal-title">bash_hunter_system_v1.0</div>
+        </div>
+
+        <div class="terminal-body">
+            <h1>BASH HUNTER</h1>
+            <p>Sua sandbox Linux está pronta para ser instanciada. Clique abaixo para iniciar os servidores de simulação.</p>
+            
+            <div class="code-box">
+                $ ./bash_hunter --start-session
+            </div>
+
+            <button id="action-button" class="btn-spawn" onclick="requisitarJogo()">
+                INICIAR AMBIENTE
+            </button>
+            
+            <div id="status-msg"></div>
+        </div>
+    </div>
+
+    <script>
+        async function requisitarJogo() {
+            const btn = document.getElementById('action-button');
+            const statusMsg = document.getElementById('status-msg');
+            
+            btn.disabled = true;
+            statusMsg.innerHTML = `
+                <div style="color: #58a6ff;">
+                    <span class="load-spinner"></span> Conectando ao porteiro e isolando container...
+                </div>
+            `;
+
+            try {
+                // Dispara o POST em background para a API interna do Flask
+                const resposta = await fetch('/spawn', { method: 'POST' });
+                
+                if (resposta.status === 503) {
+                    statusMsg.innerHTML = '<span style="color: #f85149;">❌ Servidor lotado (Máximo de 100 jogadores atingido).</span>';
+                    btn.disabled = false;
+                    return;
+                }
+
+                const dados = await resposta.json();
+
+                if (dados.success) {
+                    statusMsg.innerHTML = '<span style="color: #56d364;">✓ Sucesso! Redirecionando para a sandbox...</span>';
+                    
+                    // Aguarda o usuário ler a confirmação e joga ele para a URL da porta gerada
+                    setTimeout(() => {
+                        window.location.href = dados.url;
+                    }, 1000);
+                } else {
+                    statusMsg.innerHTML = `<span style="color: #f85149;">❌ Falha no sistema: ${dados.error}</span>`;
+                    btn.disabled = false;
+                }
+
+            } catch (erro) {
+                statusMsg.innerHTML = '<span style="color: #f85149;">❌ Erro crítico: Não foi possível estabelecer conexão com o porteiro.</span>';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
