@@ -70,19 +70,7 @@ def spawn_container():
         return jsonify({"success": False, "error":"Servidor cheio (100 players ativos)"}), 503
 
     container_name = f"player_{port}"
-    js_script = (
-        "window.addEventListener('load',function(){"
-        "var si=setInterval(function(){"
-        "if(window.term&&window.term._core&&window.term._core._io&&window.term._core._io.socket){"
-        "clearInterval(si);"
-        "window.term._core._io.socket.addEventListener('close',function(){"
-        "console.log('Lost connection. Redirecting...');"
-        "setTimeout(function(){window.location.href='http://108.174.144.164/';},3000);"
-        "});"
-        "}"
-        "},500);"
-        "});"
-    )
+
     cmd = [
       "docker", "run", "-d",
         "-p", f"{port}:7681",
@@ -96,7 +84,6 @@ def spawn_container():
         "ttyd", "-p", "7681", "-o", "-W",
         "-t", "fontSize=14",
         "-b", f"/play/{port}",
-        "--index", f"data:text/html,<script>{js_script}</script>",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
     ]
     
