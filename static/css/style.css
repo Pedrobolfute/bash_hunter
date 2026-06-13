@@ -67,6 +67,20 @@ body {
   text-align: center;
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.anchor-icon {
+    font-size: 2.6rem;
+    color: #58a6ff;
+    text-shadow: 0 0 12px rgba(88, 166, 255, 0.5);
+}
+
 h1 {
   color: #58a6ff;
   font-size: 2.4rem;
