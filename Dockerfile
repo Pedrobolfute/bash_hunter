@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Clonar e compilar o ttyd
 WORKDIR /src
 RUN git clone --depth 1 https://github.com/tsl0922/ttyd.git && \
+    # COPY ../ttyd .ttyd && \
     cd ttyd && \
     mkdir build && \
     cd build && \
@@ -74,7 +75,6 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv templates /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv __pycache__ /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
-    mv index_ttyd.html /home/jogador 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
@@ -95,4 +95,4 @@ RUN echo "jogador:arise" | chpasswd && \
 USER jogador
 EXPOSE 7681
 
-CMD ["ttyd", "-o", "-p", "7681", "-W", "--index", "/home/jogador/index_ttyd.html", "/home/jogador/bash_hunter/.engine/init_game.sh"]
+CMD ["ttyd", "-o", "-p", "7681", "-W", "/home/jogador/bash_hunter/.engine/init_game.sh"]
