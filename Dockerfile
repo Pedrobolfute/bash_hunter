@@ -74,6 +74,7 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv templates /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv __pycache__ /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv index_ttyd.html /home/jogador 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
