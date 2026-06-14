@@ -70,6 +70,9 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv LICENSE /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
     mv Dockerfile /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv app.py /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv static /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv templates /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv __pycache__ /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
