@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Bash Hunter - Terminal</title>
-</head>
-<body>
-    <div id="terminal"></div>
 
-    <script src="https://bashhunter.com.br/static/js/sound.js"></script>
-    <script src="https://bashhunter.com.br/static/js/redirect.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Bash Hunter - Terminal</title>
+</head>
+
+<body>
+  <div id="terminal"></div>
+
+  <script>
+    //Sound
+    console.log("dentro script sound")
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playKeySound() {
+      if (!audioCtx || audioCtx.state === 'suspended') return;
+
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      osc.type = 'triangle';
+
+      const frequency = 500 + Math.random() * 120;
+      osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+
+      gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.03);
+
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.03);
+    }
+
+    window.addEventListener('click', initAudio, { once: true });
+
+    window.addEventListener('keydown', function (e) {
+      initAudio(); 
+
+      if (e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt') {
+        playKeySound();
+      }
+    });
+
+    //Redirect
+    const OriginalWebSocket = window.WebSocket;
+    window.WebSocket = function (url, protocols) {
+      const ws = new OriginalWebSocket(url, protocols);
+      ws.addEventListener("error", function (e) {
+        e.preventDefault();
+      });
+      return ws;
+    };
+
+    window.addEventListener("unhandledrejection", function (event) {
+      if (event.reason && event.reason.message && event.reason.message.includes("not valid JSON")) {
+        event.preventDefault();
+      }
+    });
+
+    window.addEventListener("beforeunload", function (e) {
+      window.location.href = "https://bashhunter.com.br/";
+    });
+
+    const observar = new MutationObserver((mutations) => {
+      if (document.body.innerText.includes("Press ⏎ to Reconnect") || document.body.innerText.includes("Press ↵ to Reconnect") || document.querySelector(".xterm-overlay")) {
+        observar.disconnect();
+        console.log("Redirecionando em 3 segundos para página inicial.");
+        setTimeout(() => {
+          window.location.href = "https://bashhunter.com.br/";
+        }, 3000);
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      observar.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
 </body>
 </html>
