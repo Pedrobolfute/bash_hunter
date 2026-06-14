@@ -95,4 +95,4 @@ RUN echo "jogador:arise" | chpasswd && \
 USER jogador
 EXPOSE 7681
 
-CMD ["ttyd", "-o", "-p", "7681", "-W", "--index", "/etc/index_ttyd.html", "/home/jogador/bash_hunter/.engine/init_game.sh"]
+CMD ["ttyd", "-o", "-p", "7681", "-W", "--index", "/home/jogador/index_ttyd.html", "/home/jogador/bash_hunter/.engine/init_game.sh"]
