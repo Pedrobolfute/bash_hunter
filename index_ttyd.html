@@ -7,51 +7,60 @@
 <body>
     <div id="terminal"></div>
 
-    <script>
+   <script>
+    console.log("dentro script")
         // ==========================================
-        // 1. MOTOR DE EFEITO SONORO DO TECLADO (MECÂNICO)
+        // 1. MOTOR DE EFEITO SONORO DO TECLADO (CORRIGIDO)
         // ==========================================
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
 
         function playKeySound() {
-            // Cria os nós de oscilação de onda e ganho (volume)
+            // Se o contexto não foi criado ou o navegador bloqueou, ignora para não dar erro no console
+            if (!audioCtx || audioCtx.state === 'suspended') return;
+
             const osc = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
 
             osc.connect(gainNode);
             gainNode.connect(audioCtx.destination);
 
-            // Tipo de onda: 'triangle' ou 'sine' dá um clique limpo e retrô
             osc.type = 'triangle'; 
             
-            // Frequência do clique (um tom agudo e rápido)
-            const frequency = 400 + Math.random() * 150; // Variação sutil para não ficar robótico
+            // Tom de clique mecânico estalado com variação sutil
+            const frequency = 500 + Math.random() * 120; 
             osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
 
-            // Envelope do som: Inicia alto e morre quase instantaneamente (efeito de clique de interruptor)
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
-            gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.04);
+            // Volume e tempo de decaimento curtíssimo (estalo seco)
+            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime); 
+            gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.03);
 
-            // Inicia e para o som em 40 milissegundos
             osc.start(audioCtx.currentTime);
-            osc.stop(audioCtx.currentTime + 0.04);
+            osc.stop(audioCtx.currentTime + 0.03);
         }
 
-        // Escuta qualquer tecla pressionada dentro da janela do terminal
+        // CORREÇÃO: Destrava o áudio no primeiro clique do mouse na tela
+        window.addEventListener('click', initAudio, { once: true });
+
+        // Escuta o teclado e garante a inicialização do áudio caso o usuário use o TAB ou digite direto
         window.addEventListener('keydown', function(e) {
-            // Previne barulho se o usuário segurar teclas de controle vazias (como Shift puro ou Ctrl puro)
+            initAudio(); // Força o resume a cada interação por segurança
+
             if (e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt') {
-                // Ativa o contexto de áudio se o navegador tiver bloqueado por falta de clique prévio
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
                 playKeySound();
             }
         });
 
-
         // ==========================================
-        // 2. SEUS SCRIPTS DE SEGURANÇA E REDIRECIONAMENTO (MANTIDOS)
+        // 2. SEUS SCRIPTS DE SEGURANÇA E REDIRECIONAMENTO (MANTIDOS IGUAIS)
         // ==========================================
         const OriginalWebSocket = window.WebSocket;
         window.WebSocket = function(url, protocols){
@@ -69,7 +78,7 @@
         });
 
         window.addEventListener("beforeunload", function(e){
-            window.location.href = "https://bashhunter.com.br/";     
+            window.location.href = "http://bashhunter.com.br/";     
         });
 
         const observar = new MutationObserver((mutations) => {
@@ -77,7 +86,7 @@
                 observar.disconnect();
                 console.log("Redirecionando em 3 segundos para página inicial.");
                 setTimeout(() => {
-                    window.location.href = "https://bashhunter.com.br/"; 
+                    window.location.href = "http://bashhunter.com.br/"; 
                 }, 3000);
             }
         });
