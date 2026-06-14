@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bash Hunter - Terminal</title>
+</head>
+<body>
+    <div id="terminal"></div>
+
+    <script>
+        // ==========================================
+        // 1. MOTOR DE EFEITO SONORO DO TECLADO (MECÂNICO)
+        // ==========================================
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playKeySound() {
+            // Cria os nós de oscilação de onda e ganho (volume)
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            // Tipo de onda: 'triangle' ou 'sine' dá um clique limpo e retrô
+            osc.type = 'triangle'; 
+            
+            // Frequência do clique (um tom agudo e rápido)
+            const frequency = 400 + Math.random() * 150; // Variação sutil para não ficar robótico
+            osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+
+            // Envelope do som: Inicia alto e morre quase instantaneamente (efeito de clique de interruptor)
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+            gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.04);
+
+            // Inicia e para o som em 40 milissegundos
+            osc.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + 0.04);
+        }
+
+        // Escuta qualquer tecla pressionada dentro da janela do terminal
+        window.addEventListener('keydown', function(e) {
+            // Previne barulho se o usuário segurar teclas de controle vazias (como Shift puro ou Ctrl puro)
+            if (e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt') {
+                // Ativa o contexto de áudio se o navegador tiver bloqueado por falta de clique prévio
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                playKeySound();
+            }
+        });
+
+
+        // ==========================================
+        // 2. SEUS SCRIPTS DE SEGURANÇA E REDIRECIONAMENTO (MANTIDOS)
+        // ==========================================
+        const OriginalWebSocket = window.WebSocket;
+        window.WebSocket = function(url, protocols){
+            const ws = new OriginalWebSocket(url, protocols);
+            ws.addEventListener("error", function(e){
+                e.preventDefault();     
+            });
+            return ws;
+        };
+
+        window.addEventListener("unhandledrejection", function(event){
+            if(event.reason && event.reason.message && event.reason.message.includes("not valid JSON")){
+                event.preventDefault();
+            }       
+        });
+
+        window.addEventListener("beforeunload", function(e){
+            window.location.href = "https://bashhunter.com.br/";     
+        });
+
+        const observar = new MutationObserver((mutations) => {
+            if(document.body.innerText.includes("Press ⏎ to Reconnect") || document.body.innerText.includes("Press ↵ to Reconnect") || document.querySelector(".xterm-overlay")){
+                observar.disconnect();
+                console.log("Redirecionando em 3 segundos para página inicial.");
+                setTimeout(() => {
+                    window.location.href = "https://bashhunter.com.br/"; 
+                }, 3000);
+            }
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            observar.observe(document.body, { childList: true, subtree: true });     
+        });
+    </script>
+</body>
+</html>
