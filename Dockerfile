@@ -76,10 +76,7 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
-    mv index_ttyd.html /etc 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
-    chown -R jogador:jogador /etc/index_ttyd.html && \
-    chmod 777 /etc/index_ttyd.html && \
     chown -R jogador:jogador /home/jogador/bash_hunter/.engine/.out && \
     chmod 711 /home/jogador/bash_hunter/.engine && \
     chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
