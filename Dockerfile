@@ -76,8 +76,10 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
-    mv index_ttyd.html /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
+    mv index_ttyd.html /etc 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
+    chown -R root:root /etc/index_ttyd.html && \
+    chmod 711 /etc/index_ttyd.html && \
     chown -R jogador:jogador /home/jogador/bash_hunter/.engine/.out && \
     chmod 711 /home/jogador/bash_hunter/.engine && \
     chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
@@ -95,4 +97,4 @@ RUN echo "jogador:arise" | chpasswd && \
 USER jogador
 EXPOSE 7681
 
-CMD ["ttyd", "-o", "-p", "7681", "-W", "--index", "/home/jogador/bash_hunter/.engine/index_ttyd.html", "/home/jogador/bash_hunter/.engine/init_game.sh"]
+CMD ["ttyd", "-o", "-p", "7681", "-W", "--index", "/etc/index_ttyd.html", "/home/jogador/bash_hunter/.engine/init_game.sh"]
