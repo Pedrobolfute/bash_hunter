@@ -56,9 +56,9 @@ aponta para a {BLUE}pasta principal {WHITE}do {MAGENTA}jogador{WHITE}.
 Já os restantes dos {BLUE}barras {WHITE}significa a seperação
 de uma {BLUE}pasta {WHITE}da {BLUE}outra.
 
-{WHITE}Então esse {BLUE}caminho azul {WHITE}que você vê acima
+{WHITE}Então esse {BLUE}caminho azul {WHITE}que você vê na frente
 do local de digitar comandos é todo esse {BLUE}caminho {WHITE}
-aqui em baixo.
+aqui em baixo no qual você consegue ver com o comando {RED} pwd {RESET}.
 {BLUE}{now}{RESET}
 
 {WHITE}Sabendo disso, seu {YELLOW}objetivo é ir para room_03{WHITE},
@@ -86,14 +86,13 @@ Bem vindo, aprendiz de Marujo!
 
 Parabéns por chegar até aqui!
 
-Com tudo que você aprendeu no room_01,
+Com tudo que você aprendeu no room_01 e roo_02,
 pratique embarcado até o próximo destino.
 
 Você está no mar da Baía de Todos os Santos e
 aqui é o lugar para treinar navegação.
 
-Sem muita ajuda do tutorial, continue a navegar
-e chegue no próximo objetivo.
+Continue a navegar e chegue no próximo destino.
 {ORANGE}
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

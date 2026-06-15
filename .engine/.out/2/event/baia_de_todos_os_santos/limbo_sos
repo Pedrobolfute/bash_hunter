@@ -85,7 +85,7 @@ Agora você está em:
 {BLUE + now + RESET}
 
 Próximo destino:
-???
+{WHITE}Descubra!{RESET}
 
 Objetivo do room_2:
 {YELLOW + objective_room_2_3 + RESET}
