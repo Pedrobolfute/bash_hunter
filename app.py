@@ -88,30 +88,41 @@ def spawn_container():
     ]
     
     try:
-      subprocess.Popen(cmd)
+        # Mudança importante: Usamos run em vez de Popen para esperar o Docker criar o container
+        # Como o comando usa "-d" (detached), ele retorna imediatamente após criar o container
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        
+        if result.returncode != 0:
+            # Se o docker run falhar (ex: container já existe por algum motivo)
+            raise Exception(f"Docker run falhou: {result.stderr.strip()}")
 
-      threading.Thread(
-        target=monitor_container,
-        args=(container_name, port),
-        daemon=True
-      ).start()
+        # Mensagem informativa de ocupação
+        print(f"[OCUPADA] Porta {port} alocada para o container {container_name}", flush=True)
 
-      if wait_for_port(port):
-        return jsonify({
-          "success": True,
-          "url": f"https://bashhunter.com.br/play/{port}/"})
-      else:
-        subprocess.run(["docker", "stop", container_name], capture_output=True)
-        with ports_lock:
-          used_ports.discard(port)
-        return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
+        # Só disparamos o monitoramento DEPOIS que temos certeza que o container foi criado
+        threading.Thread(
+            target=monitor_container,
+            args=(container_name, port),
+            daemon=True
+        ).start()
+
+        if wait_for_port(port):
+            return jsonify({
+                "success": True,
+                "url": f"https://bashhunter.com.br/play/{port}/"
+            })
+        else:
+            # Se a porta ttyd não responder a tempo, para o container
+            subprocess.run(["docker", "stop", container_name], capture_output=True)
+            # O próprio monitor_container vai rodar (porque o stop mata o container) e liberar a porta.
+            return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
+
     except Exception as e:
-      with ports_lock:
-        used_ports.discard(port)
-
-    print(f"[ERRO] {e}", flush=True)
-    return jsonify({"success": False, "error": "Erro interno ao iniciar container"}), 500
+        print(f"[ERRO] {e}", flush=True)
+        with ports_lock:
+            used_ports.discard(port)
+        return jsonify({"success": False, "error": "Erro interno ao iniciar container"}), 500
 
 if __name__ == "__main__":
-  sync_ports_with_docker()
-  app.run(host="0.0.0.0", port=8080)
+    sync_ports_with_docker()
+    app.run(host="0.0.0.0", port=8080)
