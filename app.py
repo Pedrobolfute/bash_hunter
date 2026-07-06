@@ -88,18 +88,13 @@ def spawn_container():
     ]
     
     try:
-        # Mudança importante: Usamos run em vez de Popen para esperar o Docker criar o container
-        # Como o comando usa "-d" (detached), ele retorna imediatamente após criar o container
         result = subprocess.run(cmd, capture_output=True, text=True)
         
         if result.returncode != 0:
-            # Se o docker run falhar (ex: container já existe por algum motivo)
             raise Exception(f"Docker run falhou: {result.stderr.strip()}")
 
-        # Mensagem informativa de ocupação
         print(f"[OCUPADA] Porta {port} alocada para o container {container_name}", flush=True)
 
-        # Só disparamos o monitoramento DEPOIS que temos certeza que o container foi criado
         threading.Thread(
             target=monitor_container,
             args=(container_name, port),
@@ -112,9 +107,7 @@ def spawn_container():
                 "url": f"https://bashhunter.com.br/play/{port}/"
             })
         else:
-            # Se a porta ttyd não responder a tempo, para o container
             subprocess.run(["docker", "stop", container_name], capture_output=True)
-            # O próprio monitor_container vai rodar (porque o stop mata o container) e liberar a porta.
             return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
 
     except Exception as e:
