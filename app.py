@@ -88,30 +88,34 @@ def spawn_container():
     ]
     
     try:
-      subprocess.Popen(cmd)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        
+        if result.returncode != 0:
+            raise Exception(f"Docker run falhou: {result.stderr.strip()}")
 
-      threading.Thread(
-        target=monitor_container,
-        args=(container_name, port),
-        daemon=True
-      ).start()
+        print(f"[OCUPADA] Porta {port} alocada para o container {container_name}", flush=True)
 
-      if wait_for_port(port):
-        return jsonify({
-          "success": True,
-          "url": f"https://bashhunter.com.br/play/{port}/"})
-      else:
-        subprocess.run(["docker", "stop", container_name], capture_output=True)
-        with ports_lock:
-          used_ports.discard(port)
-        return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
+        threading.Thread(
+            target=monitor_container,
+            args=(container_name, port),
+            daemon=True
+        ).start()
+
+        if wait_for_port(port):
+            return jsonify({
+                "success": True,
+                "url": f"https://bashhunter.com.br/play/{port}/"
+            })
+        else:
+            subprocess.run(["docker", "stop", container_name], capture_output=True)
+            return jsonify({"success": False, "error": "Erro ao criar container (Porta possivelmente presa no Docker)"}), 500
+
     except Exception as e:
-      with ports_lock:
-        used_ports.discard(port)
-
-    print(f"[ERRO] {e}", flush=True)
-    return jsonify({"success": False, "error": "Erro interno ao iniciar container"}), 500
+        print(f"[ERRO] {e}", flush=True)
+        with ports_lock:
+            used_ports.discard(port)
+        return jsonify({"success": False, "error": "Erro interno ao iniciar container"}), 500
 
 if __name__ == "__main__":
-  sync_ports_with_docker()
-  app.run(host="0.0.0.0", port=8080)
+    sync_ports_with_docker()
+    app.run(host="0.0.0.0", port=8080)

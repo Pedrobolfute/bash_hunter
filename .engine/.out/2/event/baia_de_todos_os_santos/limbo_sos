@@ -50,7 +50,7 @@ for i in range(1, 7):
     break  
   
 #MESSAGENS ROOMS
-objective_room_1 = "Entrar em um barco ápto para longas navegações."
+objective_room_1 = "Entrar em um barco apto para longas navegações."
 objective_room_2 = "Navegar do Terminal Náutico de Salvador - BA para o Terminal Nautico de Madre de Deus - BA."
 objective_room_2_3 = "Navegar do Terminal Nautico de Madre de Deus - BA em room_02, para o Porto de Saubara - BA em room_03"
 
@@ -85,7 +85,7 @@ Agora você está em:
 {BLUE + now + RESET}
 
 Próximo destino:
-???
+{WHITE}Descubra!{RESET}
 
 Objetivo do room_2:
 {YELLOW + objective_room_2_3 + RESET}
