@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Clonar e compilar o ttyd
 WORKDIR /src
 RUN git clone --depth 1 https://github.com/tsl0922/ttyd.git && \
+    # COPY ../ttyd .ttyd && \
     cd ttyd && \
     mkdir build && \
     cd build && \
@@ -39,8 +40,11 @@ RUN apt-get update && apt-get install -y \
     vim \
     htop \
     sudo \
+    python3 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN echo "Defaults timestamp_timeout=0" > /etc/sudoers.d/timeout && \
+    chmod 0440 /etc/sudoers.d/timeout
 # 2. Configurar Locale pt_BR (Essencial para ícones e menus do whiptail)
 RUN sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
@@ -58,7 +62,7 @@ WORKDIR /home/jogador/bash_hunter
 # 5. Organizar e Proteger o Motor (.engine)
 # Copia todo o repositório e organiza os arquivos sensíveis
 COPY . .
-
+# Exemplo de linha para adicionar no seu Dockerfile:
 
 
 # Executa como root para garantir que as permissões de proteção funcionem
@@ -67,16 +71,20 @@ RUN mkdir -p /home/jogador/bash_hunter/.engine && \
     mv LICENSE /home/jogador/bash_hunter/.engine/ 2>/dev/null || true && \
     mv Dockerfile /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv app.py /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv static /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv templates /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
+    mv __pycache__ /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv README.md /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .git /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     mv .gitignore /home/jogador/bash_hunter/.engine 2>/dev/null || true && \
     chown -R root:root /home/jogador/bash_hunter/.engine && \
     chown -R jogador:jogador /home/jogador/bash_hunter/.engine/.out && \
-    # 711: Jogador pode atravessar (+x) para rodar o jogo, mas não pode dar ls (-r)
     chmod 711 /home/jogador/bash_hunter/.engine && \
     chmod +x /home/jogador/bash_hunter/.engine/init_game.sh
 
 
+RUN echo "export PS1='\[\e[0;36m\]⚓\[\e[0;35m\]\u@\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\] \[\e[1;36m\]➜\[\e[0m\] '" >> /home/jogador/.bashrc
+RUN echo "alias ls='ls -1 --color=auto'" >> /home/jogador/.bashrc
 
 # 6. Permissões de escrita para as pastas de jogo do aluno
 RUN chown -R jogador:jogador /home/jogador/bash_hunter/play

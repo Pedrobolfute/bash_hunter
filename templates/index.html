@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bash Hunter - Terminal</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚓</text></svg>">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <div class="terminal-card">
+    <div class="terminal-header">
+      <div class="window-buttons">
+        <div class="circle c-red"></div>
+        <div class="circle c-yellow"></div>
+        <div class="circle c-green"></div>
+      </div>
+      <div class="terminal-title">bash_hunter_system_v1.0</div>
+    </div>
+
+    <div class="terminal-body">
+      <div class="title-container">
+        <span class="anchor-icon">⚓</span>
+        <h1>BASH HUNTER</h1>
+      </div>
+      <p>Seu Terminal Linux está pronto para ser iniciado. Clique abaixo para iniciar o servidor de simulação.</p>
+
+      <div class="code-box">
+        $ ./bash_hunter --start-session
+      </div>
+
+      <button id="action-button" class="btn-spawn" onclick="requisitarJogo()">
+        INICIAR AMBIENTE
+      </button>
+
+      <div id="status-msg"></div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

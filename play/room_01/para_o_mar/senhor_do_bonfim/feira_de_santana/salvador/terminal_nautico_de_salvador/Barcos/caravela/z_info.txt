@@ -1,1 +1,34 @@
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+=== INFORMAÇÃO DESSE BARCO ===
+
 Símbolo das grandes navegações, resistente e nostálgica, mas lenta.
+
+
+=== ESCOLHER ESSE BARCO ===
+
+Escolha o barco com o comando:
+escolher
+
+
+=== PARTIR PARA O MAR ===
+
+Depois de escolher, digite o comando:
+zarpar
+
+Se o barco for válido para viagem,
+então sua jornada vai começar no
+cenário do room_02!
+
+
+=== DICA ===
+
+Na dúvida, use o comando "sos"
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+

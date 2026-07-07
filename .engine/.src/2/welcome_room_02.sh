@@ -2,58 +2,26 @@
 secret=""
 sss=""
 
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+sub=$(decr)
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos/wlcr2" "/usr/bin" > /dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos/limbo_sos" "/usr/bin" > /dev/null 2>&1
+echo "$sub" | sudo -S chown root:jogador "/usr/bin/wlcr2" > /dev/null 2>&1
+echo "$sub" | sudo -S chown root:jogador "/usr/bin/limbo_wlcr2" > /dev/null 2>&1
+
+
 if [[ -s "$my_base_dir/.engine/.out/1/key.txt" ]]; then
   secret=$(head -n -0 "$my_base_dir/.engine/.out/1/key.txt")
+  sleep 0.5
   sss="A chave da sala room_01 era: $secret"
 else
   secret=""
   sss=""
 fi
 
-welcome(){
-  local mensagem="
-
-▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
-▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
-▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
-
-🪶 Bem vindo a fase 02 (room_02)!
-
-Marujo, parece fácil navegar, mas você ainda nem
-chegou ao mar aberto. Dentro da BAIA DE TODOS OS
-SANTOS você tem que aprender a navegar direito e 
-usar alguns recursos do barco.
-
-"
-
-  if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BEM-VINDO AO BASH HUNTER ⚓" --msgbox "$mensagem$sss" 25 80
-  else
-    echo -e "\n$mensagem\n"
-  fi
-}
-
-clear
-welcome
-
-
-
-echo -e "
-▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
-▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
-▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       "
-
-echo "Use o comando \"cd NOME_DA_PASTA\" para entrar em pastas"
-echo "Use o comando \"cd ..\" para voltar uma pasta atrás"
-echo "Use o comando \"pwd\" para ver a pasta que você está"
-echo "Use o comando \"ls\" para ver as pastas e arquivos "
-echo "Use o comando \"cat NOME_DO_ARQUIVO_DE_TEXTO\" para ver conteúdo de um arquivo."
-echo "Use o comando \"source ARQUIVO.sh\" para carregar funcionalidades em arquivos \".sh\". Mas use-o com cuidado!"
-
-echo -e "
-▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
-▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
-▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       "
+wlcr2 wlc_room_02
+echo $sss
+wlcr2 wlc_room_02_fast_guide

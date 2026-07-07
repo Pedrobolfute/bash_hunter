@@ -2,22 +2,46 @@
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-                       
 
-🪶 Bem vindo a fase 02 (room_02)!
 
-Marujo, parece fácil navegar, mas você ainda nem
-chegou ao mar aberto. Dentro da BAIA DE TODOS OS
-SANTOS você tem que aprender a navegar direito e 
-usar alguns recursos do barco.
+🪶 BEM-VINDO À FASE 02 (room_02)
 
-A senha do room_01 vai permitir você carregar a nova sala (room_02).
-Use ela como parêmetro para carregar o cenário.
-- EXEMPLO DE COMO CARREGAR NOVA SALA: source load_room_02.sh "senha_aqui"
+Marujo, calma...
 
-A senha só é liberado quando você completa o room_01.
-Se não souber a senha carregue o arquivo minha_senha.sh
-- EXEMPLO DE COMO VER A SENHA: source minha_senha.sh
+Parece fácil navegar,
+mas você ainda está na Baía de Todos os Santos.
+
+Antes de ir para o mar aberto,
+você precisa aprender a usar melhor o seu barco.
+
+
+=== COMO ENTRAR NA NOVA SALA ===
+Você precisa de uma senha.
+
+Essa senha é conquistada
+ao completar a fase anterior (room_01).
+
+
+Digite assim:
+source load_room_02.sh "sua_senha_aqui"
+
+
+=== NÃO TEM A SENHA? ===
+Sem problema.
+Digite:
+
+source minha_senha.sh
+Isso vai mostrar sua senha.
+
+
+=== DICA ===
+Digite tudo exatamente igual.
+Preste atenção nas aspas (" ").
+
+
+=== MISSÃO ===
+Descubra sua senha
+e carregue a nova fase!
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

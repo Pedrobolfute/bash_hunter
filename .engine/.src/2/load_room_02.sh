@@ -1,54 +1,49 @@
 #!/bin/bash
-
 finished=$( (tr -d '\r\n ' < "$engine_out/1/finished.txt") 2>/dev/null )
 
 if [[ "$finished" != "true" ]]; then
-  echo "⚠️ O room_01 precisa ser finalizado antes de prosseguir!"
+  wlcr2 room_01_not_finished
   return 1
 fi
 
 if [[ -z "$1" ]]; then
-    echo "❌ Nenhuma senha informada. Informe a senha como no Exemplo abaixo:"
-    echo "source carregar_cenario_02.sh \"senha_aqui\""
+    wlcr2 pass_not_informed
     return 1
 fi
 
 correct_key=$(tr -d '\r\n ' < "$my_base_dir/.engine/.out/1/key.txt" 2>/dev/null)
 if [[ "$1" != "$correct_key" ]]; then
-    echo "❌ Senha errada. Você não pode carregar o cenário."
+
+    wlcr2 wrong_pass_informed
     return 1
 fi
 
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+sub=$(decr)
+
 dirfrom="$my_base_dir/.engine/.out/2/event/baia_de_todos_os_santos"
 dirto="$my_base_dir/play/room_02"
-
-pwdd(){
-  local mensagem="
-    ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
-    ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
-    ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
-
-    Sala (room_02) carregada.
-
-    Use o comando "ls" para ver o novo caminho que se abriu!
-"
-
-  if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "🏴‍☠️ BASH HUNTER ⚓" --msgbox "$mensagem" 25 80
-  else
-    echo -e "\n$mensagem\n"
-  fi
-}
-
 if [[ -d "$dirfrom" ]]; then
-  mv "$dirfrom/mini_mapa.txt" "$dirto" 2>/dev/null
-  mv "$dirfrom" "$dirto" 2>/dev/null
+  echo "$sub" | sudo -S mv -f "$dirfrom/mapa" "/bin" #2>&1/dev/null
+  sleep 0.5
+  echo "$sub" | sudo -S mv -f "$dirfrom/sos" "/bin" #2>&1/dev/null
+  sleep 0.5
+  echo "$sub" | sudo -S mv "$dirfrom/instrução.txt" "$dirto" #2>&1/dev/null
+  sleep 0.5
+  echo "$sub" | sudo -S mv "$dirfrom/mapa.txt" "$dirto" #2>&1/dev/null
+  sleep 0.5
+  echo "$sub" | sudo -S mv "$dirfrom" "$dirto" #2>&1/dev/null
+  sleep 0.5
   echo "true" > $engine_out/2/loaded.txt
+  sleep 0.5
+  alias room="cd $my_base_dir/play/room_02"
+  sleep 0.5
   clear
-  pwdd
+  wlcr2 default
 else
   clear
-  echo "
-  Fase já foi iniciada. Use ls para ver novos arquivos em room_02
-  "
+  wlcr2 alread_started
 fi

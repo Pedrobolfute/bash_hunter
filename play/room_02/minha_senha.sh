@@ -1,3 +1,4 @@
 #!/bin/bash
 
-source $my_base_dir/.engine/.src/2/load_room_02_pw.sh
+echo "Iniciando..."
+source $engine_src/2/load_room_02_pw.sh 2>/dev/null

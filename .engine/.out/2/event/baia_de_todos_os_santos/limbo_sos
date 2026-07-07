@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+import os
+import time
+import termios
+import sys
+
+now = os.path.os.getcwd().lower()
+
+#FUNCTION
+def destiny():
+  return "nome_da_pasta"
+def type_text(text, velocity=0.001):
+  for char in text:
+      print(char, end='', flush=True)
+      time.sleep(velocity)
+      
+def print_blocking_input(text, speed=0.001):
+  fd = sys.stdin.fileno()
+  old_settings = termios.tcgetattr(fd)
+  try:
+    new_settings = termios.tcgetattr(fd)
+    new_settings[3] = new_settings[3] & ~termios.ECHO
+    termios.tcsetattr(fd, termios.TCSADRAIN, new_settings)
+    type_text(text, speed)
+    termios.tcflush(sys.stdin, termios.TCIFLUSH)
+  finally:
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+#COLOR
+RESET = "\033[0m"     #RESET COLOR
+RED = "\033[0;31m"      #COMANDOS
+GREEN = "\033[0;32m"    #ARQUIVOS DE TEXTO SIMPLES
+YELLOW = "\033[33m"   #OBJETIVOS
+BLUE = "\033[0;34m"     #DITERORIOS
+MAGENTA = "\033[0;35m"  #RESTRITO NOME
+CYAN = "\033[0;36m"     #RESTRITO PASTAS
+WHITE = "\033[0;1;37m"  #BASH HUNTER NEGRITADO
+ORANGE = "\033[38;5;208m" #SCRIPTS
+
+#ROOMS
+rooms = ["room_01", "room_02", "room_03", "room_04", "room_05", "room_06"]
+room_upstream = ""
+for i in range(1, 7):
+  try:
+    with open(f"""/home/jogador/bash_hunter/.engine/.out/{i}/loaded.txt""", "r") as f:
+      content = f.read().strip()
+      if content == "true":
+        room_upstream = i
+  except FileNotFoundError:
+    break  
+  
+#MESSAGENS ROOMS
+objective_room_1 = "Entrar em um barco apto para longas navegações."
+objective_room_2 = "Navegar do Terminal Náutico de Salvador - BA para o Terminal Nautico de Madre de Deus - BA."
+objective_room_2_3 = "Navegar do Terminal Nautico de Madre de Deus - BA em room_02, para o Porto de Saubara - BA em room_03"
+
+    
+#MENSSAGENS
+use_cd = f"""{WHITE}-> Digite o comando {RED} cd {BLUE} {destiny()} {WHITE} para você entrar na {BLUE} pasta.\n""" if destiny() != "None" else f"""{WHITE}-> Digite o comando {RED} cd {BLUE} nome_da_pasta {WHITE} ou {RED} cd .. {WHITE} para conseguir voltar no ambiente do jogo.{RESET}\n"""
+
+use_cd_dotdot = f"""{WHITE}-> Digite o comando {RED} cd .. {WHITE} para voltar uma pasta para trás.{RESET}\n""" if destiny() != "None" else f"""{WHITE}-> Digite o comando {RED} cd {BLUE} nome_da_pasta {WHITE} para voltar para o ambiente do jogo.{RESET}\n"""
+
+use_ls = f"""{WHITE}-> Digite o comando {RED} ls {WHITE} para ver os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
+
+use_ls_a = f"""{WHITE}-> Digite o comando {RED} ls -a {WHITE} para ver todos os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
+use_ls_l = f"""{WHITE}-> Digite o comando {RED} ls -l {WHITE} para ver com mais detalhes os {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} que você pode manipular.{RESET}\n"""
+use_ls_la = f"""{WHITE}-> Digite o comando {RED} ls -la {WHITE} para ver todos os detalhes dos {GREEN} arquivos {WHITE} e {BLUE} pastas {WHITE} ocultas e não ocultas que você pode manipular.{RESET}\n"""
+use_cat = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} nome_do_arquivo.txt {WHITE} para ver o conteúdo do arquivo.{RESET}\n"""
+use_cat_zinfo = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_info.txt {WHITE} para ver o conteúdo do arquivo z_info.txt.{RESET}\n"""
+use_cat_zhelp = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} z_help.txt {WHITE} para ver o conteúdo do arquivo z_help.txt.{RESET}\n"""
+use_cat_instrucao = f"""{WHITE}-> Digite o comando {RED} cat {GREEN} instrução.txt {WHITE} para ver o conteúdo do arquivo instrução.txt.{RESET}\n"""
+use_source = f"""{WHITE}-> Digite o comando {RED} source {ORANGE} nome_do_script.sh {WHITE} para executar um script.{RESET}\n"""
+use_mapa = f"""{WHITE}-> Use o comando {RED} mapa {WHITE} para ver o mapa da região.{RESET}\n"""
+
+# MSG_STRUCTURE
+sos_structure = f""" 
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+=== SOS {rooms[room_upstream - 1]} ===
+
+Agora você está em:
+{BLUE + now + RESET}
+
+Próximo destino:
+{WHITE}Descubra!{RESET}
+
+Objetivo do room_2:
+{YELLOW + objective_room_2_3 + RESET}
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+"""
+
+
+
+def print_help_command():
+  if now.startswith("/home/jogador/bash_hunter/play/room_02"):
+      print("Use os comandos que você aprendeu no room_01 para conseguir navegar. \n")
+      print_blocking_input(f"""{use_ls + use_ls_la + use_cat_zinfo + use_cd + use_cd_dotdot + use_source + use_mapa}""", 0.005)
+
+os.system("clear")  
+print(sos_structure)
+print_help_command()

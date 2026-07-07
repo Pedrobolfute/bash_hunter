@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Carregando room_01..."
 
 if [[ -z "$my_base_dir" ]]; then
   echo "❌ Erro: diretório 'bash_hunter' não encontrado."
@@ -18,8 +17,9 @@ original_bash=$(head -n "$original_bash_line" "$HOME/.bashrc")
 echo -e "\n###BASH_HUNTER AREA###" >> $HOME/.bashrc
 echo -e "my_base_dir=\"$my_base_dir\"" >> $HOME/.bashrc
 echo -e "engine_out=\"$my_base_dir/.engine/.out\"" >> $HOME/.bashrc
-echo -e "engine_src=\"$engine_src/.engine/.src\"" >> $HOME/.bashrc
+echo -e "engine_src=\"$my_base_dir/.engine/.src\"" >> $HOME/.bashrc
 echo -e "play_dir=\"$my_base_dir/play\"" >> $HOME/.bashrc
+echo -e "alias room=\"cd $my_base_dir/play/room_01\"" >> $HOME/.bashrc
 
 cat <<'EOF' >> $HOME/.bashrc
 # escolher_start
@@ -83,7 +83,7 @@ zarpar() {
     local current_dir_name
     current_dir_name=$(basename "$PWD")
 
-    local ald=("veleiro" "caravela" "goleta")
+    local ald=( "caravela" )
 
     if [[ ! -f "$choosed_boat_file" ]]; then
         echo "⚠️ Você ainda não escolheu um barco. Use o comando 'escolher' primeiro."
@@ -122,15 +122,14 @@ zarpar() {
 
     if [[ -d "$room2_dir" ]]; then
         echo "🧭 Navegando para ROOM_2..."
-        sleep 1s
+        sleep 0.5s
         cd "$room2_dir" || { echo "❌ Erro ao navegar!"; return 1; }
-        mv "$choosed_boat_file" "$my_base_dir/.engine/.out/2"
         echo "içar_âncora" > "$my_base_dir/.engine/.out/1/key.txt"
         echo "true" > "$engine_out/1/finished.txt"
 
         echo "🌊 Você agora está Iniciando sua jornada, marujo! 🌊"
         echo "🌊 Essa é a BAIA DE TODOS OS SANTOS! Vá ao mar.   🌊"
-        sleep 3s
+        sleep 1s
         source "$my_base_dir/.engine/.src/2/welcome_room_02.sh"
     else
         echo "❌ A sala ROOM_2 não foi encontrada em: $room2_dir"
@@ -139,9 +138,24 @@ zarpar() {
 }
 #zarpar_end
 
+export LS_COLORS="$LS_COLORS:*.txt=01;32"
+export LS_COLORS="$LS_COLORS:*.sh=38;5;208"
+
 EOF
 
 source $HOME/.bashrc
-cd $play_dir/room_01/para_o_mar
+
+decr(){
+  local in="evmwi"
+  echo "$in" | tr 'e-za-de-za-d' 'a-za-z'
+}
+sub=$(decr)
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/mapa" "/bin" >/dev/null 2>&1 
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/sos" "/bin" >/dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/wlcr1" "/bin" >/dev/null 2>&1
+echo "$sub" | sudo -S mv "$my_base_dir/.engine/.out/1/guide_01" "/bin" >/dev/null 2>&1
+
+echo "$sub" | sudo -S find "$my_base_dir/play" -type f -name "*.txt" -exec chown root:jogador {} + -exec chmod 644 {} + >/dev/null 2>&1
+echo "$sub" | sudo -S find "/usr/bin" -user jogador -exec chown root:jogador {} + -exec chmod 755 {} + >/dev/null 2>&1
 
 echo "true" > $my_base_dir/.engine/.out/1/loaded.txt

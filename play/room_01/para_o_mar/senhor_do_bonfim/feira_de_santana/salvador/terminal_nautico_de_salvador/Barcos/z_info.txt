@@ -3,14 +3,40 @@
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
 ▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
 
+=== ESCOLHA SEU BARCO ===
 
-Nem todos esses barcos estão disponiveis, escolha um.
-Para escolher, entre dentro do barco e uso o comando "escolher".
+Nem todos os barcos estão disponíveis.
+Escolha um para continuar!
 
-Se for um barco válido e disponível, você já pode iniciar sua jornada com o comando "zarpar".
-Você está pronto para içar velas e zarpar para a proxima fase, marujo?
 
-Á, o comando "meu_barco" vai te mostrar qual barco você está usando, se você esquecer.
+=== COMO FAZER ===
+
+1. Entre no barco:
+cd nome_do_barco
+
+2. Escolha o barco com o comando:
+escolher
+
+
+=== PARTIR PARA O MAR ===
+
+Depois de escolher, digite o comando:
+zarpar
+
+Se o barco for válido para viagem,
+então sua jornada vai começar no
+cenário do room_02!
+
+
+=== DICA ===
+
+Na dúvida, use o comando "sos"
+
+
+=== MISSÃO ===
+
+Escolha um barco válido
+e zarpe para a próxima fase!
 
 ▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
 ▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘

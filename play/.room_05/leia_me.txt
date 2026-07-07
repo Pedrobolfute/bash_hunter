@@ -1,0 +1,44 @@
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
+
+=== BEM-VINDO, MARUJO ===
+Prepare-se...
+Agora o desafio ficou mais avançado!
+
+
+=== NOVOS COMANDOS ===
+Você vai usar:
+
+- grep  (buscar palavras)
+- |     (ligar comandos)
+- wc    (contar linhas, palavras)
+
+
+=== O DESAFIO ===
+Os marinheiros deixaram
+um código secreto.
+
+Você precisa decifrar
+para encontrar a chave.
+
+
+=== COMO FAZER ===
+Carregue a sala
+e siga as instruções.
+
+
+=== MISSÃO ===
+Use os comandos aprendidos,
+descubra o código
+e avance para o próximo room!
+
+
+Boa sorte, marujo.
+
+
+▄ ▄▖▄▖▖▖  ▖▖▖▖▖ ▖▄▖▄▖▄▖
+▙▘▌▌▚ ▙▌  ▙▌▌▌▛▖▌▐ ▙▖▙▘
+▙▘▛▌▄▌▌▌  ▌▌▙▌▌▝▌▐ ▙▖▌▌
+
