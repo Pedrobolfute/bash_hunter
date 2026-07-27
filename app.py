@@ -81,7 +81,7 @@ def spawn_container():
         "--cpus=0.5",
         "bash_hunter_image",
         "timeout", "120m",
-        "ttyd", "-p", "7681", "-m", "3", "-W",
+        "ttyd", "-p", "7681", "-o", "-W",
         "-t", "fontSize=14",
         "-b", f"/play/{port}",
         "/home/jogador/bash_hunter/.engine/init_game.sh"
